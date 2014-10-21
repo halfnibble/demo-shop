@@ -52,8 +52,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 from oscar import OSCAR_MAIN_TEMPLATE_DIR
 TEMPLATE_DIRS = (
-	location('templates'),
-	OSCAR_MAIN_TEMPLATE_DIR,
+	os.path.join(BASE_DIR, 'templates', 'oscar'),
+#	location('templates'),
+#	OSCAR_MAIN_TEMPLATE_DIR,
 )
 
 # Application definition
@@ -146,7 +147,22 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# ==============
 # Oscar settings
+#===============
+
+#import detaults
+from oscar.defaults import *
+
+# Meta
+
+OSCAR_SHOP_NAME = 'GigGearMe'
+OSCAR_SHOP_TAGLINE = 'Global Innovative Gear'
+OSCAR_DEFAULT_CURRENCY = 'USD'
+OSCAR_CURRENCY_LOCALE = 'en_US'
+
+# Order pipeline
+# ==============
 
 OSCAR_INITIAL_ORDER_STATUS = 'Pending'
 OSCAR_INITIAL_LINE_STATUS = 'Pending'
@@ -156,12 +172,11 @@ OSCAR_ORDER_STATUS_PIPELINE = {
     'Cancelled': (),
 }
 
-OSCAR_SHOP_NAME = 'GigGearMe'
-OSCAR_SHOP_TAGLINE = 'Global Innovative Gear'
-OSCAR_DEFAULT_CURRENCY = 'USD'
-OSCAR_CURRENCY_LOCALE = 'en_US'
+# Logging
+# =======
 
-# Oscar Import. 
-# Keep at end.
+LOG_ROOT = location('logs')
+# Ensure log root exists
+if not os.path.exists(LOG_ROOT):
+    os.mkdir(LOG_ROOT)
 
-from oscar.defaults import *
