@@ -1,0 +1,38 @@
+[
+    {
+        "pk": "US", 
+        "model": "address.country", 
+        "fields": {
+            "iso_3166_1_a3": "USA", 
+            "name": "UNITED STATES", 
+            "printable_name": "The United States of America",
+            "display_order": 0, 
+            "iso_3166_1_numeric": 840, 
+            "is_shipping_country": false
+        }
+    }, 
+    {
+        "pk": "UM", 
+        "model": "address.country", 
+        "fields": {
+            "iso_3166_1_a3": "UMI", 
+            "name": "UNITED STATES MINOR OUTLYING ISLANDS", 
+            "printable_name": "The United States Minor Outlying Islands",
+            "display_order": 0, 
+            "iso_3166_1_numeric": 581, 
+            "is_shipping_country": false
+        }
+    },
+    {
+        "pk": "CA", 
+        "model": "address.country", 
+        "fields": {
+            "iso_3166_1_a3": "CAN", 
+            "name": "CANADA", 
+            "printable_name": "Canada", 
+            "display_order": 0, 
+            "iso_3166_1_numeric": 124, 
+            "is_shipping_country": false
+        }
+    }
+]
