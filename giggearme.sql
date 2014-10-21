@@ -113,7 +113,7 @@ CREATE TABLE `analytics_productrecord` (
   UNIQUE KEY `product_id` (`product_id`),
   KEY `analytics_productrecord_17d0e952` (`num_purchases`),
   CONSTRAINT `product_id_refs_id_98bd97db` FOREIGN KEY (`product_id`) REFERENCES `catalogue_product` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,6 +122,7 @@ CREATE TABLE `analytics_productrecord` (
 
 LOCK TABLES `analytics_productrecord` WRITE;
 /*!40000 ALTER TABLE `analytics_productrecord` DISABLE KEYS */;
+INSERT INTO `analytics_productrecord` VALUES (1,1,3,0,0,0);
 /*!40000 ALTER TABLE `analytics_productrecord` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,7 +143,7 @@ CREATE TABLE `analytics_userproductview` (
   KEY `analytics_userproductview_7f1b40ad` (`product_id`),
   CONSTRAINT `product_id_refs_id_c6addd6c` FOREIGN KEY (`product_id`) REFERENCES `catalogue_product` (`id`),
   CONSTRAINT `user_id_refs_id_b039759d` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -151,6 +152,7 @@ CREATE TABLE `analytics_userproductview` (
 
 LOCK TABLES `analytics_userproductview` WRITE;
 /*!40000 ALTER TABLE `analytics_userproductview` DISABLE KEYS */;
+INSERT INTO `analytics_userproductview` VALUES (1,1,1,'2014-10-21 20:24:20'),(2,1,1,'2014-10-21 20:25:55'),(3,1,1,'2014-10-21 20:30:01');
 /*!40000 ALTER TABLE `analytics_userproductview` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,7 +179,7 @@ CREATE TABLE `analytics_userrecord` (
   KEY `analytics_userrecord_88674d48` (`num_order_lines`),
   KEY `analytics_userrecord_9417d255` (`num_order_items`),
   CONSTRAINT `user_id_refs_id_eb0dd6ac` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -186,6 +188,7 @@ CREATE TABLE `analytics_userrecord` (
 
 LOCK TABLES `analytics_userrecord` WRITE;
 /*!40000 ALTER TABLE `analytics_userrecord` DISABLE KEYS */;
+INSERT INTO `analytics_userrecord` VALUES (1,1,3,0,0,0,0,0.00,NULL);
 /*!40000 ALTER TABLE `analytics_userrecord` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -205,7 +208,7 @@ CREATE TABLE `analytics_usersearch` (
   KEY `analytics_usersearch_6340c63c` (`user_id`),
   KEY `analytics_usersearch_1f3ceafc` (`query`),
   CONSTRAINT `user_id_refs_id_c8789796` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -214,6 +217,7 @@ CREATE TABLE `analytics_usersearch` (
 
 LOCK TABLES `analytics_usersearch` WRITE;
 /*!40000 ALTER TABLE `analytics_usersearch` DISABLE KEYS */;
+INSERT INTO `analytics_usersearch` VALUES (1,1,'pants','2014-10-21 20:25:36'),(2,1,'duck','2014-10-21 20:25:48');
 /*!40000 ALTER TABLE `analytics_usersearch` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -320,7 +324,7 @@ CREATE TABLE `auth_user` (
   `date_joined` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -329,6 +333,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
+INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$12000$m6UNRSFgV5rN$aecjEEnZsGOLDd/+bqTzJDaZvDEAfWI0u6nWt7sH9ls=','2014-10-21 17:55:20',1,'joshua','','','josh@halfnibble.com',1,1,'2014-10-21 17:55:04');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -407,7 +412,7 @@ CREATE TABLE `basket_basket` (
   PRIMARY KEY (`id`),
   KEY `basket_basket_cb902d83` (`owner_id`),
   CONSTRAINT `owner_id_refs_id_61611934` FOREIGN KEY (`owner_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -416,6 +421,7 @@ CREATE TABLE `basket_basket` (
 
 LOCK TABLES `basket_basket` WRITE;
 /*!40000 ALTER TABLE `basket_basket` DISABLE KEYS */;
+INSERT INTO `basket_basket` VALUES (1,1,'Open','2014-10-21 18:14:15',NULL,NULL);
 /*!40000 ALTER TABLE `basket_basket` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -583,7 +589,7 @@ CREATE TABLE `catalogue_attributeoption` (
   PRIMARY KEY (`id`),
   KEY `catalogue_attributeoption_5f412f9a` (`group_id`),
   CONSTRAINT `group_id_refs_id_84f4714a` FOREIGN KEY (`group_id`) REFERENCES `catalogue_attributeoptiongroup` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -592,6 +598,7 @@ CREATE TABLE `catalogue_attributeoption` (
 
 LOCK TABLES `catalogue_attributeoption` WRITE;
 /*!40000 ALTER TABLE `catalogue_attributeoption` DISABLE KEYS */;
+INSERT INTO `catalogue_attributeoption` VALUES (1,1,'XS'),(2,1,'S'),(3,1,'M'),(4,1,'L'),(5,1,'2XL'),(6,1,'3XL'),(7,1,'4XL'),(8,1,'5XL'),(9,1,'6XL'),(10,1,'LT'),(11,2,'Black'),(12,2,'White'),(13,2,'Green'),(14,2,'Blue'),(15,2,'Red'),(16,2,'Yellow'),(17,2,'Orange'),(18,2,'Brown'),(19,2,'Tan'),(20,2,'Grey'),(21,2,'Purple'),(22,2,'Camo'),(23,2,'Maroon'),(24,2,'Navy'),(25,2,'Dark Grey'),(26,2,'Khaki'),(27,2,'Light Khaki'),(28,2,'Other'),(29,3,'Pleated'),(30,3,'Flat Front'),(31,4,'Short Sleeves'),(32,4,'Long Sleeves'),(33,4,'Sleeveless');
 /*!40000 ALTER TABLE `catalogue_attributeoption` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -606,7 +613,7 @@ CREATE TABLE `catalogue_attributeoptiongroup` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(128) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -615,6 +622,7 @@ CREATE TABLE `catalogue_attributeoptiongroup` (
 
 LOCK TABLES `catalogue_attributeoptiongroup` WRITE;
 /*!40000 ALTER TABLE `catalogue_attributeoptiongroup` DISABLE KEYS */;
+INSERT INTO `catalogue_attributeoptiongroup` VALUES (1,'Size Chars'),(2,'Colors'),(3,'Pant Style'),(4,'Sleeves');
 /*!40000 ALTER TABLE `catalogue_attributeoptiongroup` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -640,7 +648,7 @@ CREATE TABLE `catalogue_category` (
   KEY `catalogue_category_4da47e07` (`name`),
   KEY `catalogue_category_f52cfca0` (`slug`),
   KEY `catalogue_category_01e00a9c` (`full_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -649,6 +657,7 @@ CREATE TABLE `catalogue_category` (
 
 LOCK TABLES `catalogue_category` WRITE;
 /*!40000 ALTER TABLE `catalogue_category` DISABLE KEYS */;
+INSERT INTO `catalogue_category` VALUES (1,'0001',1,3,'Clothing','clothing','Clothing','',''),(6,'00010003',2,8,'Kid\'s Clothing','clothing/kids-clothing','Clothing > Kid\'s Clothing','',''),(7,'000100030001',3,0,'Boy\'s Shirts','clothing/kids-clothing/boys-shirts','Clothing > Kid\'s Clothing > Boy\'s Shirts','',''),(8,'0002',1,3,'Shoes','shoes','Shoes','',''),(9,'00020001',2,4,'Men\'s Footwear','shoes/mens-footwear','Shoes > Men\'s Footwear','',''),(10,'000200010001',3,0,'Sandals','shoes/mens-footwear/sandals','Shoes > Men\'s Footwear > Sandals','',''),(11,'00020002',2,4,'Women\'s Footwear','shoes/womens-footwear','Shoes > Women\'s Footwear','',''),(12,'000200020001',3,0,'Sandals','shoes/womens-footwear/sandals','Shoes > Women\'s Footwear > Sandals','',''),(13,'00020003',2,3,'Kid\'s Footwear','shoes/kids-footwear','Shoes > Kid\'s Footwear','',''),(14,'000200030001',3,0,'Kid\'s Shoes','shoes/kids-footwear/kids-shoes','Shoes > Kid\'s Footwear > Kid\'s Shoes','',''),(15,'0003',1,2,'Sports & Outdoors','sports-outdoors','Sports & Outdoors','',''),(16,'00030001',2,4,'Outdoor Gear','sports-outdoors/outdoor-gear','Sports & Outdoors > Outdoor Gear','',''),(17,'000300010001',3,0,'Camping & Hiking','sports-outdoors/outdoor-gear/camping-hiking','Sports & Outdoors > Outdoor Gear > Camping & Hiking','',''),(18,'00030002',2,5,'Sporting Goods','sports-outdoors/sporting-goods','Sports & Outdoors > Sporting Goods','',''),(19,'000300020001',3,0,'Running & Fitness','sports-outdoors/sporting-goods/running-fitness','Sports & Outdoors > Sporting Goods > Running & Fitness','',''),(35,'000100030002',3,0,'Boy\'s Pants & Shorts','clothing/kids-clothing/boys-pants-shorts','Clothing > Kid\'s Clothing > Boy\'s Pants & Shorts','',''),(36,'000100030003',3,0,'Boy\'s Jackets & Coats','clothing/kids-clothing/boys-jackets-coats','Clothing > Kid\'s Clothing > Boy\'s Jackets & Coats','',''),(37,'000100030004',3,0,'Boy\'s Swimwear','clothing/kids-clothing/boys-swimwear','Clothing > Kid\'s Clothing > Boy\'s Swimwear','',''),(38,'000100030005',3,0,'Girl\'s Shirts','clothing/kids-clothing/girls-shirts','Clothing > Kid\'s Clothing > Girl\'s Shirts','',''),(39,'000100030006',3,0,'Girl\'s Pants & Shorts','clothing/kids-clothing/girls-pants-shorts','Clothing > Kid\'s Clothing > Girl\'s Pants & Shorts','',''),(40,'000100030007',3,0,'Girl\'s Jackets & Coats','clothing/kids-clothing/girls-jackets-coats','Clothing > Kid\'s Clothing > Girl\'s Jackets & Coats','',''),(41,'000100030008',3,0,'Girl\'s Swimwear','clothing/kids-clothing/girls-swimwear','Clothing > Kid\'s Clothing > Girl\'s Swimwear','',''),(42,'000200010002',3,0,'Shoes','shoes/mens-footwear/shoes','Shoes > Men\'s Footwear > Shoes','',''),(43,'000200010003',3,0,'Boots','shoes/mens-footwear/boots','Shoes > Men\'s Footwear > Boots','',''),(44,'000200010004',3,0,'Socks','shoes/mens-footwear/socks','Shoes > Men\'s Footwear > Socks','',''),(45,'000200020002',3,0,'Shoes','shoes/womens-footwear/shoes','Shoes > Women\'s Footwear > Shoes','',''),(46,'000200020003',3,0,'Boots','shoes/womens-footwear/boots','Shoes > Women\'s Footwear > Boots','',''),(47,'000200020004',3,0,'Socks','shoes/womens-footwear/socks','Shoes > Women\'s Footwear > Socks','',''),(48,'000200030002',3,0,'Kid\'s Boots','shoes/kids-footwear/kids-boots','Shoes > Kid\'s Footwear > Kid\'s Boots','',''),(49,'000200030003',3,0,'Kid\'s Socks','shoes/kids-footwear/kids-socks','Shoes > Kid\'s Footwear > Kid\'s Socks','',''),(51,'000300010003',3,0,'Binoculars & Camera','sports-outdoors/outdoor-gear/binoculars-camera','Sports & Outdoors > Outdoor Gear > Binoculars & Camera','',''),(52,'000300020002',3,0,'Golf','sports-outdoors/sporting-goods/golf','Sports & Outdoors > Sporting Goods > Golf','',''),(53,'000300020003',3,0,'Ski','sports-outdoors/sporting-goods/ski','Sports & Outdoors > Sporting Goods > Ski','',''),(54,'000300020004',3,0,'Water Sports','sports-outdoors/sporting-goods/water-sports','Sports & Outdoors > Sporting Goods > Water Sports','',''),(55,'000300020005',3,0,'Tennis','sports-outdoors/sporting-goods/tennis','Sports & Outdoors > Sporting Goods > Tennis','',''),(56,'00010004',2,7,'Men\'s Clothing','clothing/mens-clothing','Clothing > Men\'s Clothing','',''),(57,'000100040001',3,0,'Shirts','clothing/mens-clothing/shirts','Clothing > Men\'s Clothing > Shirts','',''),(58,'000100040002',3,0,'Shorts','clothing/mens-clothing/shorts','Clothing > Men\'s Clothing > Shorts','',''),(59,'000100040003',3,0,'Pants','clothing/mens-clothing/pants','Clothing > Men\'s Clothing > Pants','',''),(60,'000100040004',3,0,'Jackets & Coats','clothing/mens-clothing/jackets-coats','Clothing > Men\'s Clothing > Jackets & Coats','',''),(61,'000100040005',3,0,'Swimwear','clothing/mens-clothing/swimwear','Clothing > Men\'s Clothing > Swimwear','',''),(62,'000100040006',3,0,'Base Layer','clothing/mens-clothing/base-layer','Clothing > Men\'s Clothing > Base Layer','',''),(63,'000100040007',3,0,'Sweathirts','clothing/mens-clothing/sweathirts','Clothing > Men\'s Clothing > Sweathirts','',''),(64,'00010005',2,8,'Women\'s Clothing','clothing/womens-clothing','Clothing > Women\'s Clothing','',''),(65,'000100050001',3,0,'Shirts & Tops','clothing/womens-clothing/shirts-tops','Clothing > Women\'s Clothing > Shirts & Tops','',''),(66,'000100050002',3,0,'Shorts','clothing/womens-clothing/shorts','Clothing > Women\'s Clothing > Shorts','',''),(67,'000100050003',3,0,'Pants','clothing/womens-clothing/pants','Clothing > Women\'s Clothing > Pants','',''),(68,'000100050004',3,0,'Jackets & Coats','clothing/womens-clothing/jackets-coats','Clothing > Women\'s Clothing > Jackets & Coats','',''),(69,'000100050005',3,0,'Swimsuits','clothing/womens-clothing/swimsuits','Clothing > Women\'s Clothing > Swimsuits','',''),(70,'000100050006',3,0,'Base Layer','clothing/womens-clothing/base-layer','Clothing > Women\'s Clothing > Base Layer','',''),(71,'000100050007',3,0,'Sweathirts','clothing/womens-clothing/sweathirts','Clothing > Women\'s Clothing > Sweathirts','',''),(72,'000100050008',3,0,'Dresses & Skirts','clothing/womens-clothing/dresses-skirts','Clothing > Women\'s Clothing > Dresses & Skirts','',''),(73,'0004',1,6,'Brands','brands','Brands','',''),(74,'00040001',2,0,'H.A.D.','brands/had','Brands > H.A.D.','',''),(75,'00040002',2,0,'Charko','brands/charko','Brands > Charko','',''),(76,'00040003',2,0,'Bourg-de-Peage','brands/bourg-de-peage','Brands > Bourg-de-Peage','',''),(77,'00040004',2,0,'F-Lite','brands/f-lite','Brands > F-Lite','',''),(78,'00040005',2,0,'8BPlus','brands/8bplus','Brands > 8BPlus','',''),(79,'00040006',2,0,'Makak','brands/makak','Brands > Makak','',''),(80,'000300010004',3,0,'Hunting','sports-outdoors/outdoor-gear/hunting','Sports & Outdoors > Outdoor Gear > Hunting','',''),(81,'000300010005',3,0,'Climbing Gear','sports-outdoors/outdoor-gear/climbing-gear','Sports & Outdoors > Outdoor Gear > Climbing Gear','','');
 /*!40000 ALTER TABLE `catalogue_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -709,7 +718,7 @@ CREATE TABLE `catalogue_product` (
   KEY `catalogue_product_68d861dd` (`date_updated`),
   CONSTRAINT `parent_id_refs_id_79124e9b` FOREIGN KEY (`parent_id`) REFERENCES `catalogue_product` (`id`),
   CONSTRAINT `product_class_id_refs_id_e52aa69a` FOREIGN KEY (`product_class_id`) REFERENCES `catalogue_productclass` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -718,6 +727,7 @@ CREATE TABLE `catalogue_product` (
 
 LOCK TABLES `catalogue_product` WRITE;
 /*!40000 ALTER TABLE `catalogue_product` DISABLE KEYS */;
+INSERT INTO `catalogue_product` VALUES (1,'#22312',NULL,'Makak Washed Duck Work Pants','washed-duck-work-pants','<p><span style=\"color: #5a574a; font-family: arial, helvetica, sans-serif; font-size: 12px; line-height: 18px;\">Barely perceptible blemishes. Sporting a dungaree fit, Makak\'s washed duck work pants are constructed with plied yarns and&nbsp;</span><a class=\"glossaryTermLink\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 12px; vertical-align: baseline; color: #5a574a; cursor: pointer; font-family: arial, helvetica, sans-serif; line-height: 18px; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: 0px 0px; background-repeat: initial;\" title=\"Garment Washed: - A process that describes a constructed garment that is washed to soften the fabric and minimize shrinkage. Garment washing is an industrial process that removes the fabric&rsquo;s original sizing. Garment washing can take many forms, including acid wash, caustic wash, enzyme wash, sand wash, stone wash and many more similarly named techniques that produce a soft, naturally worn look in the garment.\" href=\"http://www.sierratradingpost.com/garment-washed~g~1850\">garment washed</a><span style=\"color: #5a574a; font-family: arial, helvetica, sans-serif; font-size: 12px; line-height: 18px;\">&nbsp;for softness.</span></p>\r\n<ul style=\"margin: 10px 0px 0px; padding: 0px; border: 0px; outline: 0px; font-size: 12px; vertical-align: baseline; list-style: none; color: #5a574a; font-family: arial, helvetica, sans-serif; line-height: 18px; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: 0px 0px; background-repeat: initial;\">\r\n<li style=\"margin: 0px 0px 5px 15px; padding: 0px; border: 0px; outline: 0px; font-size: 11px; vertical-align: baseline; list-style-type: disc; background: 0px 0px;\">Bar tacks at stress points</li>\r\n<li style=\"margin: 0px 0px 5px 15px; padding: 0px; border: 0px; outline: 0px; font-size: 11px; vertical-align: baseline; list-style-type: disc; background: 0px 0px;\">Zip fly</li>\r\n<li style=\"margin: 0px 0px 5px 15px; padding: 0px; border: 0px; outline: 0px; font-size: 11px; vertical-align: baseline; list-style-type: disc; background: 0px 0px;\">Made in Nicaragua (fabric imported), Mexico of US fabric</li>\r\n<li style=\"margin: 0px 0px 5px 15px; padding: 0px; border: 0px; outline: 0px; font-size: 11px; vertical-align: baseline; list-style-type: disc; background: 0px 0px;\"><a style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; color: #5a574a; cursor: pointer; background: 0px 0px;\" title=\"Visit our Workwear Guide\" href=\"http://www.sierratradingpost.com/workwear\">Visit our Workwear Guide</a></li>\r\n</ul>',3,0,'2014-10-21 20:21:11','2014-10-21 20:26:59',1,NULL),(2,NULL,1,'','washed-duck-work-pants','',3,0,'2014-10-21 20:24:06','2014-10-21 20:24:06',1,NULL),(3,NULL,1,'','makak-washed-duck-work-pants','',3,0,'2014-10-21 20:29:49','2014-10-21 20:29:49',1,NULL);
 /*!40000 ALTER TABLE `catalogue_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -803,7 +813,7 @@ CREATE TABLE `catalogue_productattribute` (
   CONSTRAINT `entity_type_id_refs_id_47a71bd4` FOREIGN KEY (`entity_type_id`) REFERENCES `catalogue_attributeentitytype` (`id`),
   CONSTRAINT `option_group_id_refs_id_cca38a3b` FOREIGN KEY (`option_group_id`) REFERENCES `catalogue_attributeoptiongroup` (`id`),
   CONSTRAINT `product_class_id_refs_id_72cad211` FOREIGN KEY (`product_class_id`) REFERENCES `catalogue_productclass` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -812,6 +822,7 @@ CREATE TABLE `catalogue_productattribute` (
 
 LOCK TABLES `catalogue_productattribute` WRITE;
 /*!40000 ALTER TABLE `catalogue_productattribute` DISABLE KEYS */;
+INSERT INTO `catalogue_productattribute` VALUES (1,1,'Size','shirts-m-size','option',1,NULL,0),(3,10,'Color','shirts-m-color','option',2,NULL,0),(6,3,'Waist','pants-m-waist','integer',NULL,NULL,0),(7,3,'Inseam','pants-m-inseam','integer',NULL,NULL,0),(8,1,'Sleeves','shirts-m-sleeves','option',4,NULL,0),(9,3,'Color','pants-m-color','text',2,NULL,0);
 /*!40000 ALTER TABLE `catalogue_productattribute` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -845,7 +856,7 @@ CREATE TABLE `catalogue_productattributevalue` (
   CONSTRAINT `product_id_refs_id_f91f271e` FOREIGN KEY (`product_id`) REFERENCES `catalogue_product` (`id`),
   CONSTRAINT `value_entity_id_refs_id_f6881669` FOREIGN KEY (`value_entity_id`) REFERENCES `catalogue_attributeentity` (`id`),
   CONSTRAINT `value_option_id_refs_id_068e7fd9` FOREIGN KEY (`value_option_id`) REFERENCES `catalogue_attributeoption` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -854,6 +865,7 @@ CREATE TABLE `catalogue_productattributevalue` (
 
 LOCK TABLES `catalogue_productattributevalue` WRITE;
 /*!40000 ALTER TABLE `catalogue_productattributevalue` DISABLE KEYS */;
+INSERT INTO `catalogue_productattributevalue` VALUES (1,9,2,'Moss',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'',''),(2,7,2,NULL,32,NULL,NULL,NULL,NULL,NULL,NULL,'',''),(3,6,2,NULL,34,NULL,NULL,NULL,NULL,NULL,NULL,'',''),(4,9,3,'Moss',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'',''),(5,7,3,NULL,32,NULL,NULL,NULL,NULL,NULL,NULL,'',''),(6,6,3,NULL,36,NULL,NULL,NULL,NULL,NULL,NULL,'','');
 /*!40000 ALTER TABLE `catalogue_productattributevalue` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -873,7 +885,7 @@ CREATE TABLE `catalogue_productcategory` (
   KEY `catalogue_productcategory_6f33f001` (`category_id`),
   CONSTRAINT `category_id_refs_id_3c302fcd` FOREIGN KEY (`category_id`) REFERENCES `catalogue_category` (`id`),
   CONSTRAINT `product_id_refs_id_917d9a41` FOREIGN KEY (`product_id`) REFERENCES `catalogue_product` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -882,6 +894,7 @@ CREATE TABLE `catalogue_productcategory` (
 
 LOCK TABLES `catalogue_productcategory` WRITE;
 /*!40000 ALTER TABLE `catalogue_productcategory` DISABLE KEYS */;
+INSERT INTO `catalogue_productcategory` VALUES (1,1,59),(2,1,79);
 /*!40000 ALTER TABLE `catalogue_productcategory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -900,7 +913,7 @@ CREATE TABLE `catalogue_productclass` (
   `track_stock` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug` (`slug`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -909,6 +922,7 @@ CREATE TABLE `catalogue_productclass` (
 
 LOCK TABLES `catalogue_productclass` WRITE;
 /*!40000 ALTER TABLE `catalogue_productclass` DISABLE KEYS */;
+INSERT INTO `catalogue_productclass` VALUES (1,'Shirts - Mens','shirts',1,1),(2,'Shorts - Mens','shorts',1,1),(3,'Pants - Mens','pants',1,1),(4,'Shoes - Mens','shoes',1,1),(5,'Socks-Mens','socks',1,1),(6,'Sporting Goods','sporting-goods',1,1),(7,'Outdoor Equipment','outdoor-equipment',1,1),(8,'Swimwear-Mens','swimwear',1,1),(10,'Dress Shirts - Mens','dress-shirts-mens',1,1);
 /*!40000 ALTER TABLE `catalogue_productclass` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -959,7 +973,7 @@ CREATE TABLE `catalogue_productimage` (
   UNIQUE KEY `catalogue_productimage_product_id_13868d064d886d95_uniq` (`product_id`,`display_order`),
   KEY `catalogue_productimage_7f1b40ad` (`product_id`),
   CONSTRAINT `product_id_refs_id_f3572348` FOREIGN KEY (`product_id`) REFERENCES `catalogue_product` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -968,6 +982,7 @@ CREATE TABLE `catalogue_productimage` (
 
 LOCK TABLES `catalogue_productimage` WRITE;
 /*!40000 ALTER TABLE `catalogue_productimage` DISABLE KEYS */;
+INSERT INTO `catalogue_productimage` VALUES (1,1,'images/products/2014/10/washed-duck-pants.jpg','',0,'2014-10-21 20:21:11');
 /*!40000 ALTER TABLE `catalogue_productimage` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1154,7 +1169,7 @@ CREATE TABLE `django_admin_log` (
   KEY `django_admin_log_37ef4eb4` (`content_type_id`),
   CONSTRAINT `content_type_id_refs_id_93d2d1f8` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
   CONSTRAINT `user_id_refs_id_c0d12874` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1163,6 +1178,7 @@ CREATE TABLE `django_admin_log` (
 
 LOCK TABLES `django_admin_log` WRITE;
 /*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
+INSERT INTO `django_admin_log` VALUES (1,'2014-10-21 18:14:11',1,17,'1','Clothing',2,'Changed name.'),(2,'2014-10-21 18:33:37',1,17,'2','Clothing > Men\'s Clothing',3,''),(3,'2014-10-21 18:33:37',1,17,'26','Clothing > Men\'s Clothing > SweathirtsClothing > Women\'s Clothing',3,''),(4,'2014-10-21 18:33:37',1,17,'27','Clothing > Men\'s Clothing > SweathirtsClothing > Women\'s Clothing > Shirts & Tops',3,''),(5,'2014-10-21 18:33:37',1,17,'4','Clothing > Women\'s Clothing',3,''),(6,'2014-10-21 18:47:07',1,17,'50','Sports & Outdoors > Outdoor Gear > Huntig Gear',3,''),(7,'2014-10-21 19:53:53',1,22,'1','Size Chars',1,''),(8,'2014-10-21 19:56:08',1,20,'1','Size',1,''),(9,'2014-10-21 19:57:42',1,22,'2','colors',1,''),(10,'2014-10-21 20:00:42',1,22,'2','colors',2,'Added Attribute Option \"Brown\". Added Attribute Option \"Tan\". Added Attribute Option \"Grey\". Added Attribute Option \"Purple\". Added Attribute Option \"Camo\". Added Attribute Option \"Maroon\". Added Attribute Option \"Navy\". Added Attribute Option \"Dark Grey\". Added Attribute Option \"Khaki\". Added Attribute Option \"Light Khaki\". Added Attribute Option \"Other\". Changed option for Attribute Option \"Orange\".'),(11,'2014-10-21 20:01:38',1,20,'2','Color',1,''),(12,'2014-10-21 20:01:49',1,22,'2','Colors',2,'Changed name.'),(13,'2014-10-21 20:04:28',1,20,'3','Color',1,''),(14,'2014-10-21 20:04:44',1,20,'2','Color',2,'Changed code.'),(15,'2014-10-21 20:04:49',1,20,'1','Size',2,'Changed code.'),(16,'2014-10-21 20:09:31',1,22,'3','Pant Style',1,''),(17,'2014-10-21 20:09:35',1,20,'4','Pant Style',1,''),(18,'2014-10-21 20:10:42',1,20,'5','Color',1,''),(19,'2014-10-21 20:11:44',1,20,'5','Color',3,''),(20,'2014-10-21 20:12:02',1,20,'4','Pant Style',2,'Changed code.'),(21,'2014-10-21 20:12:19',1,20,'4','Pant Style',2,'Changed code.'),(22,'2014-10-21 20:12:27',1,20,'1','Size',2,'Changed code.'),(23,'2014-10-21 20:12:35',1,20,'3','Color',2,'Changed code.'),(24,'2014-10-21 20:12:44',1,20,'2','Color',2,'Changed code.'),(25,'2014-10-21 20:14:01',1,20,'6','Waist',1,''),(26,'2014-10-21 20:14:21',1,20,'7','Inseam',1,''),(27,'2014-10-21 20:16:42',1,22,'4','Sleeves',1,''),(28,'2014-10-21 20:16:50',1,20,'8','Sleeves',1,''),(29,'2014-10-21 20:20:08',1,20,'9','Color',1,'');
 /*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1273,7 +1289,7 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('rp8qaasw0k0hia6gsdhvkefp1dz5m66u','YjY3ZTU2Yzc1YjVjM2UwZmVmNjBjMGJiMTMyMjM5ZTI1MzQ3ZWRlMzp7fQ==','2014-11-03 12:30:01');
+INSERT INTO `django_session` VALUES ('xmvodxjxmyaioaa78366g4r452asyyev','MmE5ZjFiOWYyOTgxNWMwMjQ0NDZmYTliYjQ0YjYwNzRkNzNhMWU3MDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6Im9zY2FyLmFwcHMuY3VzdG9tZXIuYXV0aF9iYWNrZW5kcy5FbWFpbGJhY2tlbmQiLCJkamFuZ29fbGFuZ3VhZ2UiOiJhZiIsIl9hdXRoX3VzZXJfaWQiOjF9','2014-11-04 17:55:20');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2076,7 +2092,7 @@ CREATE TABLE `partner_partner` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `partner_partner_code_6d336eee39c91508_uniq` (`code`),
   KEY `partner_partner_09bb5fb3` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2085,6 +2101,7 @@ CREATE TABLE `partner_partner` (
 
 LOCK TABLES `partner_partner` WRITE;
 /*!40000 ALTER TABLE `partner_partner` DISABLE KEYS */;
+INSERT INTO `partner_partner` VALUES (1,'Chicago Warehouse','chicago-warehouse');
 /*!40000 ALTER TABLE `partner_partner` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2212,7 +2229,7 @@ CREATE TABLE `partner_stockrecord` (
   KEY `product_id_refs_id_cacb631d` (`product_id`),
   CONSTRAINT `partner_id_refs_id_b2723ddb` FOREIGN KEY (`partner_id`) REFERENCES `partner_partner` (`id`),
   CONSTRAINT `product_id_refs_id_cacb631d` FOREIGN KEY (`product_id`) REFERENCES `catalogue_product` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2221,6 +2238,7 @@ CREATE TABLE `partner_stockrecord` (
 
 LOCK TABLES `partner_stockrecord` WRITE;
 /*!40000 ALTER TABLE `partner_stockrecord` DISABLE KEYS */;
+INSERT INTO `partner_stockrecord` VALUES (1,2,1,'22312-W34-L32','USD',32.95,39.99,5.00,150,NULL,'2014-10-21 20:24:07','2014-10-21 20:24:07',10),(2,3,1,'22312-W36-L32','USD',32.95,39.99,5.00,322,NULL,'2014-10-21 20:29:49','2014-10-21 20:29:49',10);
 /*!40000 ALTER TABLE `partner_stockrecord` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2976,6 +2994,7 @@ CREATE TABLE `thumbnail_kvstore` (
 
 LOCK TABLES `thumbnail_kvstore` WRITE;
 /*!40000 ALTER TABLE `thumbnail_kvstore` DISABLE KEYS */;
+INSERT INTO `thumbnail_kvstore` VALUES ('sorl-thumbnail||image||1e74ff11381a9a4dcf528551779b00a9','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/40/49/40498b479ee5c79c5a85951ef21139bf.jpg\", \"size\": [240, 240]}'),('sorl-thumbnail||image||6f2ce8dd71212c26567db7b3fc972736','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/16/dc/16dc7614cc7c044e97706ab621047953.jpg\", \"size\": [70, 70]}'),('sorl-thumbnail||image||a3b115274e25cef19ebfa1e63972731a','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/55/b5/55b59852e6d33dfb2908ccdefdd6ca30.jpg\", \"size\": [400, 400]}'),('sorl-thumbnail||image||c0d7845456c9682b6e8e4a59ca884cd0','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/73/41/734149cd6813a6091c4ac9010298013e.jpg\", \"size\": [200, 200]}'),('sorl-thumbnail||image||ccaa437a812f5a74cce8d15d016e62a8','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/e7/5c/e75c8c54a1404652f4df256bd9db6b94.jpg\", \"size\": [155, 155]}'),('sorl-thumbnail||image||fbe1094101f55bd24b4d92b0f0ecac93','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"images/products/2014/10/washed-duck-pants.jpg\", \"size\": [460, 460]}'),('sorl-thumbnail||thumbnails||fbe1094101f55bd24b4d92b0f0ecac93','[\"1e74ff11381a9a4dcf528551779b00a9\", \"c0d7845456c9682b6e8e4a59ca884cd0\", \"6f2ce8dd71212c26567db7b3fc972736\", \"a3b115274e25cef19ebfa1e63972731a\", \"ccaa437a812f5a74cce8d15d016e62a8\"]');
 /*!40000 ALTER TABLE `thumbnail_kvstore` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3142,4 +3161,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-10-21  9:30:51
+-- Dump completed on 2014-10-21 13:38:17
