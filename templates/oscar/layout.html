@@ -3,26 +3,30 @@
 {% load promotion_tags %}
 
 {% block layout %}
-    {# Top-horizontal bar with account, notifictions, dashboard links #}
-    {% include "partials/nav_accounts.html" %}
-
     {# Site logo/title, mini-basket, browse dropdown and searchbox #}
-    <header class="header container-fluid">
-        <div class="page_inner" style="padding-top: 20px; padding-bottom: 20px;">
-            <div class="row-fluid">
-                {% include "partials/brand.html" %}
-                {# Mini-basket wrapped in a block so some templates can now display it #}
-                {% block mini_basket %}{% include "partials/mini_basket.html" %}{% endblock %}
+    <header>
+            <div id="top_page" class="row">
+            	<div class="small-4 medium-6 large-7 columns">
+                	{% include "partials/brand.html" %}
+                </div>
+                <div class="small-8 medium-6 large-5 columns">
+	                {# Top-horizontal bar with account, notifictions, dashboard links #}
+	    			{% include "partials/nav_accounts.html" %}
+
+	    			{# Mini-basket wrapped in a block so some templates can now display it #}
+    				{% block mini_basket %}{% include "partials/mini_basket.html" %}{% endblock %}
+
+    			</div>
             </div>
-        </div>
-        {% block navigation %}
-            {% include "partials/nav_primary.html" %}
-        {% endblock %}
     </header>
+
+    {% block navigation %}
+    	{% include "partials/nav_primary.html" %}
+    {% endblock %}
 
     {# Main content of page - other layout templates may override this block #}
     {% block content_wrapper %}
-        <div class="container-fluid page">
+        <div class="row">
             <div class="page_inner">
                 {% block breadcrumbs %}{% endblock %}
                 {% block header %}

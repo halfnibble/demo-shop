@@ -1,6 +1,14 @@
 {% load i18n %}
 
+
 <form method="get" action="{% url 'search:search' %}" class="navbar-form pull-right">
-    {{ search_form.q }}
-    <input type="submit" value="{% trans "Search" %}" class="btn" />
+	<div class="row collapse">
+	    <div class="large-8 small-9 columns">
+		    {{ search_form.q }}
+		</div>
+		<div class="large-4 small-3 columns">
+		    <input type="submit" value="{% trans "Search" %}" class="button alert expand">
+		</div>
+	</div>
 </form>
+
