@@ -59,10 +59,10 @@
 
 {% block content %}
     {% if category.description %}
-        <div class="row-fluid">
-            <div class="span9"><p>{{ category.description|safe }}</p></div>
+        <div class="row">
+            <div class="large-9 medium-6 columns"><p>{{ category.description|safe }}</p></div>
             {% if category.image %}
-                <div class="span3"><img src="{{ category.image.url }}" alt="{{ summary }}" /></div>
+                <div class="large-3 medium-6 columns"><img src="{{ category.image.url }}" alt="{{ summary }}" /></div>
             {% endif %}
         </div>
     {% endif %}
@@ -70,9 +70,9 @@
     {% if products %}
         <section>
             <div>
-                <ol class="row-fluid">
+                <ul class="row no-bullet">
                     {% for product in products %}
-                        <li class="span3 {% if forloop.counter0|divisibleby:"4" %}no-margin{% endif %}">{% render_product product %}</li>
+                        <li class="large-3 medium-6 columns {% if forloop.counter0|divisibleby:"4" %}no-margin{% endif %}">{% render_product product %}</li>
                     {% endfor %}
                 </ol>
                 {% include "partials/pagination.html" %}
