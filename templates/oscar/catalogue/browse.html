@@ -70,11 +70,11 @@
     {% if products %}
         <section>
             <div>
-                <ul class="row no-bullet">
+                <ul class="large-block-grid-4 medium-block-grid-2" data-equalizer>
                     {% for product in products %}
-                        <li class="large-3 medium-6 columns {% if forloop.counter0|divisibleby:"4" %}no-margin{% endif %}">{% render_product product %}</li>
+                        <li class="{% if forloop.counter0|divisibleby:"4" %}no-margin{% endif %}" data-equalizer-watch>{% render_product product %}</li>
                     {% endfor %}
-                </ol>
+                </ul>
                 {% include "partials/pagination.html" %}
             </div>
         </section>

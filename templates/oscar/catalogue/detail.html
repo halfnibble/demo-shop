@@ -192,9 +192,9 @@
                     {% endif %}
                 </p>
             {% else %}
-                <ol class="no-bullet review-list">
+                <ol class="large-block-grid-3 medium-block-grid-3" data-equalizer>
                     {% for review in reviews|slice:":3" %}
-                        <li>
+                        <li data-equalizer>
                         {% include 'catalogue/partials/review.html' %}
                         </li>
                     {% endfor %}
@@ -209,9 +209,9 @@
             <div class="sub-header">
                 <h2>{% trans "Related items" %}</h2>
             </div>
-            <ul class="row no-bullet">
+            <ul class="large-block-grid-4 medium-block-grid-2" data-equalizer>
                 {% for product in related_products %}
-                <li class="large-2 columns {% if forloop.counter0|divisibleby:"6" %}no-margin{% endif %}">
+                <li class="large-2 columns {% if forloop.counter0|divisibleby:"6" %}no-margin{% endif %}" data-equalizer-watch>
                     {% render_product product %}
                 </li>
                 {% endfor %}
@@ -224,9 +224,9 @@
             <div class="sub-header">
                 <h2>{% trans "Recommended items" %}</h2>
             </div>
-            <ul class="row no-bullet">
+            <ul class="large-block-grid-4 medium-block-grid-2" data-equalizer>
                 {% for product in recommended_products %}
-                <li class="large-2 columns {% if forloop.counter0|divisibleby:"6" %}no-margin{% endif %}">
+                <li class="{% if forloop.counter0|divisibleby:"6" %}no-margin{% endif %}" data-equalizer-watch>
                     {% render_product product %}
                 </li>
                 {% endfor %}
