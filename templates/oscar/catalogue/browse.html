@@ -34,27 +34,98 @@
 {% endblock breadcrumbs %}
 
 {% block column_left %}
-    {% category_tree depth=2 parent=category as tree_categories %}
-    {% if tree_categories %}
-        <div class="side_categories" style="padding: 8px 0;">
-            <ul class="no-bullet">
-                <li class="nav-header">{% trans "Browse categories" %}</li>
-                {% for tree_category, info in tree_categories %}
-                    <li>
-                    {% if tree_category.pk == category.pk %}
-                        <strong>{{ tree_category.name }}</strong>
-                    {% else %}
-                        <a href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }}</a>
-                    {% endif %}
+	{% if not category %}
+	<!-- Catalog home -->
+	    {% category_tree depth=2 parent=category as tree_categories %}
+	    {% if tree_categories %}
+	        <div class="side_categories" style="padding: 8px 0;">
+	            <ul class="no-bullet">
+	                <li class="nav-header">{% trans "Browse categories" %}</li>
+	                {% for tree_category, info in tree_categories %}
 
-                    {% if info.has_children %}<ul>{% else %}</li>{% endif %}
-                    {% for n in info.num_to_close %}
-                        </ul></li>
-                    {% endfor %}
-                {% endfor %}
-            </ul>
-        </div>
-    {% endif %}
+	                	<!-- FUDGED UP. PLEASE REFACTOR -->
+
+	                	{% with parent_category=tree_category.get_ancestors|slice:":-1"|first %}
+	                    <li>
+	                    {% if tree_category.depth == 1 %}
+	                    	<!-- Do nothing for this tree -->
+	                    {% elif parent_category.name == "Brands" %}
+	                    	<!-- Do nothing for this tree -->
+	                    {% elif tree_category.pk == category.pk %}
+	                        <strong>{{ tree_category.name }}</strong>
+	                    {% else %}
+	                        <a href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }}</a>
+	                    {% endif %}
+	                    {% endwith %}
+	                    </li>
+	                {% endfor %}
+	            </ul>
+	        </div>
+	    {% endif %}
+	{% else %}
+	<!-- Any sub category -->
+		{% category_tree depth=1 parent=category as tree_categories %}
+	    {% if tree_categories %}
+	        <div class="side_categories" style="padding: 8px 0;">
+	            <ul class="no-bullet">
+	            	<h4>{{ category.name }}</h4>
+	                <li class="nav-header">{% trans "Browse categories" %}</li>
+	                {% for tree_category, info in tree_categories %}
+	                    <li>
+	                    {% if tree_category.pk == category.pk %}
+	                        <strong>{{ tree_category.name }}</strong>
+	                    {% else %}
+	                        <a href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }}</a>
+	                    {% endif %}
+
+	                    {% if info.has_children %}<ul>{% else %}</li>{% endif %}
+	                    {% for n in info.num_to_close %}
+	                        </ul></li>
+	                    {% endfor %}
+	                {% endfor %}
+	            </ul>
+	        </div>
+	    {% endif %}
+	{% endif %}
+	{% if category.name != "Brands" %}
+	<!-- Add Brands block to bottom -->
+		{% category_tree as brand_categories %}
+		{% for tree_brand, info_brand in brand_categories %}
+			{% if tree_brand.name == "Brands" %}
+				{% with brand_category=tree_brand %}
+
+
+		<!-- MAJOR FUDGE FACTOR. PLEASE REFACTOR -->
+
+		{% category_tree depth=1 parent=brand_category as tree_categories %}
+	    {% if tree_categories %}
+	        <div class="side_categories" style="padding: 8px 0;">
+	            <ul class="no-bullet">
+	            	<h4>Top Brands</h4>
+	                {% for tree_category, info in tree_categories %}
+	                    <li>
+	                    {% if tree_category.pk == category.pk %}
+	                        <strong>{{ tree_category.name }}</strong>
+	                    {% else %}
+	                        <a href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }}</a>
+	                    {% endif %}
+
+	                    {% if info.has_children %}<ul>{% else %}</li>{% endif %}
+	                    {% for n in info.num_to_close %}
+	                        </ul></li>
+	                    {% endfor %}
+	                {% endfor %}
+	            </ul>
+	        </div>
+	    {% endif %}
+
+
+
+				{% endwith %}
+			{% endif %}
+		{% endfor %}
+	{% endif %}	
+
 {% endblock %}
 
 {% block content %}
