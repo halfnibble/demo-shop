@@ -53,12 +53,12 @@ categories = (
 	"Sports & Outdoors > Sporting Goods > Water Sports",
 	"Sports & Outdoors > Sporting Goods > Tennis",
 	# Brands
-	"Brands > H.A.D.",
-	"Brands > Charko",
-	"Brands > Bourg-de-Peage",
-	"Brands > F-Lite",
-	"Brands > 8BPlus",
-	"Brands > Makak",
+	# "Brands > H.A.D.",
+	# "Brands > Charko",
+	# "Brands > Bourg-de-Peage",
+	# "Brands > F-Lite",
+	# "Brands > 8BPlus",
+	# "Brands > Makak",
 )
 
 for breadcrumbs in categories:

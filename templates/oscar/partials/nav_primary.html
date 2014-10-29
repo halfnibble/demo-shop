@@ -1,5 +1,6 @@
 {% load currency_filters %}
 {% load category_tags %}
+{% load brand_tags %}
 {% load i18n %}
 
 <div id="nav-wrapper" class="contain-to-grid">
@@ -46,12 +47,22 @@
                         {% else %}
                             <li><a tabindex="-1" href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }}</a></li>
                         {% endif %}
+
                         {% for close in info.num_to_close %}
                             </ul></li>
                         {% endfor %}
                     {% endfor %}
                 {% endif %}
                 {% block nav_dropdown_extra_items %}
+                	<li class="has-dropdown">
+                		<a tabindex="-1" href="#" data-toggle="dropdown" class="dropdown-toggle">
+                            Brands 
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown">
+                        	{% include "catalogue/partials/nav_brands.html" %}
+                        </ul>
+                    </li>
                     <li><a href="{% url 'offer:list' %}">{% trans "Offers" %}</a></li>
                 {% endblock %}
                 {% block nav_extra %}
