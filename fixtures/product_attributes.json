@@ -1,0 +1,38 @@
+[
+	{
+		"pk": 1,
+		"model": "catalogue.productattribute",
+		"fields": {
+			"name": "Size",
+			"code": "size",
+			"product_class": 1,
+			"option_group": null,
+			"required": false,
+			"type": "text"
+		}
+	},
+	{
+		"pk": 2,
+		"model": "catalogue.productattribute",
+		"fields": {
+			"name": "Color",
+			"code": "color",
+			"product_class": 1,
+			"option_group": null,
+			"required": false,
+			"type": "text"
+		}
+	},
+	{
+		"pk": 3,
+		"model": "catalogue.productattribute",
+		"fields": {
+			"name": "Material",
+			"code": "material",
+			"product_class": 1,
+			"option_group": null,
+			"required": false,
+			"type": "text"
+		}
+	}
+]

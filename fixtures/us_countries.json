@@ -22,17 +22,5 @@
             "iso_3166_1_numeric": 581, 
             "is_shipping_country": false
         }
-    },
-    {
-        "pk": "CA", 
-        "model": "address.country", 
-        "fields": {
-            "iso_3166_1_a3": "CAN", 
-            "name": "CANADA", 
-            "printable_name": "Canada", 
-            "display_order": 0, 
-            "iso_3166_1_numeric": 124, 
-            "is_shipping_country": false
-        }
     }
 ]

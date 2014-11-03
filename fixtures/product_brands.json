@@ -1,0 +1,50 @@
+[
+	{
+		"pk": 1,
+		"model": "catalogue.productbrand",
+		"fields": {
+			"name": "8BPlus",
+			"slug": "8BPlus"
+		}
+	},
+	{
+		"pk": 2,
+		"model": "catalogue.productbrand",
+		"fields": {
+			"name": "Bourge-de-Peage",
+			"slug": "Bourge-de-Peage"
+		}
+	},
+	{
+		"pk": 3,
+		"model": "catalogue.productbrand",
+		"fields": {
+			"name": "Charko",
+			"slug": "Charko"
+		}
+	},
+	{
+		"pk": 4,
+		"model": "catalogue.productbrand",
+		"fields": {
+			"name": "F-Lite",
+			"slug": "F-Lite"
+		}
+	},
+	{
+		"pk": 5,
+		"model": "catalogue.productbrand",
+		"fields": {
+			"name": "H.A.D.",
+			"slug": "H-A-D"
+		}
+	},
+	{
+		"pk": 6,
+		"model": "catalogue.productbrand",
+		"fields": {
+			"name": "Makak",
+			"slug": "Makak"
+		}
+	}
+]
