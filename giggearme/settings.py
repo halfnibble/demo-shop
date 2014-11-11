@@ -52,9 +52,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 from oscar import OSCAR_MAIN_TEMPLATE_DIR
 TEMPLATE_DIRS = (
-	os.path.join(BASE_DIR, 'templates', 'oscar'),
+#	os.path.join(BASE_DIR, 'templates', 'oscar'),
 #	location('templates'),
-#	OSCAR_MAIN_TEMPLATE_DIR,
+	OSCAR_MAIN_TEMPLATE_DIR,
 )
 
 # Application definition
@@ -70,11 +70,10 @@ INSTALLED_APPS = [
     # Add for Oscar
     'django.contrib.sites',
     'django.contrib.flatpages',
-    'south',
     'compressor',
     # Add for Oscar customization
     'oscarmod',
-] + get_core_apps(['catalogue'])
+] + get_core_apps([]) #'catalogue'
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -89,7 +88,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 AUTHENTICATION_BACKENDS = (
-	'oscar.apps.customer.auth_backends.Emailbackend',
+	'oscar.apps.customer.auth_backends.EmailBackend',
 	'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -104,7 +103,7 @@ WSGI_APPLICATION = 'giggearme.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'giggearme',
+        'NAME': 'giggearme2',
         'USER': DB_USER,
         'PASSWORD': DB_PASSWORD,
         'HOST': '',
