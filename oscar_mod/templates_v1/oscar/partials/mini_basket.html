@@ -1,0 +1,20 @@
+{% load currency_filters %}
+{% load i18n %}
+
+<div class="row">
+	<div class="mini-basket pull-right">
+	    <strong>{% trans "Basket total:" %}</strong>
+	    {% if request.basket.is_tax_known %}
+	        {{ request.basket.total_incl_tax|currency:request.basket.currency }}
+	    {% else %}
+	        {{ request.basket.total_excl_tax|currency:request.basket.currency }}
+	    {% endif %}
+	    &nbsp;
+	    <a href="#" class="tiny radius button split">{% trans "View basket" %} <span data-dropdown="mini-drop" data-options="align:left"></span></a>
+	    <br>
+        <ul id="mini-drop" class="f-dropdown" data-dropdown-content data-dropdown-left>
+            {% include "basket/partials/basket_quick.html" %}
+        </ul>
+
+	</div>
+</div>

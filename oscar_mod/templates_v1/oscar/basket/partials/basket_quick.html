@@ -1,0 +1,51 @@
+{% load history_tags %}
+{% load basket_tags %}
+{% load currency_filters %}
+{% load thumbnail %}
+{% load i18n %}
+{% load staticfiles %}
+
+<!--<ul class="basket-mini-item unstyled">-->
+    {% if request.basket.num_lines %}
+        {% for line in request.basket.all_lines %}
+            <li>
+                <div>
+                    <div class="image_container left">
+                        {% with image=line.product.primary_image %}
+                            {% thumbnail image.original "100x100" upscale=False as thumb %}
+                            <a href="{{ line.product.get_absolute_url }}"><img class="thumbnail" src="{{ thumb.url }}" alt="{{ line.product.get_title }}"></a>
+                            {% endthumbnail %}
+                        {% endwith %}
+                    </div>
+                    <div class="right"><strong>{% trans "Qty" %}</strong> {{ line.quantity }} &nbsp;</div>
+                    <div class="right">{{ line.unit_price_excl_tax|currency:request.basket.currency }} &nbsp;</div>
+                    <br style="clear:both;">
+                    <div>
+                        <a href="{{ line.product.get_absolute_url }}">{{ line.description }}</a>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+        <li>
+            {% if request.basket.is_tax_known %}
+                <a href="#">
+                	<em>{% trans "Total:" %} {{ request.basket.total_incl_tax|currency:request.basket.currency }}</em>
+                </a> 
+            {% else %}
+                <a href="#">
+                	<em>{% trans "Total:" %} {{ request.basket.total_excl_tax|currency:request.basket.currency }}</em>
+                </a>
+            {% endif %}
+        </li>
+        <li class="form-actions">
+            <a href="{% url 'basket:summary' %}">{% trans "View basket" %}</a>
+        </li>
+        <li>
+            <a href="{% url 'checkout:index' %}"><i class="fa fa-shopping-cart"></i> {% trans "Checkout" %}</a>
+        </li>
+    {% else %}
+        <li>
+        	<a href="#">{% trans "Your basket is empty." %}</a>
+        </li>
+    {% endif %}
+<!--</ul>-->

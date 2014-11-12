@@ -8,7 +8,7 @@
             "printable_name": "The United States of America",
             "display_order": 0, 
             "iso_3166_1_numeric": 840, 
-            "is_shipping_country": false
+            "is_shipping_country": true
         }
     }, 
     {

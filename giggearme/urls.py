@@ -2,6 +2,7 @@ from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.conf.urls.static import static
 from oscar.app import application
+from paypal.express.dashboard.app import application as paypal
 from django.contrib import admin
 admin.autodiscover()
 
@@ -9,11 +10,16 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'giggearme.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
+    
+    # PayPal integration
+    (r'^checkout/paypal/', include('paypal.express.urls')),
+    (r'^dashboard/paypal/express/', include(paypal.urls)),
 
     # oscar URLS
     (r'^i18n', include('django.conf.urls.i18n')),
     # url(r'^/', include('home/urls') name='home'),
     url(r'', include(application.urls)),
+    
     
     # admin
     url(r'^admin/', include(admin.site.urls)),

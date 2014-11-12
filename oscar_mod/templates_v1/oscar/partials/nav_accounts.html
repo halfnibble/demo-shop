@@ -1,0 +1,29 @@
+{% load i18n %}
+
+<div class="nav-accounts">
+	<ul class="inline-list right">
+	    {% if user.is_authenticated %}
+	        <li>
+	            {% if num_unread_notifications > 0 %}
+	                {# If user has new notifications - we change account link to go to inbox #}
+	                <a href="{% url 'customer:notifications-inbox' %}">
+	                    <i class="fa fa-user"></i>
+	                    {% trans "Account" %}
+	                    <span class="label label-important">{{ num_unread_notifications }}</span>
+	                </a>
+	            {% else %}
+	                <a href="{% url 'customer:summary' %}"><i class="fa fa-user"></i> {% trans "Account" %}</a>
+	            {% endif %}
+	        </li>
+	        {% if user.is_staff or perms.partner.dashboard_access %}
+	            <li><a href="{% url 'dashboard:index' %}">
+	            	<i class="fa fa-tasks"></i> {% trans "Dashboard" %}
+	            </a></li>
+	        {% endif %}
+	        <li><a id="logout_link" href="{% url 'customer:logout' %}"><i class="fa fa-sign-out"></i> {% trans "Logout" %}</a></li>
+	    {% else %}
+	        <li><a id="login_link" href="{% url 'customer:login' %}"><i class="fa fa-sign-in"></i> {% trans "Login or register" %}</a></li>
+	    {% endif %}
+	</ul>
+</div>
+

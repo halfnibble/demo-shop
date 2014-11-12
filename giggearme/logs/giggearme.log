@@ -1143,3 +1143,727 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_6/local/lib/python2.7/site-packages/django/views/generic/list.py", line 36, in get_queryset
     % self.__class__.__name__)
 ImproperlyConfigured: 'ProductCategoryView' must define 'queryset' or 'model'
+Internal Server Error: /dashboard/catalogue/products/1/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 98, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 343, in resolve
+    for pattern in self.url_patterns:
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 372, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 366, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/home/joshua/djangospace/giggearme_project_v2/giggearme/urls.py", line 4, in <module>
+    from oscar.app import application
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/app.py", line 14, in <module>
+    class Shop(Application):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/app.py", line 23, in Shop
+    dashboard_app = get_class('dashboard.app', 'application')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
+    return get_classes(module_label, [classname])[0]
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
+    oscar_module = _import_module(oscar_module_label, classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
+    return __import__(module_label, fromlist=classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/app.py", line 7, in <module>
+    class DashboardApplication(Application):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/app.py", line 17, in DashboardApplication
+    catalogue_app = get_class('dashboard.catalogue.app', 'application')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
+    return get_classes(module_label, [classname])[0]
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
+    oscar_module = _import_module(oscar_module_label, classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
+    return __import__(module_label, fromlist=classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/catalogue/app.py", line 7, in <module>
+    class CatalogueApplication(Application):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/catalogue/app.py", line 23, in CatalogueApplication
+    'ProductListView')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
+    return get_classes(module_label, [classname])[0]
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
+    oscar_module = _import_module(oscar_module_label, classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
+    return __import__(module_label, fromlist=classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/catalogue/views.py", line 36, in <module>
+    'ProductRecommendationFormSet'))
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 138, in get_classes
+    local_module = _import_module(local_module_label, classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
+    return __import__(module_label, fromlist=classnames)
+  File "/home/joshua/djangospace/giggearme_project_v2/dashboard/catalogue/forms.py", line 247, in <module>
+    class ProductForm(forms.ModelForm):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/forms/models.py", line 294, in __new__
+    raise FieldError(message)
+FieldError: Unknown field(s) (brand, activity) specified for Product
+Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 87, in get_response
+    response = middleware_method(request)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/middleware/common.py", line 72, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 619, in is_valid_path
+    resolve(path, urlconf)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 494, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 343, in resolve
+    for pattern in self.url_patterns:
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 372, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 366, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/home/joshua/djangospace/giggearme_project_v2/giggearme/urls.py", line 4, in <module>
+    from oscar.app import application
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/app.py", line 14, in <module>
+    class Shop(Application):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/app.py", line 23, in Shop
+    dashboard_app = get_class('dashboard.app', 'application')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
+    return get_classes(module_label, [classname])[0]
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
+    oscar_module = _import_module(oscar_module_label, classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
+    return __import__(module_label, fromlist=classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/app.py", line 7, in <module>
+    class DashboardApplication(Application):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/app.py", line 17, in DashboardApplication
+    catalogue_app = get_class('dashboard.catalogue.app', 'application')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
+    return get_classes(module_label, [classname])[0]
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
+    oscar_module = _import_module(oscar_module_label, classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
+    return __import__(module_label, fromlist=classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/catalogue/app.py", line 7, in <module>
+    class CatalogueApplication(Application):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/catalogue/app.py", line 23, in CatalogueApplication
+    'ProductListView')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
+    return get_classes(module_label, [classname])[0]
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
+    oscar_module = _import_module(oscar_module_label, classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
+    return __import__(module_label, fromlist=classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/catalogue/views.py", line 36, in <module>
+    'ProductRecommendationFormSet'))
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 138, in get_classes
+    local_module = _import_module(local_module_label, classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
+    return __import__(module_label, fromlist=classnames)
+  File "/home/joshua/djangospace/giggearme_project_v2/dashboard/catalogue/forms.py", line 247, in <module>
+    class ProductForm(forms.ModelForm):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/forms/models.py", line 294, in __new__
+    raise FieldError(message)
+FieldError: Unknown field(s) (brand, activity) specified for Product
+Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 87, in get_response
+    response = middleware_method(request)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/middleware/common.py", line 72, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 619, in is_valid_path
+    resolve(path, urlconf)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 494, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 343, in resolve
+    for pattern in self.url_patterns:
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 372, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 366, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/home/joshua/djangospace/giggearme_project_v2/giggearme/urls.py", line 4, in <module>
+    from oscar.app import application
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/app.py", line 14, in <module>
+    class Shop(Application):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/app.py", line 23, in Shop
+    dashboard_app = get_class('dashboard.app', 'application')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
+    return get_classes(module_label, [classname])[0]
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
+    oscar_module = _import_module(oscar_module_label, classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
+    return __import__(module_label, fromlist=classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/app.py", line 7, in <module>
+    class DashboardApplication(Application):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/app.py", line 17, in DashboardApplication
+    catalogue_app = get_class('dashboard.catalogue.app', 'application')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
+    return get_classes(module_label, [classname])[0]
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
+    oscar_module = _import_module(oscar_module_label, classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
+    return __import__(module_label, fromlist=classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/catalogue/app.py", line 7, in <module>
+    class CatalogueApplication(Application):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/catalogue/app.py", line 23, in CatalogueApplication
+    'ProductListView')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
+    return get_classes(module_label, [classname])[0]
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
+    oscar_module = _import_module(oscar_module_label, classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
+    return __import__(module_label, fromlist=classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/catalogue/views.py", line 36, in <module>
+    'ProductRecommendationFormSet'))
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 138, in get_classes
+    local_module = _import_module(local_module_label, classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
+    return __import__(module_label, fromlist=classnames)
+  File "/home/joshua/djangospace/giggearme_project_v2/dashboard/catalogue/forms.py", line 247, in <module>
+    class ProductForm(forms.ModelForm):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/forms/models.py", line 294, in __new__
+    raise FieldError(message)
+FieldError: Unknown field(s) (brand, activity) specified for Product
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 137, in get_response
+    response = response.render()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 103, in render
+    self.content = self.rendered_content
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 78, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 54, in resolve_template
+    return loader.select_template(template)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader.py", line 194, in select_template
+    raise TemplateDoesNotExist(', '.join(not_found))
+TemplateDoesNotExist: promotions/home.html
+Internal Server Error: /catalogue/had-kids_238/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 137, in get_response
+    response = response.render()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 103, in render
+    self.content = self.rendered_content
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 80, in rendered_content
+    content = template.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 148, in render
+    return self._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return template.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 148, in render
+    return self._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 458, in render
+    six.reraise(*exc_info)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 444, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=context.current_app)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 551, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 468, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns))
+NoReverseMatch: Reverse for 'add' with arguments '()' and keyword arguments '{}' not found. 1 pattern(s) tried: [u'basket/add/(?P<pk>\\d+)/$']
+Internal Server Error: /catalogue/category/clothing/mens-clothing/accessories_3/brand/8BPlus/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 171, in get
+    self.category = self.get_category()
+  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 206, in get_category
+    return get_object_or_404(Category, **filters)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/shortcuts.py", line 113, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/query.py", line 345, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/query.py", line 691, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/query.py", line 709, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1287, in add_q
+    clause, require_inner = self._add_q(where_part, self.used_aliases)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1314, in _add_q
+    current_negated=current_negated, connector=connector)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1138, in build_filter
+    lookups, parts, reffed_aggregate = self.solve_lookup_type(arg)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1076, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1383, in names_to_path
+    self.raise_field_error(opts, name)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1389, in raise_field_error
+    "Choices are: %s" % (name, ", ".join(available)))
+FieldError: Cannot resolve keyword 'brand' into field. Choices are: depth, description, full_name, id, image, includes, name, numchild, path, product, productcategory, slug
+Internal Server Error: /catalogue/category/clothing/mens-clothing/accessories_3/activity/Running/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 171, in get
+    self.category = self.get_category()
+  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 206, in get_category
+    return get_object_or_404(Category, **filters)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/shortcuts.py", line 113, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/query.py", line 345, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/query.py", line 691, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/query.py", line 709, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1287, in add_q
+    clause, require_inner = self._add_q(where_part, self.used_aliases)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1314, in _add_q
+    current_negated=current_negated, connector=connector)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1138, in build_filter
+    lookups, parts, reffed_aggregate = self.solve_lookup_type(arg)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1076, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1383, in names_to_path
+    self.raise_field_error(opts, name)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1389, in raise_field_error
+    "Choices are: %s" % (name, ", ".join(available)))
+FieldError: Cannot resolve keyword 'activity' into field. Choices are: depth, description, full_name, id, image, includes, name, numchild, path, product, productcategory, slug
+Internal Server Error: /catalogue/category/clothing_1/brand/8BPlus/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 182, in get
+    return super(ProductCategoryView, self).get(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 154, in get
+    context = self.get_context_data(**kwargs)
+  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 227, in get_context_data
+    search_context.filter(brand=self.brand)
+AttributeError: 'dict' object has no attribute 'filter'
+Internal Server Error: /catalogue/category/clothing_1/activity/Skiing/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 137, in get_response
+    response = response.render()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 103, in render
+    self.content = self.rendered_content
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 78, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 54, in resolve_template
+    return loader.select_template(template)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader.py", line 194, in select_template
+    raise TemplateDoesNotExist(', '.join(not_found))
+TemplateDoesNotExist: catalogue/category.html
+Internal Server Error: /catalogue/category/clothing_1/activity/Skiing/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 137, in get_response
+    response = response.render()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 103, in render
+    self.content = self.rendered_content
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 80, in rendered_content
+    content = template.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 148, in render
+    return self._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 155, in render
+    values = self.sequence.resolve(context, True)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 624, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/defaultfilters.py", line 621, in slice_filter
+    return value[slice(*bits)]
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/query.py", line 157, in __getitem__
+    "Negative indexing is not supported."
+AssertionError: Negative indexing is not supported.
+Internal Server Error: /catalogue/category/clothing_1/activity/Skiing/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 137, in get_response
+    response = response.render()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 103, in render
+    self.content = self.rendered_content
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 80, in rendered_content
+    content = template.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 148, in render
+    return self._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 155, in render
+    values = self.sequence.resolve(context, True)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 624, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/defaultfilters.py", line 621, in slice_filter
+    return value[slice(*bits)]
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/query.py", line 157, in __getitem__
+    "Negative indexing is not supported."
+AssertionError: Negative indexing is not supported.
+Internal Server Error: /catalogue/had-hadmask_217/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 98, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 343, in resolve
+    for pattern in self.url_patterns:
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 372, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 366, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/home/joshua/djangospace/giggearme_project_v2/giggearme/urls.py", line 16, in <module>
+    (r'', include(shop.urls)),
+NameError: name 'shop' is not defined
+Internal Server Error: /checkout/paypal/preview/2/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 137, in get_response
+    response = response.render()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 103, in render
+    self.content = self.rendered_content
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 78, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 54, in resolve_template
+    return loader.select_template(template)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader.py", line 194, in select_template
+    raise TemplateDoesNotExist(', '.join(not_found))
+TemplateDoesNotExist: paypal/express/preview.html
+Internal Server Error: /checkout/paypal/preview/2/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 137, in get_response
+    response = response.render()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 103, in render
+    self.content = self.rendered_content
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 78, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 54, in resolve_template
+    return loader.select_template(template)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader.py", line 194, in select_template
+    raise TemplateDoesNotExist(', '.join(not_found))
+TemplateDoesNotExist: paypal/express/preview.html
+Internal Server Error: /checkout/paypal/preview/2/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 137, in get_response
+    response = response.render()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 103, in render
+    self.content = self.rendered_content
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 78, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 54, in resolve_template
+    return loader.select_template(template)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader.py", line 194, in select_template
+    raise TemplateDoesNotExist(', '.join(not_found))
+TemplateDoesNotExist: paypal/express/preview.html
+Internal Server Error: /checkout/paypal/preview/2/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 137, in get_response
+    response = response.render()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 103, in render
+    self.content = self.rendered_content
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 78, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 54, in resolve_template
+    return loader.select_template(template)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader.py", line 194, in select_template
+    raise TemplateDoesNotExist(', '.join(not_found))
+TemplateDoesNotExist: paypal/express/preview.html
+Internal Server Error: /checkout/paypal/preview/2/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 137, in get_response
+    response = response.render()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 103, in render
+    self.content = self.rendered_content
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 78, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 54, in resolve_template
+    return loader.select_template(template)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader.py", line 194, in select_template
+    raise TemplateDoesNotExist(', '.join(not_found))
+TemplateDoesNotExist: paypal/express/preview.html
+Internal Server Error: /catalogue/brand/8BPlus/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 168, in get
+    self.category = self.get_category()
+  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 194, in get_category
+    filters = {'slug': self.kwargs['category_slug']}
+KeyError: 'category_slug'
+Internal Server Error: /catalogue/brand/8BPlus/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 168, in get
+    self.category = self.get_category()
+  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 194, in get_category
+    filters = {'slug': self.kwargs['category_slug']}
+KeyError: 'category_slug'
+Internal Server Error: /catalogue/activity/Cycling/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 168, in get
+    self.category = self.get_category()
+  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 194, in get_category
+    filters = {'slug': self.kwargs['category_slug']}
+KeyError: 'category_slug'
+Internal Server Error: /catalogue/activity/Cycling/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 98, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 343, in resolve
+    for pattern in self.url_patterns:
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 372, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 366, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/home/joshua/djangospace/giggearme_project_v2/giggearme/urls.py", line 19, in <module>
+    url(r'', include(application.urls)),
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/application.py", line 103, in urls
+    return self.get_urls(), self.app_name, self.name
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/app.py", line 31, in get_urls
+    url(r'^catalogue/', include(self.catalogue_app.urls)),
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/application.py", line 103, in urls
+    return self.get_urls(), self.app_name, self.name
+  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/app.py", line 19, in get_urls
+    url(r'^activity/(?P<activity>[\w-]+)/$', self.catelogue_view.as_view(), name='activity'),
+AttributeError: 'CatalogueApplication' object has no attribute 'catelogue_view'
+Internal Server Error: /checkout/shipping-address/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/views.py", line 189, in post
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/edit.py", line 172, in post
+    if form.is_valid():
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/forms/forms.py", line 162, in is_valid
+    return self.is_bound and not bool(self.errors)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/forms/forms.py", line 154, in errors
+    self.full_clean()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/forms/forms.py", line 353, in full_clean
+    self._clean_fields()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/forms/forms.py", line 371, in _clean_fields
+    value = getattr(self, 'clean_%s' % name)()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/views/generic.py", line 186, in clean_phone_number
+    region_code = self.get_region_code(country)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/views/generic.py", line 171, in get_region_code
+    return country.iso_3166_1_a2
+AttributeError: 'NoneType' object has no attribute 'iso_3166_1_a2'
