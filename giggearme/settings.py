@@ -177,6 +177,8 @@ PAYPAL_SANDBOX_MODE = True
 PAYPAL_CALLBACK_HTTPS = False
 PAYPAL_CURRENCY = 'USD'
 PAYPAL_API_VERSION = '88.0'
+PAYPAL_SOLUTION_TYPE = 'Sole' # Note: May have to make account 
+							  # creation optional in PayPal.com settings.
 
 # Dashboard Custimizations
 OSCAR_DASHBOARD_NAVIGATION += [
