@@ -11,8 +11,8 @@ Use message tags to control these alerts.  Available tags include:
 <div id="messages">
 {% if messages %}
     {% for message in messages %}
-    <div class="alert {% for tag in message.tags|split %}alert-{{ tag }} {% endfor %} fade in">
-            <a class="close" data-dismiss="alert" href="#">&times;</a>
+    <div data-alert class="alert-box secondary radius {% for tag in message.tags|split %} {{ tag }} {% endfor %}">
+            <a class="close" href="#">&times;</a>
             {% if 'noicon' not in message.tags %}
                 {# Include an icon by default #}
                 {% if 'success' in message.tags %}

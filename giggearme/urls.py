@@ -17,7 +17,7 @@ urlpatterns = patterns('',
 
     # oscar URLS
     (r'^i18n', include('django.conf.urls.i18n')),
-    # url(r'^/', include('home/urls') name='home'),
+    url(r'', include('pages.urls', namespace='pages')),
     url(r'', include(application.urls)),
     
     

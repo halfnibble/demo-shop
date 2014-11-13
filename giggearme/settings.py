@@ -75,6 +75,7 @@ INSTALLED_APPS = [
 	'compressor',
 	# Add for Oscar customization
 	'oscar_mod',
+	'pages',
 	# Payment
 	'paypal',
 ] + get_core_apps(['oscar_mod.catalogue', 'oscar_mod.dashboard.catalogue'])
