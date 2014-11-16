@@ -1,4 +1,5 @@
 from django.db import models
+from decimal import Decimal as D
 
 from oscar.apps.catalogue.abstract_models import AbstractProduct
 
@@ -25,5 +26,7 @@ class ProductActivity(models.Model):
 class Product(AbstractProduct):
 	brand = models.ForeignKey('catalogue.ProductBrand',blank=True,null=True)
 	activity = models.ForeignKey('catalogue.ProductActivity',blank=True,null=True)
+	weight = models.DecimalField("Ship Weight",default=0.000,
+		max_digits=10,decimal_places=3)
 
 from oscar.apps.catalogue.models import *

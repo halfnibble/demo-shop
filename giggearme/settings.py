@@ -78,7 +78,8 @@ INSTALLED_APPS = [
 	'pages',
 	# Payment
 	'paypal',
-] + get_core_apps(['oscar_mod.catalogue', 'oscar_mod.dashboard.catalogue'])
+] + get_core_apps(['oscar_mod.catalogue', 'oscar_mod.dashboard.catalogue',
+	'oscar_mod.shipping',]) #'oscar_mod.partner'
 
 MIDDLEWARE_CLASSES = (
 	'django.contrib.sessions.middleware.SessionMiddleware',
@@ -176,6 +177,7 @@ OSCAR_CURRENCY_LOCALE = 'en_US'
 # Taken from PayPal's documentation - these should always work in the sandbox
 PAYPAL_SANDBOX_MODE = True
 PAYPAL_CALLBACK_HTTPS = False
+PAYPAL_LOCALE = 'US' # This appears to be used instead of currency
 PAYPAL_CURRENCY = 'USD'
 PAYPAL_API_VERSION = '88.0'
 PAYPAL_SOLUTION_TYPE = 'Sole' # Note: May have to make account 

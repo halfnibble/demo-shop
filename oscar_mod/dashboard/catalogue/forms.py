@@ -263,7 +263,7 @@ class ProductForm(forms.ModelForm):
 	class Meta:
 		model = Product
 		fields = [
-			'title', 'upc', 'description', 'brand', 'activity', 'is_discountable', 'structure']
+			'title', 'upc', 'description', 'brand', 'activity', 'weight', 'is_discountable', 'structure']
 		widgets = {
 			'structure': forms.HiddenInput()
 		}
@@ -342,7 +342,7 @@ class ProductForm(forms.ModelForm):
 		Deletes any fields not needed for child products. Override this if
 		you want to e.g. keep the description field.
 		"""
-		for field_name in ['description', 'is_discountable', 'brand', 'activity']:
+		for field_name in ['description', 'is_discountable', 'brand', 'activity', 'weight']:
 			if field_name in self.fields:
 				del self.fields[field_name]
 
