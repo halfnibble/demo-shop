@@ -18,6 +18,16 @@
 
 {% block payment_details %}
     {% block payment_details_content %}
+    
+        <!-- I added this -->
+		<a href="{% url 'paypal-redirect' %}" class="button radius secondary">
+			<h1>
+				<span class="checkout-text">{% trans "Checkout with " %} </span>
+				<i class="fa fa-cc-paypal"></i>
+				
+			</h1>
+		</a>
+		
         <p>{% trans "This page needs implementing within your project.  You may want to use one of Oscar's payment gateway libraries:" %}</p>
         <ul>
             <li><a href="https://github.com/django-oscar/django-oscar-paypal">django-oscar-paypal</a></li>

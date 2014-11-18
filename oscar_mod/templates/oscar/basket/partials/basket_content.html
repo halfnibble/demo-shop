@@ -27,7 +27,7 @@
 		<thead>
 			<tr>
 				<th>Items to buy now</th>
-				<th width="180">Quantity</th>
+				<th width="194">Quantity</th>
 				<th>Price</th>
 				<th>Total</th>
 			</tr>
@@ -139,7 +139,7 @@
 				<div class="sub-header">
 					<h3>{% trans "Totals" %}</h3>
 				</div>
-				{% include 'basket/partials/basket_totals.html' with editable=1 %}
+				{% include 'basket/partials/basket_totals.html' with editable=1 checkout_step="basket" %}
 			</div>
 		{% endblock baskettotals %}
 	</div>

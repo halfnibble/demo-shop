@@ -32,8 +32,15 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# Template Contexts
+# List of callables that know how to import templates from various sources.
+TEMPLATE_LOADERS = (
+	'django.template.loaders.filesystem.Loader',
+	'django.template.loaders.app_directories.Loader',
+	# needed by django-treebeard for admin (and potentially other libs)
+	'django.template.loaders.eggs.Loader',
+)
 
+# Template Contexts
 TEMPLATE_CONTEXT_PROCESSORS = (
 	"django.contrib.auth.context_processors.auth",
 	"django.core.context_processors.request",
@@ -79,7 +86,7 @@ INSTALLED_APPS = [
 	# Payment
 	'paypal',
 ] + get_core_apps(['oscar_mod.catalogue', 'oscar_mod.dashboard.catalogue',
-	'oscar_mod.shipping',]) #'oscar_mod.partner'
+	 'oscar_mod.shipping'])
 
 MIDDLEWARE_CLASSES = (
 	'django.contrib.sessions.middleware.SessionMiddleware',

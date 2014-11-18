@@ -1,11 +1,19 @@
 from decimal import Decimal as D
-from oscar.apps.shipping import repository, methods
-from oscar_mod.shipping import models
+from oscar.apps.shipping import repository, methods, models
+from oscar.core import prices
 
-class Express(methods.FixedPrice):
-	code = "express"
+class Overnight(methods.Base):
+	code = "overnight-shipping"
 	name = "USPS Priority Mail"
-	charge_excl_tax = D('24.99')
+	def get_charge(self):
+		return D('24.90')
+	
+	def calculate(self, basket):
+		charge = self.get_charge()
+		return prices.Price(
+			currency=basket.currency,
+			excl_tax=charge,
+			incl_tax=charge)
 	
 class Repository(repository.Repository):
 	"""
@@ -15,19 +23,10 @@ class Repository(repository.Repository):
 
 	def get_available_shipping_methods(self, basket, user=None, shipping_addr=None, request=None, **kwargs):
 		"""
-		Return a list of all applicable shipping method objects
-		for a given basket.
-
-		We default to returning the Method models that have been defined but
-		this behaviour can easily be overridden by subclassing this class
-		and overriding this method.
+		Return weight-based shipping methods and Overnight shipping.
 		"""
-		methods = [Express()]
 		
-		methods.extend(list(models.WeightBased.objects.all()))
+		methods = list(models.WeightBased.objects.all())
+		methods.extend([ Overnight(), ])
 		
 		return methods
-		
-	#def get_shipping_methods(self, user, basket, shipping_addr=None, **kwargs):
-	#	methods = WeightBased.objects.all()
-	#	return methods

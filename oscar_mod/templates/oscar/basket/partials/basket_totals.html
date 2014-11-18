@@ -40,7 +40,7 @@
 								{% if editable %}
 									<form action="{% url 'basket:vouchers-remove' pk=discount.voucher.id %}" method="POST">
 										{% csrf_token %}
-										<input type="submit" value="{% trans 'Remove' %}" class="btn btn-small btn-danger" />
+										<input type="submit" value="{% trans 'Remove' %}" class="button small secondary" />
 									</form>
 								{% endif %}
 								 - {{ discount.discount|currency:basket.currency }}
@@ -78,16 +78,16 @@
 			<li class="description">
 				<h4>{% trans "Shipping" %}</h4>
 				{% if shipping_methods|length > 1 and editable %}
-					<small>{% trans "Alternative shipping methods can be chosen during checkout" %}</small>
+					{% trans "Alternative shipping methods can be chosen during checkout" %}
 				{% endif %}
 			</li>
 			{% if not shipping_method.is_discounted %}
 				<li class="bullet-item">
 					{{ shipping_method.name }}: 
-					{% if not show_tax_separately and shipping_method.is_tax_known %}
-						{{ shipping_method.charge_incl_tax|currency:basket.currency }}
+					{% if not show_tax_separately and shipping_charge.is_tax_known %}
+						{{ shipping_charge.incl_tax|currency:basket.currency }}
 					{% else %}
-						{{ shipping_method.charge_excl_tax|currency:basket.currency }}
+						{{ shipping_charge.excl_tax|currency:basket.currency }}
 					{% endif %}
 				</li>
 			{% else %}
@@ -140,7 +140,8 @@
 		{% block post_order_action_totals %}
 			{% if basket.post_order_actions %}
 				<li class="description">
-					<h4>{% trans "Post order actions" %}</h4><small>{% trans "These will be applied once your order is placed." %}</small>
+					<h4>{% trans "Post order actions" %}</h4>
+					{% trans "These will be applied once your order is placed." %}
 				</li>
 				{% for discount in basket.post_order_actions %}
 					<li class="bullet-item">
@@ -170,18 +171,43 @@
 			{% endif %}
 		{% endblock %}
 		
-		{% block paypal_express %}
-			<li class="cta-button">
-				{% if anon_checkout_allowed or request.user.is_authenticated %}		
-					<a href="{% url 'paypal-redirect' %}" class="button radius secondary">
-						<h1>
-							<span class="checkout-text">{% trans "Checkout with " %} </span>
-							<i class="fa fa-cc-paypal"></i>
-							
-						</h1>
-					</a>
-				{% endif %}
-			</li>
-		{% endblock paypal_express %}
+		{% if checkout_step == "basket" %}
+			{% block paypal_express %}
+				<li class="cta-button">
+					{% if anon_checkout_allowed or request.user.is_authenticated %}		
+						<a href="{% url 'paypal-redirect' %}" class="button radius secondary">
+							<h1>
+								<span class="checkout-text">{% trans "Checkout with " %} </span>
+								<i class="fa fa-cc-paypal"></i>
+								
+							</h1>
+						</a>
+					{% endif %}
+				</li>
+			{% endblock paypal_express %}
+		{% endif %}
+		
+		{% if checkout_step == "submit" %}
+			{% block place_order %}
+				<li class="cta-button">
+					<form method="post" action="{% url 'checkout:preview' %}" id="place_order_form">
+						{% csrf_token %}
+						<input type="hidden" name="action" value="place_order" />
+
+						{% comment %}
+							When submitting sensitive data on the payment details page (eg a bankcard)
+							we don't want to save the data and so we pass the bound form to the preview
+							template and render it in a hidden div.  Then the payment information will
+							get re-submitted when the user confirms the order.
+						{% endcomment %}
+						<div style="display:none">
+							{% block hiddenforms %}{% endblock %}
+						</div>
+						<button id='place-order' type="submit" class="radius large secondary js-disable-on-click" data-loading-text="{% trans 'Submitting...' %}">{% trans "Place order" %}</button>
+					</form>
+				</li>
+			{% endblock place_order %}
+		{% endif %}
+
 	</ul>
 </div>

@@ -5245,3 +5245,1195 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 42, in _format_currency
     return amt.quantize(D('0.01'))
 AttributeError: 'NoneType' object has no attribute 'quantize'
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 323, in set_txn
+    params['L_SHIPPINGOPTIONAMOUNT%d' % index] = _format_currency(charge)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 42, in _format_currency
+    return amt.quantize(D('0.01'))
+AttributeError: 'NoneType' object has no attribute 'quantize'
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 323, in set_txn
+    params['L_SHIPPINGOPTIONAMOUNT%d' % index] = _format_currency(charge)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 42, in _format_currency
+    return amt.quantize(D('0.01'))
+AttributeError: 'NoneType' object has no attribute 'quantize'
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 323, in set_txn
+    params['L_SHIPPINGOPTIONAMOUNT%d' % index] = _format_currency(charge)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 42, in _format_currency
+    return amt.quantize(D('0.01'))
+AttributeError: 'NoneType' object has no attribute 'quantize'
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 320, in set_txn
+    params['PAYMENTREQUEST_0_SHIPPINGAMT'] = _format_currency(charge)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 42, in _format_currency
+    return amt.quantize(D('0.01'))
+AttributeError: 'NoneType' object has no attribute 'quantize'
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 320, in set_txn
+    params['PAYMENTREQUEST_0_SHIPPINGAMT'] = _format_currency(charge)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 42, in _format_currency
+    return amt.quantize(D('0.01'))
+AttributeError: 'NoneType' object has no attribute 'quantize'
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 173, in set_txn
+    amount = basket.total_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/utils/functional.py", line 225, in inner
+    return func(self._wrapped, *args)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 392, in total_incl_tax
+    return self._get_total('line_price_incl_tax_incl_discounts')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 351, in _get_total
+    total += getattr(line, property)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 782, in line_price_incl_tax_incl_discounts
+    return self.line_price_incl_tax - self.discount_value
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 790, in line_price_incl_tax
+    return self.quantity * self.unit_price_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 754, in unit_price_incl_tax
+    return self.purchase_info.price.incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/partner/prices.py", line 70, in incl_tax
+    "Can't calculate price.incl_tax as tax isn't known")
+TaxNotKnown: Can't calculate price.incl_tax as tax isn't known
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 173, in set_txn
+    amount = basket.total_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/utils/functional.py", line 225, in inner
+    return func(self._wrapped, *args)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 392, in total_incl_tax
+    return self._get_total('line_price_incl_tax_incl_discounts')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 351, in _get_total
+    total += getattr(line, property)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 782, in line_price_incl_tax_incl_discounts
+    return self.line_price_incl_tax - self.discount_value
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 790, in line_price_incl_tax
+    return self.quantity * self.unit_price_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 754, in unit_price_incl_tax
+    return self.purchase_info.price.incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/partner/prices.py", line 70, in incl_tax
+    "Can't calculate price.incl_tax as tax isn't known")
+TaxNotKnown: Can't calculate price.incl_tax as tax isn't known
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 173, in set_txn
+    amount = basket.total_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/utils/functional.py", line 225, in inner
+    return func(self._wrapped, *args)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 392, in total_incl_tax
+    return self._get_total('line_price_incl_tax_incl_discounts')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 351, in _get_total
+    total += getattr(line, property)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 782, in line_price_incl_tax_incl_discounts
+    return self.line_price_incl_tax - self.discount_value
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 790, in line_price_incl_tax
+    return self.quantity * self.unit_price_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 754, in unit_price_incl_tax
+    return self.purchase_info.price.incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/partner/prices.py", line 70, in incl_tax
+    "Can't calculate price.incl_tax as tax isn't known")
+TaxNotKnown: Can't calculate price.incl_tax as tax isn't known
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 173, in set_txn
+    amount = basket.total_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/utils/functional.py", line 225, in inner
+    return func(self._wrapped, *args)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 392, in total_incl_tax
+    return self._get_total('line_price_incl_tax_incl_discounts')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 351, in _get_total
+    total += getattr(line, property)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 782, in line_price_incl_tax_incl_discounts
+    return self.line_price_incl_tax - self.discount_value
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 790, in line_price_incl_tax
+    return self.quantity * self.unit_price_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 754, in unit_price_incl_tax
+    return self.purchase_info.price.incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/partner/prices.py", line 70, in incl_tax
+    "Can't calculate price.incl_tax as tax isn't known")
+TaxNotKnown: Can't calculate price.incl_tax as tax isn't known
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 173, in set_txn
+    amount = basket.total_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/utils/functional.py", line 225, in inner
+    return func(self._wrapped, *args)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 392, in total_incl_tax
+    return self._get_total('line_price_incl_tax_incl_discounts')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 351, in _get_total
+    total += getattr(line, property)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 782, in line_price_incl_tax_incl_discounts
+    return self.line_price_incl_tax - self.discount_value
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 790, in line_price_incl_tax
+    return self.quantity * self.unit_price_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 754, in unit_price_incl_tax
+    return self.purchase_info.price.incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/partner/prices.py", line 70, in incl_tax
+    "Can't calculate price.incl_tax as tax isn't known")
+TaxNotKnown: Can't calculate price.incl_tax as tax isn't known
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 173, in set_txn
+    amount = basket.total_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/utils/functional.py", line 225, in inner
+    return func(self._wrapped, *args)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 392, in total_incl_tax
+    return self._get_total('line_price_incl_tax_incl_discounts')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 351, in _get_total
+    total += getattr(line, property)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 782, in line_price_incl_tax_incl_discounts
+    return self.line_price_incl_tax - self.discount_value
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 790, in line_price_incl_tax
+    return self.quantity * self.unit_price_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 754, in unit_price_incl_tax
+    return self.purchase_info.price.incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/partner/prices.py", line 70, in incl_tax
+    "Can't calculate price.incl_tax as tax isn't known")
+TaxNotKnown: Can't calculate price.incl_tax as tax isn't known
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 173, in set_txn
+    amount = basket.total_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/utils/functional.py", line 225, in inner
+    return func(self._wrapped, *args)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 392, in total_incl_tax
+    return self._get_total('line_price_incl_tax_incl_discounts')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 351, in _get_total
+    total += getattr(line, property)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 782, in line_price_incl_tax_incl_discounts
+    return self.line_price_incl_tax - self.discount_value
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 790, in line_price_incl_tax
+    return self.quantity * self.unit_price_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 754, in unit_price_incl_tax
+    return self.purchase_info.price.incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/partner/prices.py", line 70, in incl_tax
+    "Can't calculate price.incl_tax as tax isn't known")
+TaxNotKnown: Can't calculate price.incl_tax as tax isn't known
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 173, in set_txn
+    amount = basket.total_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/utils/functional.py", line 225, in inner
+    return func(self._wrapped, *args)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 392, in total_incl_tax
+    return self._get_total('line_price_incl_tax_incl_discounts')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 351, in _get_total
+    total += getattr(line, property)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 782, in line_price_incl_tax_incl_discounts
+    return self.line_price_incl_tax - self.discount_value
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 790, in line_price_incl_tax
+    return self.quantity * self.unit_price_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 754, in unit_price_incl_tax
+    return self.purchase_info.price.incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/partner/prices.py", line 70, in incl_tax
+    "Can't calculate price.incl_tax as tax isn't known")
+TaxNotKnown: Can't calculate price.incl_tax as tax isn't known
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 173, in set_txn
+    amount = basket.total_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/utils/functional.py", line 225, in inner
+    return func(self._wrapped, *args)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 392, in total_incl_tax
+    return self._get_total('line_price_incl_tax_incl_discounts')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 351, in _get_total
+    total += getattr(line, property)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 782, in line_price_incl_tax_incl_discounts
+    return self.line_price_incl_tax - self.discount_value
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 790, in line_price_incl_tax
+    return self.quantity * self.unit_price_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 754, in unit_price_incl_tax
+    return self.purchase_info.price.incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/partner/prices.py", line 70, in incl_tax
+    "Can't calculate price.incl_tax as tax isn't known")
+TaxNotKnown: Can't calculate price.incl_tax as tax isn't known
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 173, in set_txn
+    amount = basket.total_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/utils/functional.py", line 225, in inner
+    return func(self._wrapped, *args)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 392, in total_incl_tax
+    return self._get_total('line_price_incl_tax_incl_discounts')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 351, in _get_total
+    total += getattr(line, property)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 782, in line_price_incl_tax_incl_discounts
+    return self.line_price_incl_tax - self.discount_value
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 790, in line_price_incl_tax
+    return self.quantity * self.unit_price_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 754, in unit_price_incl_tax
+    return self.purchase_info.price.incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/partner/prices.py", line 70, in incl_tax
+    "Can't calculate price.incl_tax as tax isn't known")
+TaxNotKnown: Can't calculate price.incl_tax as tax isn't known
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 173, in set_txn
+    amount = basket.total_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/utils/functional.py", line 225, in inner
+    return func(self._wrapped, *args)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 392, in total_incl_tax
+    return self._get_total('line_price_incl_tax_incl_discounts')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 351, in _get_total
+    total += getattr(line, property)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 782, in line_price_incl_tax_incl_discounts
+    return self.line_price_incl_tax - self.discount_value
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 790, in line_price_incl_tax
+    return self.quantity * self.unit_price_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 754, in unit_price_incl_tax
+    return self.purchase_info.price.incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/partner/prices.py", line 70, in incl_tax
+    "Can't calculate price.incl_tax as tax isn't known")
+TaxNotKnown: Can't calculate price.incl_tax as tax isn't known
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 173, in set_txn
+    amount = basket.total_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/utils/functional.py", line 225, in inner
+    return func(self._wrapped, *args)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 392, in total_incl_tax
+    return self._get_total('line_price_incl_tax_incl_discounts')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 351, in _get_total
+    total += getattr(line, property)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 782, in line_price_incl_tax_incl_discounts
+    return self.line_price_incl_tax - self.discount_value
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 790, in line_price_incl_tax
+    return self.quantity * self.unit_price_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 754, in unit_price_incl_tax
+    return self.purchase_info.price.incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/partner/prices.py", line 70, in incl_tax
+    "Can't calculate price.incl_tax as tax isn't known")
+TaxNotKnown: Can't calculate price.incl_tax as tax isn't known
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 173, in set_txn
+    amount = basket.total_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/utils/functional.py", line 225, in inner
+    return func(self._wrapped, *args)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 392, in total_incl_tax
+    return self._get_total('line_price_incl_tax_incl_discounts')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 351, in _get_total
+    total += getattr(line, property)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 782, in line_price_incl_tax_incl_discounts
+    return self.line_price_incl_tax - self.discount_value
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 790, in line_price_incl_tax
+    return self.quantity * self.unit_price_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 754, in unit_price_incl_tax
+    return self.purchase_info.price.incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/partner/prices.py", line 70, in incl_tax
+    "Can't calculate price.incl_tax as tax isn't known")
+TaxNotKnown: Can't calculate price.incl_tax as tax isn't known
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 173, in set_txn
+    amount = basket.total_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/utils/functional.py", line 225, in inner
+    return func(self._wrapped, *args)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 392, in total_incl_tax
+    return self._get_total('line_price_incl_tax_incl_discounts')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 351, in _get_total
+    total += getattr(line, property)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 782, in line_price_incl_tax_incl_discounts
+    return self.line_price_incl_tax - self.discount_value
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 790, in line_price_incl_tax
+    return self.quantity * self.unit_price_incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/abstract_models.py", line 754, in unit_price_incl_tax
+    return self.purchase_info.price.incl_tax
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/partner/prices.py", line 70, in incl_tax
+    "Can't calculate price.incl_tax as tax isn't known")
+TaxNotKnown: Can't calculate price.incl_tax as tax isn't known
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 323, in set_txn
+    params['L_SHIPPINGOPTIONAMOUNT%d' % index] = _format_currency(charge)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 42, in _format_currency
+    return amt.quantize(D('0.01'))
+AttributeError: 'NoneType' object has no attribute 'quantize'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 98, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 343, in resolve
+    for pattern in self.url_patterns:
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 372, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 366, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/home/joshua/djangospace/giggearme_project/giggearme/urls.py", line 4, in <module>
+    from oscar.app import application
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/app.py", line 14, in <module>
+    class Shop(Application):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/app.py", line 19, in Shop
+    basket_app = get_class('basket.app', 'application')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
+    return get_classes(module_label, [classname])[0]
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
+    oscar_module = _import_module(oscar_module_label, classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
+    return __import__(module_label, fromlist=classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/app.py", line 8, in <module>
+    class BasketApplication(Application):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/app.py", line 10, in BasketApplication
+    summary_view = get_class('basket.views', 'BasketView')
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
+    return get_classes(module_label, [classname])[0]
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
+    oscar_module = _import_module(oscar_module_label, classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
+    return __import__(module_label, fromlist=classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/views.py", line 28, in <module>
+    Repository = get_class('shipping.repository', ('Repository'))
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
+    return get_classes(module_label, [classname])[0]
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 138, in get_classes
+    local_module = _import_module(local_module_label, classnames)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
+    return __import__(module_label, fromlist=classnames)
+  File "/home/joshua/djangospace/giggearme_project/oscar_mod/shipping/repository.py", line 7
+    def calculate:
+                 ^
+SyntaxError: invalid syntax
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 323, in set_txn
+    params['L_SHIPPINGOPTIONAMOUNT%d' % index] = _format_currency(charge)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 42, in _format_currency
+    return amt.quantize(D('0.01'))
+AttributeError: 'NoneType' object has no attribute 'quantize'
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 323, in set_txn
+    params['L_SHIPPINGOPTIONAMOUNT%d' % index] = _format_currency(charge)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 42, in _format_currency
+    return amt.quantize(D('0.01'))
+AttributeError: 'NoneType' object has no attribute 'quantize'
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 323, in set_txn
+    params['L_SHIPPINGOPTIONAMOUNT%d' % index] = _format_currency(charge)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 42, in _format_currency
+    return amt.quantize(D('0.01'))
+AttributeError: 'NoneType' object has no attribute 'quantize'
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 323, in set_txn
+    params['L_SHIPPINGOPTIONAMOUNT%d' % index] = _format_currency(charge)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 42, in _format_currency
+    return amt.quantize(D('0.01'))
+AttributeError: 'NoneType' object has no attribute 'quantize'
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 323, in set_txn
+    params['L_SHIPPINGOPTIONAMOUNT%d' % index] = _format_currency(charge)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 42, in _format_currency
+    return amt.quantize(D('0.01'))
+AttributeError: 'NoneType' object has no attribute 'quantize'
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 323, in set_txn
+    params['L_SHIPPINGOPTIONAMOUNT%d' % index] = _format_currency(charge)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 42, in _format_currency
+    return amt.quantize(D('0.01'))
+AttributeError: 'NoneType' object has no attribute 'quantize'
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 323, in set_txn
+    params['L_SHIPPINGOPTIONAMOUNT%d' % index] = _format_currency(charge)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 42, in _format_currency
+    return amt.quantize(D('0.01'))
+AttributeError: 'NoneType' object has no attribute 'quantize'
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 323, in set_txn
+    params['L_SHIPPINGOPTIONAMOUNT%d' % index] = _format_currency(charge)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 42, in _format_currency
+    return amt.quantize(D('0.01'))
+AttributeError: 'NoneType' object has no attribute 'quantize'
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 323, in set_txn
+    params['L_SHIPPINGOPTIONAMOUNT%d' % index] = _format_currency(charge)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 42, in _format_currency
+    return amt.quantize(D('0.01'))
+AttributeError: 'NoneType' object has no attribute 'quantize'
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 323, in set_txn
+    params['L_SHIPPINGOPTIONAMOUNT%d' % index] = _format_currency(charge)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 42, in _format_currency
+    return amt.quantize(D('0.01'))
+AttributeError: 'NoneType' object has no attribute 'quantize'
+Internal Server Error: /checkout/paypal/redirect/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 189, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 60, in get_redirect_url
+    url = self._get_redirect_url(basket, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 134, in _get_redirect_url
+    return get_paypal_url(**params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 82, in get_paypal_url
+    paypal_params=paypal_params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 323, in set_txn
+    params['L_SHIPPINGOPTIONAMOUNT%d' % index] = _format_currency(charge)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 42, in _format_currency
+    return amt.quantize(D('0.01'))
+AttributeError: 'NoneType' object has no attribute 'quantize'
+Internal Server Error: /checkout/paypal/preview/35/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 189, in get
+    self.txn = fetch_transaction_details(self.token)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/facade.py", line 89, in fetch_transaction_details
+    return get_txn(token)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 366, in get_txn
+    return _fetch_response(GET_EXPRESS_CHECKOUT, {'TOKEN': token})
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/gateway.py", line 70, in _fetch_response
+    pairs = gateway.post(url, params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/gateway.py", line 23, in post
+    headers={'content-type': 'text/namevalue; charset=utf-8'})
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/requests/api.py", line 94, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/requests/api.py", line 49, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/requests/sessions.py", line 457, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/requests/sessions.py", line 569, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/requests/adapters.py", line 407, in send
+    raise ConnectionError(err, request=request)
+ConnectionError: ('Connection aborted.', gaierror(-2, 'Name or service not known'))
+Internal Server Error: /basket/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 137, in get_response
+    response = response.render()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 103, in render
+    self.content = self.rendered_content
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 80, in rendered_content
+    content = template.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 148, in render
+    return self._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 142, in render
+    template = get_template(template)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader.py", line 144, in get_template
+    template, origin = find_template(template_name, dirs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader.py", line 132, in find_template
+    source, display_name = loader(name, dirs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader.py", line 44, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader.py", line 50, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader.py", line 156, in get_template_from_string
+    return Template(source, origin, name)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 132, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 162, in compile_string
+    return parser.parse()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 290, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 975, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 290, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 175, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 290, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 235, in do_include
+    value = token_kwargs(remaining_bits, parser, support_legacy=False)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 952, in token_kwargs
+    kwargs[key] = parser.compile_filter(value)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 372, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 588, in __init__
+    "from '%s'" % (token[upto:], token))
+TemplateSyntaxError: Could not parse the remainder: ',checkout_step="basket"' from '1,checkout_step="basket"'
+Internal Server Error: /basket/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 137, in get_response
+    response = response.render()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 103, in render
+    self.content = self.rendered_content
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 80, in rendered_content
+    content = template.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 148, in render
+    return self._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 142, in render
+    template = get_template(template)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader.py", line 144, in get_template
+    template, origin = find_template(template_name, dirs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader.py", line 132, in find_template
+    source, display_name = loader(name, dirs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader.py", line 44, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader.py", line 50, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader.py", line 156, in get_template_from_string
+    return Template(source, origin, name)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 132, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 162, in compile_string
+    return parser.parse()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 290, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 975, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 290, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 175, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 290, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 235, in do_include
+    value = token_kwargs(remaining_bits, parser, support_legacy=False)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 952, in token_kwargs
+    kwargs[key] = parser.compile_filter(value)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 372, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 588, in __init__
+    "from '%s'" % (token[upto:], token))
+TemplateSyntaxError: Could not parse the remainder: ',' from '1,'

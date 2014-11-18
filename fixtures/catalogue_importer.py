@@ -5,12 +5,22 @@ from datetime import datetime
 from oscar.core.loading import get_class, get_classes
 from oscar.apps.catalogue.categories import create_from_breadcrumbs
 
+"""
+You can replace these with regular imports, but make sure you reference
+the correct version (i.e. if you forked the app, use your local version)
+"""
 ImportingError = get_class('partner.exceptions', 'ImportingError')
 Partner, StockRecord = get_classes('partner.models', ['Partner', 'StockRecord'])
 ProductClass, Product, Category, ProductCategory, ProductBrand, ProductActivity = get_classes(
 	'catalogue.models', ('ProductClass', 'Product', 'Category', 'ProductCategory', 'ProductBrand', 'ProductActivity'))
 
 class ImportCatalogue(object):
+	"""
+	This is a manager class.
+	The initialization will setup default attributes like which partner to use in stock record.
+	> set_columns(...) will associate CSV columns with Product attributes.
+	> run() will loop through each row and create Parent and Child Products as necessary.
+	"""
 	
 	def __init__(self, file_path, partner=1, brand=False, unique=['size'], euro=1.3):
 		# Required. File to import
@@ -50,6 +60,11 @@ class ImportCatalogue(object):
 					return resul
 		return False
 	
+	
+	""" 
+	NOTE: Brand is an added Field in the Product object
+	that we added.
+	""""
 	# Find the global Brand if applicable by ID or Name
 	def match_brand(self, brand):
 		if isinstance(brand, (int, long)):
@@ -86,12 +101,22 @@ class ImportCatalogue(object):
 			print "Processing row: %s. UPC: %s" % (row_number, row[self.column_map['upc']])
 			row_number += 1
 			
+			"""
+			NOTE: the follow lines related to UPC are specific to how our CSV file formats 
+			the UPC code (It doesn't provide a parent UPC, so we create one).
+			Our UPCs are formatted like "dd-dddd-d-dddddd"
+			"""
 			# For issues related to same UPC for men's and women's
 			if row[self.column_map['upc']] == row[self.column_map['parent_upc']]:
 				parent_upc = '-'.join(row[self.column_map['upc']].split('-')[0:3])
 				# ^ this produces "dd-dddd-d" that is unique to gender models
 			else:
 				parent_upc = row[self.column_map['parent_upc']]
+				
+			"""
+			NOTE: 'color', 'size', and 'material' are custom attributes
+			that we've added to our Product class "Clothing"
+			"""
 			
 			# Set unqiue fields
 			if 'color' in self.unique:
@@ -151,6 +176,9 @@ class CreateProduct(object):
 
 
 class CreateParentProduct(object):
+	"""
+	Creates a Parent Product.
+	"""
 	
 	def __init__(self, upc, description, brand, color, material, size):
 		self.upc = upc
@@ -249,7 +277,7 @@ class CreateParentProduct(object):
 		
 		parent.save()
 		
-		Match_Categories(parent, parent.description)
+		MatchCategories(parent, parent.description)
 		
 		print "Created Parent Product: " + parent.upc
 		
@@ -257,6 +285,9 @@ class CreateParentProduct(object):
 
 
 class CreateChildProduct(object):
+	"""
+	Create a Product variant
+	"""
 	
 	def __init__(self, parent, upc, description, cost, retail, quantity, partner, euro, color, material, size):
 		self.parent = parent
@@ -349,7 +380,12 @@ class CreateChildProduct(object):
 		print "Created Product: " + self.upc
 		
 
-class Match_Categories(object):
+class MatchCategories(object):
+	"""
+	The large convoluted class is a helper class to match a Product
+	to a ProductCategory. It is specific to our needs, and likely 
+	to change heavily as our store evolves.
+	"""
 	
 	def __init__(self, product, description, product_class="Clothing"):
 		self.product = product
