@@ -4,3 +4,4 @@ static/.sass-cache/*
 static/*.DS_Store
 static/stylesheets/*
 media/images/*
+media/cache/*
