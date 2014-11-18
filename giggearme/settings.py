@@ -32,14 +32,6 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
-	'django.template.loaders.filesystem.Loader',
-	'django.template.loaders.app_directories.Loader',
-	# needed by django-treebeard for admin (and potentially other libs)
-	'django.template.loaders.eggs.Loader',
-)
-
 # Template Contexts
 TEMPLATE_CONTEXT_PROCESSORS = (
 	"django.contrib.auth.context_processors.auth",
@@ -58,7 +50,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 # Template Dirs
-
 from oscar import OSCAR_MAIN_TEMPLATE_DIR
 TEMPLATE_DIRS = (
 	# location('templates'),
@@ -116,7 +107,7 @@ WSGI_APPLICATION = 'giggearme.wsgi.application'
 DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.mysql',
-		'NAME': 'giggearme2',
+		'NAME': 'giggearme',
 		'USER': DB_USER,
 		'PASSWORD': DB_PASSWORD,
 		'HOST': '',
@@ -221,6 +212,8 @@ OSCAR_INITIAL_LINE_STATUS = 'Pending'
 OSCAR_ORDER_STATUS_PIPELINE = {
 	'Pending': ('Being processed', 'Cancelled',),
 	'Being processed': ('Processed', 'Cancelled',),
+	'Processed': ('Shipped', 'Cancelled'),
+	'Shipped': (),
 	'Cancelled': (),
 }
 

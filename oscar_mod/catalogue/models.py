@@ -26,7 +26,10 @@ class ProductActivity(models.Model):
 class Product(AbstractProduct):
 	brand = models.ForeignKey('catalogue.ProductBrand',blank=True,null=True)
 	activity = models.ForeignKey('catalogue.ProductActivity',blank=True,null=True)
+	"""
+	For now, must modify weight via attribute set.
 	weight = models.DecimalField("Ship Weight",default=0.000,
 		max_digits=10,decimal_places=3)
+	"""
 
 from oscar.apps.catalogue.models import *

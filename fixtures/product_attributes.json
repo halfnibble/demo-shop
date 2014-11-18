@@ -3,6 +3,18 @@
 		"pk": 1,
 		"model": "catalogue.productattribute",
 		"fields": {
+			"name": "Shipping Weight",
+			"code": "weight",
+			"product_class": 1,
+			"option_group": null,
+			"required": false,
+			"type": "float"
+		}
+	},
+	{
+		"pk": 2,
+		"model": "catalogue.productattribute",
+		"fields": {
 			"name": "Size",
 			"code": "size",
 			"product_class": 1,
@@ -12,7 +24,7 @@
 		}
 	},
 	{
-		"pk": 2,
+		"pk": 3,
 		"model": "catalogue.productattribute",
 		"fields": {
 			"name": "Color",
@@ -24,7 +36,7 @@
 		}
 	},
 	{
-		"pk": 3,
+		"pk": 4,
 		"model": "catalogue.productattribute",
 		"fields": {
 			"name": "Material",
