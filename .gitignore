@@ -1,6 +1,6 @@
 giggearme/secret.py
 giggearme/secret.pyc
-static/bower_components/*
 static/.sass-cache/*
 static/*.DS_Store
 static/stylesheets/*
+media/images/*
