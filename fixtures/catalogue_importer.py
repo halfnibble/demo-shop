@@ -11,8 +11,8 @@ the correct version (i.e. if you forked the app, use your local version)
 """
 ImportingError = get_class('partner.exceptions', 'ImportingError')
 Partner, StockRecord = get_classes('partner.models', ['Partner', 'StockRecord'])
-ProductClass, Product, Category, ProductCategory, ProductBrand, ProductActivity = get_classes(
-	'catalogue.models', ('ProductClass', 'Product', 'Category', 'ProductCategory', 'ProductBrand', 'ProductActivity'))
+ProductClass, Product, Category, ProductCategory, ProductBrand, ProductActivity = get_classes('catalogue.models',
+	('ProductClass', 'Product', 'Category', 'ProductCategory', 'ProductBrand', 'ProductActivity'))
 
 class ImportCatalogue(object):
 	"""
@@ -57,14 +57,13 @@ class ImportCatalogue(object):
 			Partners = Partner.objects.all()
 			for result in Partners:
 				if ( re.search(partner, result.name, re.IGNORECASE) ):
-					return resul
+					return result
 		return False
-	
 	
 	""" 
 	NOTE: Brand is an added Field in the Product object
 	that we added.
-	""""
+	"""
 	# Find the global Brand if applicable by ID or Name
 	def match_brand(self, brand):
 		if isinstance(brand, (int, long)):
