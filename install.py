@@ -109,7 +109,7 @@ if production:
 			ln_oscar_output = subprocess.call(['ln','-s',oscar_static_path,'static/oscar'])
 			ln_admin_output = subprocess.call(['ln','-s',admin_static_path,'static/admin'])
 			
-			if ln_oscar_output == 0 or ln_admin_output:
+			if ln_oscar_output == 0 or ln_admin_output == 0:
 				print "Oscar and Admin dirs found. Continuing."
 				searching = False
 			else:
@@ -121,21 +121,33 @@ if production:
 if production:
 	chown_static_output = subprocess.call(['chown','-R','www-data','static'])
 	chown_media_output = subprocess.call(['chown','-R','www-data','media'])
+	chown_oscar_output = subprocess.call(['chown','-R','www-data',oscar_static_path])
+	chown_admin_output = subprocess.call(['chown','-R','www-data',admin_static_path])
 	
 	if chown_static_output != 0:
 		print "ERROR: Setting owner for static folder."
 	if chown_media_output != 0:
 		print "ERROR: Setting owner for media folder."
+	if chown_oscar_output != 0:
+		print "ERROR: Setting owner for oscar/static folder."
+	if chown_admin_output != 0:
+		print "ERROR: Setting owner for admin/static folder."
 
 # Set folder permission on production
 if production:
-	chmod_static_output = subprocess.call(['chmod','-R','0664','static'])
+	chmod_static_output = subprocess.call(['chmod','-R','0764','static'])
 	chmod_media_output = subprocess.call(['chmod','-R','0764','media'])
+	chmod_oscar_output = subprocess.call(['chmod','-R','0764',oscar_static_path])
+	chmod_admin_output = subprocess.call(['chmod','-R','0764',admin_static_path])
 	
 	if chmod_static_output != 0:
 		print "ERROR: Setting permissions for static folder."
 	if chmod_media_output != 0:
 		print "ERROR: Setting permissions for media folder."
+	if chmod_oscar_output != 0:
+		print "ERROR: Setting permissions for oscar/static folder."
+	if chmod_admin_output != 0:
+		print "ERROR: Setting permissions for admin/static folder."
 		
 # Create Super Users.
 superuser_output = subprocess.call('python manage.py shell < fixtures/superusers_importer.py',shell=True)
