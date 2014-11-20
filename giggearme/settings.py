@@ -77,7 +77,7 @@ INSTALLED_APPS = [
 	# Payment
 	'paypal',
 ] + get_core_apps(['oscar_mod.catalogue', 'oscar_mod.dashboard.catalogue',
-	 'oscar_mod.shipping'])
+	 'oscar_mod.shipping','oscar_mod.customer'])
 
 MIDDLEWARE_CLASSES = (
 	'django.contrib.sessions.middleware.SessionMiddleware',

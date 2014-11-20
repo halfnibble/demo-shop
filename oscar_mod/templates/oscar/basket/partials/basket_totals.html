@@ -182,6 +182,12 @@
 								
 							</h1>
 						</a>
+					{% else %}
+						<a href="{% url 'customer:login' %}" class="button radius secondary">
+							<h1>
+								<span class="checkout-text">{% trans "Login or Register" %} </span>								
+							</h1>
+						</a>
 					{% endif %}
 				</li>
 			{% endblock paypal_express %}
@@ -196,7 +202,11 @@
 						<input type="hidden" name="payer_id" value="{{ payer_id }}" />
 						<input type="hidden" name="token" value="{{ token }}" />
 						
-						<button id='place-order' type="submit" class="radius large secondary js-disable-on-click" data-loading-text="{% trans 'Submitting...' %}">{% trans "Place order" %}</button>
+						<button id='place-order' type="submit" class="radius large secondary js-disable-on-click" data-loading-text="{% trans 'Submitting...' %}">
+							<h1>
+								<span class="checkout-text">{% trans "Place Order" %}</span>
+							</h1>
+						</button>
 
 					</form>
 				</li>
