@@ -6605,3 +6605,48 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/forms/models.py", line 294, in __new__
     raise FieldError(message)
 FieldError: Unknown field(s) (weight) specified for Product
+Internal Server Error: /checkout/paypal/place-order/3/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/session.py", line 68, in dispatch
+    request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/paypal/express/views.py", line 281, in post
+    return self.submit(**submission)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/views.py", line 632, in submit
+    shipping_charge, billing_address, order_total, **order_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/mixins.py", line 114, in handle_order_placement
+    return self.handle_successful_order(order)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/mixins.py", line 238, in handle_successful_order
+    self.send_confirmation_message(order, self.communication_type_code)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/checkout/mixins.py", line 276, in send_confirmation_message
+    event_type, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/utils.py", line 44, in dispatch_order_messages
+    self.dispatch_user_messages(order.user, messages)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/utils.py", line 56, in dispatch_user_messages
+    self.send_user_email_messages(user, messages)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/utils.py", line 72, in send_user_email_messages
+    email = self.send_email_messages(user.email, messages)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/utils.py", line 103, in send_email_messages
+    email.send()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/mail/message.py", line 286, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 92, in send_messages
+    new_conn_created = self.open()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 50, in open
+    self.connection = connection_class(self.host, self.port, **connection_params)
+  File "/usr/lib/python2.7/smtplib.py", line 249, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/lib/python2.7/smtplib.py", line 309, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/lib/python2.7/smtplib.py", line 284, in _get_socket
+    return socket.create_connection((port, host), timeout)
+  File "/usr/lib/python2.7/socket.py", line 571, in create_connection
+    raise err
+error: [Errno 111] Connection refused

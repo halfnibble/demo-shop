@@ -1,0 +1,13 @@
+# Automate creation of super users.
+from giggearme.secret import *
+from django.contrib.auth.models import User
+
+# Superusers in secret.py in list format
+for superuser in SUPERUSERS:
+	user = User(username=superuser['username'])
+	user.email = superuser['email']
+	user.set_password(superuser['password'])
+	user.is_superuser = True
+	user.is_staff = True
+	user.save()
+

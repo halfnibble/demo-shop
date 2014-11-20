@@ -3,7 +3,6 @@ import subprocess, sys, os
 from giggearme.secret import *
 from giggearme.settings import DATABASES
 
-
 """
 Utility functions
 """
@@ -13,10 +12,6 @@ def getOscarPath(virtual_env_path):
 def getAdminPath(virtual_env_path):
 	return os.path.join(virtual_env_path,'lib','python2.7','site-packages','django',
 		'contrib','admin')
-
-def getLocalPath(add_to_path):
-	local_dir = os.path.dirname(os.path.realpath(sys.argv[0]))
-	return os.path.join(local_dir, add_to_path)
 	
 def runSQL(sql):
 	print "Executing %s\nPlease enter password." % (sql)
@@ -81,7 +76,8 @@ if migrate_output != 0:
 # Import fixtures
 fixture_list = ['us_countries.json', 'product_classes.json',
 	'product_brands.json', 'product_attributes.json',
-	'product_activities.json', 'partner_partners.json']
+	'product_activities.json', 'partner_partners.json',
+	'weight_shipping.json', 'weight_bands.json']
 
 for fixture in fixture_list:
 	import_output = subprocess.call(['python','manage.py','loaddata','fixtures/'+fixture])
@@ -119,9 +115,7 @@ if production:
 			else:
 				print "ERROR: While creating symbolic links to "+oscar_static_path+", and/or "+admin_static_path+"."
 		except:
-			print "Unable to create symbolic links. Check the directory and try again."
-				
-	
+			print "Unable to create symbolic links. Check the directory and try again."	
 
 # Set folder owner for 'static' and 'media' on production
 if production:
@@ -144,6 +138,6 @@ if production:
 		print "ERROR: Setting permissions for media folder."
 		
 # Create Super Users.
-
-# Create Shipping and Bands.
-
+superuser_output = subprocess.call('python manage.py shell < fixtures/superusers_importer.py',shell=True)
+if superuser_output != 0:
+	print "ERROR: Importing superuser_importer.py."

@@ -1,0 +1,1 @@
+[{"fields": {"countries": ["US"], "code": "ups-ground", "default_weight": "0.750", "name": "UPS Ground", "description": "<p>Expected delivery in 3 - 5 business days</p>"}, "model": "shipping.weightbased", "pk": 1}]
