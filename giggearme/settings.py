@@ -32,6 +32,8 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'usermod.User'
+
 # Template Contexts
 TEMPLATE_CONTEXT_PROCESSORS = (
 	"django.contrib.auth.context_processors.auth",
@@ -53,7 +55,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 from oscar import OSCAR_MAIN_TEMPLATE_DIR
 TEMPLATE_DIRS = (
 	# location('templates'),
-	os.path.join(BASE_DIR, 'oscar_mod', 'templates', 'oscar'),
+	os.path.join(BASE_DIR, 'oscarmod', 'templates', 'oscar'),
 	OSCAR_MAIN_TEMPLATE_DIR,
 )
 
@@ -71,13 +73,15 @@ INSTALLED_APPS = [
 	'django.contrib.sites',
 	'django.contrib.flatpages',
 	'compressor',
+	# Add for custom user
+	'usermod',
 	# Add for Oscar customization
-	'oscar_mod',
+	'oscarmod',
 	'pages',
 	# Payment
 	'paypal',
-] + get_core_apps(['oscar_mod.catalogue', 'oscar_mod.dashboard.catalogue',
-	 'oscar_mod.shipping','oscar_mod.customer'])
+] + get_core_apps(['oscarmod.catalogue', 'oscarmod.dashboard.catalogue',
+	 'oscarmod.shipping','oscarmod.customer'])
 
 MIDDLEWARE_CLASSES = (
 	'django.contrib.sessions.middleware.SessionMiddleware',

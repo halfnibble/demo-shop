@@ -1,6 +1,6 @@
 # Automate creation of super users.
 from giggearme.secret import *
-from django.contrib.auth.models import User
+from usermod.models import User
 
 # Superusers in secret.py in list format
 for superuser in SUPERUSERS:

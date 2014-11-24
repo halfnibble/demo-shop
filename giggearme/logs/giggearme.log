@@ -1164,7 +1164,7 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
     return get_classes(module_label, [classname])[0]
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
-    oscar_module = _import_module(oscar_module_label, classnames)
+    oscarmodule = _import_module(oscarmodule_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/app.py", line 7, in <module>
@@ -1174,7 +1174,7 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
     return get_classes(module_label, [classname])[0]
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
-    oscar_module = _import_module(oscar_module_label, classnames)
+    oscarmodule = _import_module(oscarmodule_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/catalogue/app.py", line 7, in <module>
@@ -1184,7 +1184,7 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
     return get_classes(module_label, [classname])[0]
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
-    oscar_module = _import_module(oscar_module_label, classnames)
+    oscarmodule = _import_module(oscarmodule_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/catalogue/views.py", line 36, in <module>
@@ -1225,7 +1225,7 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
     return get_classes(module_label, [classname])[0]
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
-    oscar_module = _import_module(oscar_module_label, classnames)
+    oscarmodule = _import_module(oscarmodule_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/app.py", line 7, in <module>
@@ -1235,7 +1235,7 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
     return get_classes(module_label, [classname])[0]
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
-    oscar_module = _import_module(oscar_module_label, classnames)
+    oscarmodule = _import_module(oscarmodule_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/catalogue/app.py", line 7, in <module>
@@ -1245,7 +1245,7 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
     return get_classes(module_label, [classname])[0]
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
-    oscar_module = _import_module(oscar_module_label, classnames)
+    oscarmodule = _import_module(oscarmodule_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/catalogue/views.py", line 36, in <module>
@@ -1286,7 +1286,7 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
     return get_classes(module_label, [classname])[0]
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
-    oscar_module = _import_module(oscar_module_label, classnames)
+    oscarmodule = _import_module(oscarmodule_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/app.py", line 7, in <module>
@@ -1296,7 +1296,7 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
     return get_classes(module_label, [classname])[0]
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
-    oscar_module = _import_module(oscar_module_label, classnames)
+    oscarmodule = _import_module(oscarmodule_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/catalogue/app.py", line 7, in <module>
@@ -1306,7 +1306,7 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
     return get_classes(module_label, [classname])[0]
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
-    oscar_module = _import_module(oscar_module_label, classnames)
+    oscarmodule = _import_module(oscarmodule_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/catalogue/views.py", line 36, in <module>
@@ -1432,9 +1432,9 @@ Traceback (most recent call last):
     return self.dispatch(request, *args, **kwargs)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
     return handler(request, *args, **kwargs)
-  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 171, in get
+  File "/home/joshua/djangospace/giggearme_project_v2/oscarmod/catalogue/views.py", line 171, in get
     self.category = self.get_category()
-  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 206, in get_category
+  File "/home/joshua/djangospace/giggearme_project_v2/oscarmod/catalogue/views.py", line 206, in get_category
     return get_object_or_404(Category, **filters)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/shortcuts.py", line 113, in get_object_or_404
     return queryset.get(*args, **kwargs)
@@ -1469,9 +1469,9 @@ Traceback (most recent call last):
     return self.dispatch(request, *args, **kwargs)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
     return handler(request, *args, **kwargs)
-  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 171, in get
+  File "/home/joshua/djangospace/giggearme_project_v2/oscarmod/catalogue/views.py", line 171, in get
     self.category = self.get_category()
-  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 206, in get_category
+  File "/home/joshua/djangospace/giggearme_project_v2/oscarmod/catalogue/views.py", line 206, in get_category
     return get_object_or_404(Category, **filters)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/shortcuts.py", line 113, in get_object_or_404
     return queryset.get(*args, **kwargs)
@@ -1506,11 +1506,11 @@ Traceback (most recent call last):
     return self.dispatch(request, *args, **kwargs)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
     return handler(request, *args, **kwargs)
-  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 182, in get
+  File "/home/joshua/djangospace/giggearme_project_v2/oscarmod/catalogue/views.py", line 182, in get
     return super(ProductCategoryView, self).get(request, *args, **kwargs)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 154, in get
     context = self.get_context_data(**kwargs)
-  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 227, in get_context_data
+  File "/home/joshua/djangospace/giggearme_project_v2/oscarmod/catalogue/views.py", line 227, in get_context_data
     search_context.filter(brand=self.brand)
 AttributeError: 'dict' object has no attribute 'filter'
 Internal Server Error: /catalogue/category/clothing_1/activity/Skiing/
@@ -1774,9 +1774,9 @@ Traceback (most recent call last):
     return self.dispatch(request, *args, **kwargs)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
     return handler(request, *args, **kwargs)
-  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 168, in get
+  File "/home/joshua/djangospace/giggearme_project_v2/oscarmod/catalogue/views.py", line 168, in get
     self.category = self.get_category()
-  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 194, in get_category
+  File "/home/joshua/djangospace/giggearme_project_v2/oscarmod/catalogue/views.py", line 194, in get_category
     filters = {'slug': self.kwargs['category_slug']}
 KeyError: 'category_slug'
 Internal Server Error: /catalogue/brand/8BPlus/
@@ -1791,9 +1791,9 @@ Traceback (most recent call last):
     return self.dispatch(request, *args, **kwargs)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
     return handler(request, *args, **kwargs)
-  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 168, in get
+  File "/home/joshua/djangospace/giggearme_project_v2/oscarmod/catalogue/views.py", line 168, in get
     self.category = self.get_category()
-  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 194, in get_category
+  File "/home/joshua/djangospace/giggearme_project_v2/oscarmod/catalogue/views.py", line 194, in get_category
     filters = {'slug': self.kwargs['category_slug']}
 KeyError: 'category_slug'
 Internal Server Error: /catalogue/activity/Cycling/
@@ -1808,9 +1808,9 @@ Traceback (most recent call last):
     return self.dispatch(request, *args, **kwargs)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
     return handler(request, *args, **kwargs)
-  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 168, in get
+  File "/home/joshua/djangospace/giggearme_project_v2/oscarmod/catalogue/views.py", line 168, in get
     self.category = self.get_category()
-  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/views.py", line 194, in get_category
+  File "/home/joshua/djangospace/giggearme_project_v2/oscarmod/catalogue/views.py", line 194, in get_category
     filters = {'slug': self.kwargs['category_slug']}
 KeyError: 'category_slug'
 Internal Server Error: /catalogue/activity/Cycling/
@@ -1833,7 +1833,7 @@ Traceback (most recent call last):
     url(r'^catalogue/', include(self.catalogue_app.urls)),
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/application.py", line 103, in urls
     return self.get_urls(), self.app_name, self.name
-  File "/home/joshua/djangospace/giggearme_project_v2/oscar_mod/catalogue/app.py", line 19, in get_urls
+  File "/home/joshua/djangospace/giggearme_project_v2/oscarmod/catalogue/app.py", line 19, in get_urls
     url(r'^activity/(?P<activity>[\w-]+)/$', self.catelogue_view.as_view(), name='activity'),
 AttributeError: 'CatalogueApplication' object has no attribute 'catelogue_view'
 Internal Server Error: /checkout/shipping-address/
@@ -3005,7 +3005,7 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
     return get_classes(module_label, [classname])[0]
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
-    oscar_module = _import_module(oscar_module_label, classnames)
+    oscarmodule = _import_module(oscarmodule_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/app.py", line 8, in <module>
@@ -3015,7 +3015,7 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
     return get_classes(module_label, [classname])[0]
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
-    oscar_module = _import_module(oscar_module_label, classnames)
+    oscarmodule = _import_module(oscarmodule_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/views.py", line 28, in <module>
@@ -3026,7 +3026,7 @@ Traceback (most recent call last):
     local_module = _import_module(local_module_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
-  File "/home/joshua/djangospace/giggearme_project/oscar_mod/shipping/repository.py", line 11
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/shipping/repository.py", line 11
     def get_shipping_methods(self, user, basket, shipping_addr=None, **kwargs):
                                                                               ^
 IndentationError: unindent does not match any outer indentation level
@@ -3050,7 +3050,7 @@ Traceback (most recent call last):
     self.request.basket)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/views.py", line 108, in get_shipping_methods
     request=self.request)
-  File "/home/joshua/djangospace/giggearme_project/oscar_mod/shipping/repository.py", line 21, in get_shipping_methods
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/shipping/repository.py", line 21, in get_shipping_methods
     return self.add_basket_to_methods(basket, methods)
 AttributeError: 'Repository' object has no attribute 'add_basket_to_methods'
 Internal Server Error: /basket/
@@ -3098,7 +3098,7 @@ Traceback (most recent call last):
     request=self.request)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/shipping/repository.py", line 33, in get_shipping_methods
     basket=basket, shipping_addr=shipping_addr, **kwargs)
-  File "/home/joshua/djangospace/giggearme_project/oscar_mod/shipping/repository.py", line 20, in get_available_shipping_methods
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/shipping/repository.py", line 20, in get_available_shipping_methods
     methods = [WeightBased(), OrderAndItemCharges()]
 NameError: global name 'OrderAndItemCharges' is not defined
 Internal Server Error: /basket/
@@ -3321,7 +3321,7 @@ Traceback (most recent call last):
     request=self.request)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/shipping/repository.py", line 33, in get_shipping_methods
     basket=basket, shipping_addr=shipping_addr, **kwargs)
-  File "/home/joshua/djangospace/giggearme_project/oscar_mod/shipping/repository.py", line 20, in get_available_shipping_methods
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/shipping/repository.py", line 20, in get_available_shipping_methods
     return self.add_basket_to_methods(basket, methods)
 AttributeError: 'Repository' object has no attribute 'add_basket_to_methods'
 Internal Server Error: /basket/
@@ -3443,7 +3443,7 @@ Traceback (most recent call last):
     request=self.request)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/shipping/repository.py", line 33, in get_shipping_methods
     basket=basket, shipping_addr=shipping_addr, **kwargs)
-  File "/home/joshua/djangospace/giggearme_project/oscar_mod/shipping/repository.py", line 25, in get_available_shipping_methods
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/shipping/repository.py", line 25, in get_available_shipping_methods
     countries=shipping_addr.country)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/manager.py", line 92, in manager_method
     return getattr(self.get_queryset(), name)(*args, **kwargs)
@@ -3484,7 +3484,7 @@ Traceback (most recent call last):
     request=self.request)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/shipping/repository.py", line 33, in get_shipping_methods
     basket=basket, shipping_addr=shipping_addr, **kwargs)
-  File "/home/joshua/djangospace/giggearme_project/oscar_mod/shipping/repository.py", line 26, in get_available_shipping_methods
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/shipping/repository.py", line 26, in get_available_shipping_methods
     methods.extend(list(models.WeightBased.objects.all()))
 AttributeError: 'module' object has no attribute 'WeightBased'
 Internal Server Error: /checkout/shipping-method/
@@ -3507,7 +3507,7 @@ Traceback (most recent call last):
     request=self.request)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/shipping/repository.py", line 33, in get_shipping_methods
     basket=basket, shipping_addr=shipping_addr, **kwargs)
-  File "/home/joshua/djangospace/giggearme_project/oscar_mod/shipping/repository.py", line 27, in get_available_shipping_methods
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/shipping/repository.py", line 27, in get_available_shipping_methods
     methods.extend(list(models.WeightBased.objects.all()))
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/query.py", line 141, in __iter__
     self._fetch_all()
@@ -3554,7 +3554,7 @@ Traceback (most recent call last):
     request=self.request)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/shipping/repository.py", line 33, in get_shipping_methods
     basket=basket, shipping_addr=shipping_addr, **kwargs)
-  File "/home/joshua/djangospace/giggearme_project/oscar_mod/shipping/repository.py", line 27, in get_available_shipping_methods
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/shipping/repository.py", line 27, in get_available_shipping_methods
     methods.extend(list(models.WeightBased.objects.all()))
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/query.py", line 141, in __iter__
     self._fetch_all()
@@ -3601,7 +3601,7 @@ Traceback (most recent call last):
     request=self.request)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/shipping/repository.py", line 33, in get_shipping_methods
     basket=basket, shipping_addr=shipping_addr, **kwargs)
-  File "/home/joshua/djangospace/giggearme_project/oscar_mod/shipping/repository.py", line 27, in get_available_shipping_methods
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/shipping/repository.py", line 27, in get_available_shipping_methods
     methods.extend(list(models.WeightBased.objects.all()))
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/query.py", line 141, in __iter__
     self._fetch_all()
@@ -3648,7 +3648,7 @@ Traceback (most recent call last):
     request=self.request)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/shipping/repository.py", line 33, in get_shipping_methods
     basket=basket, shipping_addr=shipping_addr, **kwargs)
-  File "/home/joshua/djangospace/giggearme_project/oscar_mod/shipping/repository.py", line 27, in get_available_shipping_methods
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/shipping/repository.py", line 27, in get_available_shipping_methods
     methods.extend(list(models.WeightBased.objects.all()))
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/query.py", line 141, in __iter__
     self._fetch_all()
@@ -3739,7 +3739,7 @@ Traceback (most recent call last):
     context[self.target_var] = func(*resolved_args, **resolved_kwargs)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/templatetags/shipping_tags.py", line 13, in shipping_charge
     return method.calculate(basket)
-  File "/home/joshua/djangospace/giggearme_project/oscar_mod/shipping/models.py", line 9, in calculate
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/shipping/models.py", line 9, in calculate
     scale = Scale(attribute_code=self.weight_attribute,
 NameError: global name 'Scale' is not defined
 Internal Server Error: /checkout/shipping-method/
@@ -3806,9 +3806,9 @@ Traceback (most recent call last):
     context[self.target_var] = func(*resolved_args, **resolved_kwargs)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/templatetags/shipping_tags.py", line 13, in shipping_charge
     return method.calculate(basket)
-  File "/home/joshua/djangospace/giggearme_project/oscar_mod/shipping/models.py", line 16, in calculate
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/shipping/models.py", line 16, in calculate
     charge = self.get_charge(weight)
-  File "/home/joshua/djangospace/giggearme_project/oscar_mod/shipping/models.py", line 39, in get_charge
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/shipping/models.py", line 39, in get_charge
     return D('0.23')
 NameError: global name 'D' is not defined
 Internal Server Error: /
@@ -4917,7 +4917,7 @@ Traceback (most recent call last):
     user=user, basket=basket)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/shipping/repository.py", line 33, in get_shipping_methods
     basket=basket, shipping_addr=shipping_addr, **kwargs)
-  File "/home/joshua/djangospace/giggearme_project/oscar_mod/shipping/repository.py", line 28, in get_available_shipping_methods
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/shipping/repository.py", line 28, in get_available_shipping_methods
     methods.extend(list(models.WeightBased.objects.all()))
 AttributeError: 'module' object has no attribute 'WeightBased'
 Internal Server Error: /checkout/paypal/redirect/
@@ -5934,7 +5934,7 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
     return get_classes(module_label, [classname])[0]
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
-    oscar_module = _import_module(oscar_module_label, classnames)
+    oscarmodule = _import_module(oscarmodule_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/app.py", line 8, in <module>
@@ -5944,7 +5944,7 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
     return get_classes(module_label, [classname])[0]
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
-    oscar_module = _import_module(oscar_module_label, classnames)
+    oscarmodule = _import_module(oscarmodule_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/views.py", line 28, in <module>
@@ -5955,7 +5955,7 @@ Traceback (most recent call last):
     local_module = _import_module(local_module_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
-  File "/home/joshua/djangospace/giggearme_project/oscar_mod/shipping/repository.py", line 7
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/shipping/repository.py", line 7
     def calculate:
                  ^
 SyntaxError: invalid syntax
@@ -6571,7 +6571,7 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
     return get_classes(module_label, [classname])[0]
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
-    oscar_module = _import_module(oscar_module_label, classnames)
+    oscarmodule = _import_module(oscarmodule_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/app.py", line 7, in <module>
@@ -6581,7 +6581,7 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
     return get_classes(module_label, [classname])[0]
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
-    oscar_module = _import_module(oscar_module_label, classnames)
+    oscarmodule = _import_module(oscarmodule_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/catalogue/app.py", line 7, in <module>
@@ -6591,7 +6591,7 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
     return get_classes(module_label, [classname])[0]
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
-    oscar_module = _import_module(oscar_module_label, classnames)
+    oscarmodule = _import_module(oscarmodule_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/dashboard/catalogue/views.py", line 36, in <module>
@@ -6600,7 +6600,7 @@ Traceback (most recent call last):
     local_module = _import_module(local_module_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
-  File "/home/joshua/djangospace/giggearme_project/oscar_mod/dashboard/catalogue/forms.py", line 247, in <module>
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/dashboard/catalogue/forms.py", line 247, in <module>
     class ProductForm(forms.ModelForm):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/forms/models.py", line 294, in __new__
     raise FieldError(message)
@@ -6825,7 +6825,7 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
     return get_classes(module_label, [classname])[0]
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
-    oscar_module = _import_module(oscar_module_label, classnames)
+    oscarmodule = _import_module(oscarmodule_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/catalogue/app.py", line 8, in <module>
@@ -6835,7 +6835,7 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
     return get_classes(module_label, [classname])[0]
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
-    oscar_module = _import_module(oscar_module_label, classnames)
+    oscarmodule = _import_module(oscarmodule_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/catalogue/views.py", line 16, in <module>
@@ -6846,9 +6846,9 @@ Traceback (most recent call last):
     local_module = _import_module(local_module_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
-  File "/home/joshua/djangospace/giggearme_project/oscar_mod/customer/forms.py", line 3, in <module>
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/customer/forms.py", line 3, in <module>
     class EmailUserCreationForm(EmailUserCreationForm):
-  File "/home/joshua/djangospace/giggearme_project/oscar_mod/customer/forms.py", line 4, in EmailUserCreationForm
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/customer/forms.py", line 4, in EmailUserCreationForm
     first_name = forms.CharField(label=_("First name"))
 NameError: name '_' is not defined
 Internal Server Error: /favicon.ico
@@ -6878,7 +6878,7 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
     return get_classes(module_label, [classname])[0]
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
-    oscar_module = _import_module(oscar_module_label, classnames)
+    oscarmodule = _import_module(oscarmodule_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/catalogue/app.py", line 8, in <module>
@@ -6888,7 +6888,7 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
     return get_classes(module_label, [classname])[0]
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
-    oscar_module = _import_module(oscar_module_label, classnames)
+    oscarmodule = _import_module(oscarmodule_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/catalogue/views.py", line 16, in <module>
@@ -6899,9 +6899,9 @@ Traceback (most recent call last):
     local_module = _import_module(local_module_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
-  File "/home/joshua/djangospace/giggearme_project/oscar_mod/customer/forms.py", line 3, in <module>
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/customer/forms.py", line 3, in <module>
     class EmailUserCreationForm(EmailUserCreationForm):
-  File "/home/joshua/djangospace/giggearme_project/oscar_mod/customer/forms.py", line 4, in EmailUserCreationForm
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/customer/forms.py", line 4, in EmailUserCreationForm
     first_name = forms.CharField(label=_("First name"))
 NameError: name '_' is not defined
 Internal Server Error: /favicon.ico
@@ -6931,7 +6931,7 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
     return get_classes(module_label, [classname])[0]
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
-    oscar_module = _import_module(oscar_module_label, classnames)
+    oscarmodule = _import_module(oscarmodule_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/catalogue/app.py", line 8, in <module>
@@ -6941,7 +6941,7 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 67, in get_class
     return get_classes(module_label, [classname])[0]
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 124, in get_classes
-    oscar_module = _import_module(oscar_module_label, classnames)
+    oscarmodule = _import_module(oscarmodule_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/catalogue/views.py", line 16, in <module>
@@ -6952,9 +6952,9 @@ Traceback (most recent call last):
     local_module = _import_module(local_module_label, classnames)
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/core/loading.py", line 159, in _import_module
     return __import__(module_label, fromlist=classnames)
-  File "/home/joshua/djangospace/giggearme_project/oscar_mod/customer/forms.py", line 3, in <module>
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/customer/forms.py", line 3, in <module>
     class EmailUserCreationForm(EmailUserCreationForm):
-  File "/home/joshua/djangospace/giggearme_project/oscar_mod/customer/forms.py", line 4, in EmailUserCreationForm
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/customer/forms.py", line 4, in EmailUserCreationForm
     first_name = forms.CharField(label=_("First name"))
 NameError: name '_' is not defined
 Internal Server Error: /accounts/login/
@@ -6982,3 +6982,222 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/forms/models.py", line 312, in __init__
     raise ValueError('ModelForm has no model class specified.')
 ValueError: ModelForm has no model class specified.
+Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/views.py", line 120, in post
+    return self.validate_registration_form()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/views.py", line 206, in validate_registration_form
+    self.register_user(form)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/mixins.py", line 55, in register_user
+    self.send_registration_email(user)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/mixins.py", line 92, in send_registration_email
+    Dispatcher().dispatch_user_messages(user, messages)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/utils.py", line 56, in dispatch_user_messages
+    self.send_user_email_messages(user, messages)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/utils.py", line 79, in send_user_email_messages
+    body_html=messages['html'])
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/manager.py", line 92, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/query.py", line 372, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/base.py", line 591, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/base.py", line 619, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/base.py", line 700, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/base.py", line 733, in _do_insert
+    using=using, raw=raw)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/manager.py", line 92, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/query.py", line 921, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 920, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 81, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/backends/mysql/base.py", line 128, in execute
+    return self.cursor.execute(query, args)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`giggearme`.`customer_email`, CONSTRAINT `customer_email_user_id_8eeb3a31aa9371c_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`))')
+Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/views.py", line 120, in post
+    return self.validate_registration_form()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/views.py", line 206, in validate_registration_form
+    self.register_user(form)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/mixins.py", line 55, in register_user
+    self.send_registration_email(user)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/mixins.py", line 92, in send_registration_email
+    Dispatcher().dispatch_user_messages(user, messages)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/utils.py", line 56, in dispatch_user_messages
+    self.send_user_email_messages(user, messages)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/utils.py", line 79, in send_user_email_messages
+    body_html=messages['html'])
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/manager.py", line 92, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/query.py", line 372, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/base.py", line 591, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/base.py", line 619, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/base.py", line 700, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/base.py", line 733, in _do_insert
+    using=using, raw=raw)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/manager.py", line 92, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/query.py", line 921, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 920, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 81, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/backends/mysql/base.py", line 128, in execute
+    return self.cursor.execute(query, args)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`giggearme`.`customer_email`, CONSTRAINT `customer_email_user_id_8eeb3a31aa9371c_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`))')
+Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/views.py", line 120, in post
+    return self.validate_registration_form()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/views.py", line 206, in validate_registration_form
+    self.register_user(form)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/mixins.py", line 55, in register_user
+    self.send_registration_email(user)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/mixins.py", line 92, in send_registration_email
+    Dispatcher().dispatch_user_messages(user, messages)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/utils.py", line 56, in dispatch_user_messages
+    self.send_user_email_messages(user, messages)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/utils.py", line 72, in send_user_email_messages
+    email = self.send_email_messages(user.email, messages)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/utils.py", line 103, in send_email_messages
+    email.send()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/mail/message.py", line 286, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 99, in send_messages
+    sent = self._send(message)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 115, in _send
+    self.connection.sendmail(from_email, recipients, message.as_bytes(linesep='\r\n'))
+  File "/usr/lib/python2.7/smtplib.py", line 733, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+SMTPRecipientsRefused: {u'bob@moolagram.com': (451, '4.1.8 Domain of sender address no-reply@giggearme.com does not resolve')}
+Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/views.py", line 120, in post
+    return self.validate_registration_form()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/views.py", line 206, in validate_registration_form
+    self.register_user(form)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/mixins.py", line 55, in register_user
+    self.send_registration_email(user)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/mixins.py", line 92, in send_registration_email
+    Dispatcher().dispatch_user_messages(user, messages)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/utils.py", line 56, in dispatch_user_messages
+    self.send_user_email_messages(user, messages)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/utils.py", line 72, in send_user_email_messages
+    email = self.send_email_messages(user.email, messages)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/utils.py", line 103, in send_email_messages
+    email.send()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/mail/message.py", line 286, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 99, in send_messages
+    sent = self._send(message)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 115, in _send
+    self.connection.sendmail(from_email, recipients, message.as_bytes(linesep='\r\n'))
+  File "/usr/lib/python2.7/smtplib.py", line 733, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+SMTPRecipientsRefused: {u'bob@moolagram.com': (451, '4.1.8 Domain of sender address no-reply@giggearme.com does not resolve')}
+Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/views.py", line 120, in post
+    return self.validate_registration_form()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/views.py", line 206, in validate_registration_form
+    self.register_user(form)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/mixins.py", line 55, in register_user
+    self.send_registration_email(user)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/mixins.py", line 92, in send_registration_email
+    Dispatcher().dispatch_user_messages(user, messages)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/utils.py", line 56, in dispatch_user_messages
+    self.send_user_email_messages(user, messages)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/utils.py", line 72, in send_user_email_messages
+    email = self.send_email_messages(user.email, messages)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/customer/utils.py", line 103, in send_email_messages
+    email.send()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/mail/message.py", line 286, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 99, in send_messages
+    sent = self._send(message)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 115, in _send
+    self.connection.sendmail(from_email, recipients, message.as_bytes(linesep='\r\n'))
+  File "/usr/lib/python2.7/smtplib.py", line 733, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+SMTPRecipientsRefused: {u'bob@moolagramer.com': (451, '4.1.8 Domain of sender address no-reply@giggearme.com does not resolve')}
