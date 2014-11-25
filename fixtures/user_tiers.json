@@ -1,0 +1,1 @@
+[{"fields": {"name": "Merchant Level 1", "value": 1, "description": "Our basic merchant account."}, "model": "usermod.usertier", "pk": 1}, {"fields": {"name": "Merchant Level 2", "value": 2, "description": "Our premier merchant account."}, "model": "usermod.usertier", "pk": 2}]

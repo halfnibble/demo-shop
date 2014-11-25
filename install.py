@@ -77,7 +77,7 @@ if migrate_output != 0:
 fixture_list = ['us_countries.json', 'product_classes.json',
 	'product_brands.json', 'product_attributes.json',
 	'product_activities.json', 'partner_partners.json',
-	'weight_shipping.json', 'weight_bands.json']
+	'weight_shipping.json', 'weight_bands.json', 'user_tiers.json']
 
 for fixture in fixture_list:
 	import_output = subprocess.call(['python','manage.py','loaddata','fixtures/'+fixture])
