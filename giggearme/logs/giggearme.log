@@ -7850,3 +7850,55 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/giggearme_project/oscarmod/shipping/repository.py", line 58, in get_available_shipping_methods
     level_1 = UserTier.get(pk=1)
 AttributeError: type object 'UserTier' has no attribute 'get'
+Internal Server Error: /basket/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/extra_views/formsets.py", line 338, in get
+    return super(BaseModelFormSetView, self).get(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/extra_views/formsets.py", line 301, in get
+    return self.render_to_response(self.get_context_data(formset=formset))
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/views.py", line 155, in get_context_data
+    self.request.basket)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/views.py", line 108, in get_shipping_methods
+    request=self.request)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/shipping/repository.py", line 33, in get_shipping_methods
+    basket=basket, shipping_addr=shipping_addr, **kwargs)
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/shipping/repository.py", line 17, in get_available_shipping_methods
+    if user is not None and user.tier:
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/utils/functional.py", line 225, in inner
+    return func(self._wrapped, *args)
+AttributeError: 'AnonymousUser' object has no attribute 'tier'
+Internal Server Error: /basket/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/db/transaction.py", line 394, in inner
+    return func(*args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/extra_views/formsets.py", line 338, in get
+    return super(BaseModelFormSetView, self).get(request, *args, **kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/extra_views/formsets.py", line 301, in get
+    return self.render_to_response(self.get_context_data(formset=formset))
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/views.py", line 155, in get_context_data
+    self.request.basket)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/basket/views.py", line 108, in get_shipping_methods
+    request=self.request)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/apps/shipping/repository.py", line 33, in get_shipping_methods
+    basket=basket, shipping_addr=shipping_addr, **kwargs)
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/shipping/repository.py", line 29, in get_available_shipping_methods
+    methods.extend([ Overnight(), ])
+NameError: global name 'Overnight' is not defined

@@ -153,3 +153,8 @@ if production:
 superuser_output = subprocess.call('python manage.py shell < fixtures/superusers_importer.py',shell=True)
 if superuser_output != 0:
 	print "ERROR: Importing superuser_importer.py."
+
+
+# Add 
+# chown -R www-data giggearme/logs
+# chmod -R 0764 giggearme/logs
