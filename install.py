@@ -101,6 +101,9 @@ if production:
 			oscar_static_path = os.path.join(getOscarPath(venv_location),'static','oscar')
 			admin_static_path = os.path.join(getAdminPath(venv_location),'static','admin')
 			
+			"""
+			Refactor all this to rid the redundancy
+			"""
 			if not os.path.isdir(oscar_static_path):
 				raise Exception("This is not a valid directory: "+oscar_static_path)
 			if not os.path.isdir(admin_static_path):

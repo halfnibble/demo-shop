@@ -362,7 +362,8 @@ class CreateChildProduct(object):
 		product.structure = 'child'
 		product.parent = self.parent
 		product.upc = self.upc
-		product.product_class = self.parent.product_class
+		# Child products cannot have product_class!!
+		# product.product_class = self.parent.product_class
 		
 		if self.color:
 			setattr(product.attr, 'color', self.color)

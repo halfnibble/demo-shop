@@ -200,6 +200,7 @@
                                             <th>{% trans "Currency" %}</th>
                                             <th>{% trans "Cost price" %}</th>
                                             <th>{% trans "Price (excl tax)" %}</th>
+                                            <th>{% trans "Reseller Price" %}</th>
                                             <th>{% trans "Retail price" %}</th>
                                             <th>{% trans "Delete?" %}</th>
                                         </tr>
@@ -226,6 +227,7 @@
                                                 <td>{% include "partials/form_field.html" with field=stockrecord_form.price_currency nolabel=True %}</td>
                                                 <td>{% include "partials/form_field.html" with field=stockrecord_form.cost_price nolabel=True %}</td>
                                                 <td>{% include "partials/form_field.html" with field=stockrecord_form.price_excl_tax nolabel=True %}</td>
+                                                <td>{% include "partials/form_field.html" with field=stockrecord_form.price_reseller nolabel=True %}</td>
                                                 <td>{% include "partials/form_field.html" with field=stockrecord_form.price_retail nolabel=True %}</td>
                                                 <td>
                                                     {% include "partials/form_field.html" with field=stockrecord_form.id nolabel=True %}
