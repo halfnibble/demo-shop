@@ -135,6 +135,9 @@ if production:
 		print "ERROR: Setting owner for oscar/static folder."
 	if chown_admin_output != 0:
 		print "ERROR: Setting owner for admin/static folder."
+	
+	# Dirty hack for now. Refactor.
+	chown_logfiles = subprocess.call(['chown', '-R', 'www-data','giggearme/logs'])
 
 # Set folder permission on production
 if production:
@@ -151,6 +154,9 @@ if production:
 		print "ERROR: Setting permissions for oscar/static folder."
 	if chmod_admin_output != 0:
 		print "ERROR: Setting permissions for admin/static folder."
+		
+	# Dirty hack for now. Refactor.
+	chmod_logfiles = subprocess.call(['chmod', '-R', '0764', 'giggearme/logs'])
 		
 # Create Super Users.
 superuser_output = subprocess.call('python manage.py shell < fixtures/superusers_importer.py',shell=True)
