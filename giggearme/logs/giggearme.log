@@ -8201,3 +8201,396 @@ Traceback (most recent call last):
   File "/home/joshua/djangospace/giggearme_project/oscarmod/partner/strategy.py", line 50, in fetch_for_product
     return PurchaseInfo(
 NameError: global name 'PurchaseInfo' is not defined
+Internal Server Error: /catalogue/category/clothing/kids-clothing_27/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 137, in get_response
+    response = response.render()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 103, in render
+    self.content = self.rendered_content
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 80, in rendered_content
+    content = template.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 148, in render
+    return self._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 90, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 596, in resolve
+    obj = self.var.resolve(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 734, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 788, in _resolve_lookup
+    current = current()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 74, in super
+    return mark_safe(self.render(self.context))
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 201, in render
+    nodelist.append(node.render(context))
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 1136, in render
+    return func(*resolved_args, **resolved_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/templatetags/product_tags.py", line 29, in render_product
+    return template_.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 148, in render
+    return self._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 56, in render
+    result = self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 56, in render
+    result = self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return template.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 148, in render
+    return self._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 1168, in render
+    context[self.target_var] = func(*resolved_args, **resolved_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/templatetags/purchase_info_tags.py", line 10, in purchase_info_for_product
+    return request.strategy.fetch_for_parent(product)
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/partner/strategy.py", line 65, in fetch_for_parent
+    price=self.parent_pricing_policy(product, children_stock, tier),
+NameError: global name 'tier' is not defined
+Internal Server Error: /catalogue/category/clothing/kids-clothing_27/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 137, in get_response
+    response = response.render()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 103, in render
+    self.content = self.rendered_content
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 80, in rendered_content
+    content = template.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 148, in render
+    return self._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 90, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 596, in resolve
+    obj = self.var.resolve(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 734, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 788, in _resolve_lookup
+    current = current()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 74, in super
+    return mark_safe(self.render(self.context))
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 201, in render
+    nodelist.append(node.render(context))
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 1136, in render
+    return func(*resolved_args, **resolved_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/templatetags/product_tags.py", line 29, in render_product
+    return template_.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 148, in render
+    return self._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 56, in render
+    result = self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 56, in render
+    result = self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return template.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 148, in render
+    return self._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 1168, in render
+    context[self.target_var] = func(*resolved_args, **resolved_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/templatetags/purchase_info_tags.py", line 10, in purchase_info_for_product
+    return request.strategy.fetch_for_parent(product)
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/partner/strategy.py", line 66, in fetch_for_parent
+    price=self.parent_pricing_policy(product, children_stock, self.user_tier()),
+TypeError: user_tier() takes no arguments (1 given)
+Internal Server Error: /catalogue/category/clothing/kids-clothing_27/
+Traceback (most recent call last):
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 137, in get_response
+    response = response.render()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 103, in render
+    self.content = self.rendered_content
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/response.py", line 80, in rendered_content
+    content = template.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 148, in render
+    return self._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 90, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 596, in resolve
+    obj = self.var.resolve(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 734, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 788, in _resolve_lookup
+    current = current()
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 74, in super
+    return mark_safe(self.render(self.context))
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 201, in render
+    nodelist.append(node.render(context))
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 1136, in render
+    return func(*resolved_args, **resolved_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/templatetags/product_tags.py", line 29, in render_product
+    return template_.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 148, in render
+    return self._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 56, in render
+    result = self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 56, in render
+    result = self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return template.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 148, in render
+    return self._render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/django/template/base.py", line 1168, in render
+    context[self.target_var] = func(*resolved_args, **resolved_kwargs)
+  File "/home/joshua/djangospace/oscar1_7/local/lib/python2.7/site-packages/oscar/templatetags/purchase_info_tags.py", line 10, in purchase_info_for_product
+    return request.strategy.fetch_for_parent(product)
+  File "/home/joshua/djangospace/giggearme_project/oscarmod/partner/strategy.py", line 66, in fetch_for_parent
+    price=self.parent_pricing_policy(product, children_stock, self.user_tier()),
+TypeError: user_tier() takes no arguments (1 given)

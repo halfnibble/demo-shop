@@ -41,15 +41,21 @@ class NoTaxTier(object):
 
 # Override Structured class to add merchant tier pricing
 class StructuredTier(strategy.Structured):
+	def user_tier(self):
+		if self.user and hasattr(self.user, 'tier'):
+			return self.user.tier
+		else:
+			return 0
+			
 	def fetch_for_product(self, product, stockrecord=None):
 		"""
 		Return the appropriate ``PurchaseInfo`` instance.
 		This method is not intended to be overridden.
-		"""
+		"""		
 		if stockrecord is None:
 			stockrecord = self.select_stockrecord(product)
 		return PurchaseInfo(
-			price=self.pricing_policy(product, stockrecord, self.user.tier),
+			price=self.pricing_policy(product, stockrecord, self.user_tier()),
 			availability=self.availability_policy(product, stockrecord),
 			stockrecord=stockrecord)
 
@@ -57,7 +63,7 @@ class StructuredTier(strategy.Structured):
 		# Select children and associated stockrecords
 		children_stock = self.select_children_stockrecords(product)
 		return PurchaseInfo(
-			price=self.parent_pricing_policy(product, children_stock, self.user.tier),
+			price=self.parent_pricing_policy(product, children_stock, self.user_tier()),
 			availability=self.parent_availability_policy(
 				product, children_stock),
 			stockrecord=None)
