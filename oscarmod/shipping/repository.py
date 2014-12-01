@@ -19,13 +19,14 @@ class Repository(repository.Repository):
 			level_2 = UserTier.objects.get(pk=1)
 			if user.tier == level_1:
 				methods = [ TierOne(), ]
+				return methods
 			elif user.tier == level_2:
 				methods = [ TierTwo(), ]
+				return methods
 			else:
-				methods = [ Overnight(), ]
+				pass
 		# For Regular Users:	
-		else:
-			methods = list(models.WeightBased.objects.all())
-			methods.extend([ Overnight(), ])
+		methods = list(models.WeightBased.objects.all())
+		methods.extend([ Overnight(), ])
 		
 		return methods
