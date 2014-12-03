@@ -213,14 +213,23 @@ OSCAR_DASHBOARD_NAVIGATION += [
 # ==============
 
 OSCAR_INITIAL_ORDER_STATUS = 'Pending'
-OSCAR_INITIAL_LINE_STATUS = 'Pending'
 OSCAR_ORDER_STATUS_PIPELINE = {
-	'Pending': ('Being processed', 'Cancelled',),
-	'Being processed': ('Processed', 'Cancelled',),
+	'Pending': ('Processed', 'Cancelled'),
 	'Processed': ('Shipped', 'Cancelled'),
 	'Shipped': (),
 	'Cancelled': (),
 }
+
+OSCAR_INITIAL_LINE_STATUS = OSCAR_INITIAL_ORDER_STATUS
+OSCAR_LINE_STATUS_PIPELINE = OSCAR_ORDER_STATUS_PIPELINE
+
+OSCAR_ORDER_STATUS_CASCADE = {
+	'Processed': 'Processed',
+	'Shipped': 'Shipped',
+	'Cancelled': 'Cancelled',
+}
+
+
 
 # Logging
 # =======

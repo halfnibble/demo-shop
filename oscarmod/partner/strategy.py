@@ -1,19 +1,20 @@
 from collections import namedtuple
 from decimal import Decimal as D
 
-from oscar.apps.partner import availability, prices, strategy
+from oscar.apps.partner import prices, strategy
 
 PurchaseInfo = namedtuple(
     'PurchaseInfo', ['price', 'availability', 'stockrecord'])
 
 # Override NoTax to add merchant tier pricing
-class NoTaxTier(object):
+class ResllerPrice(object):
 	"""
 	Pricing policy mixin for use with the ``Structured`` base strategy.
 	This mixin will give reseller pricing to reseller users.
 	"""
-	def set_excl_tax(self, stockrecord, tier=0):
-		if tier > 0 and stockrecord.price_reseller:
+	def set_excl_tax(self, stockrecord):
+		# Modify for multiple tiers:
+		if self.user.tier > 0 and stockrecord.price_reseller:
 			return stockrecord.price_reseller
 		
 		return stockrecord.price_excl_tax
@@ -25,7 +26,7 @@ class NoTaxTier(object):
 		
 		return prices.FixedPrice(
 			currency=stockrecord.price_currency,
-			excl_tax=self.set_excl_tax(stockrecord, tier),
+			excl_tax=self.set_excl_tax(stockrecord),
 			tax=D('0.00'))
 
 	def parent_pricing_policy(self, product, children_stock, tier=0):
@@ -36,52 +37,26 @@ class NoTaxTier(object):
 		stockrecord = stockrecords[0]
 		return prices.FixedPrice(
 			currency=stockrecord.price_currency,
-			excl_tax=self.set_excl_tax(stockrecord, tier),
+			excl_tax=self.set_excl_tax(stockrecord),
 			tax=D('0.00'))
 
-# Override Structured class to add merchant tier pricing
-class StructuredTier(strategy.Structured):
-	def user_tier(self):
-		if self.user and hasattr(self.user, 'tier'):
-			return self.user.tier
-		else:
-			return 0
-			
-	def fetch_for_product(self, product, stockrecord=None):
-		"""
-		Return the appropriate ``PurchaseInfo`` instance.
-		This method is not intended to be overridden.
-		"""		
-		if stockrecord is None:
-			stockrecord = self.select_stockrecord(product)
-		return PurchaseInfo(
-			price=self.pricing_policy(product, stockrecord, self.user_tier()),
-			availability=self.availability_policy(product, stockrecord),
-			stockrecord=stockrecord)
-
-	def fetch_for_parent(self, product):
-		# Select children and associated stockrecords
-		children_stock = self.select_children_stockrecords(product)
-		return PurchaseInfo(
-			price=self.parent_pricing_policy(product, children_stock, self.user_tier()),
-			availability=self.parent_availability_policy(
-				product, children_stock),
-			stockrecord=None)
 
 # Default with reseller pricing options
-class PricedByUser(strategy.UseFirstStockRecord, strategy.StockRequired,
-	NoTaxTier, StructuredTier):
+class ResellerStrategy(strategy.UseFirstStockRecord, strategy.StockRequired,
+	ResllerPrice, strategy.Structured):
 	"""
 	Based on Default pricing stategy, but modified to allow 
 	different prices to be displayed for resellers
 	"""
 	
 
-
 class Selector(object):
 
 	def strategy(self, request=None, user=None, **kwargs):
-		return PricedByUser(request)
+		if user and hasattr(user, 'tier'):
+			return ResellerStrategy(request)
+		else:
+			return strategy.Default(request)
 
 """
 NOTE.
