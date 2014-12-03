@@ -7,7 +7,7 @@ PurchaseInfo = namedtuple(
     'PurchaseInfo', ['price', 'availability', 'stockrecord'])
 
 # Override NoTax to add merchant tier pricing
-class ResllerPrice(object):
+class ResellerPrice(object):
 	"""
 	Pricing policy mixin for use with the ``Structured`` base strategy.
 	This mixin will give reseller pricing to reseller users.
@@ -43,7 +43,7 @@ class ResllerPrice(object):
 
 # Default with reseller pricing options
 class ResellerStrategy(strategy.UseFirstStockRecord, strategy.StockRequired,
-	ResllerPrice, strategy.Structured):
+	ResellerPrice, strategy.Structured):
 	"""
 	Based on Default pricing stategy, but modified to allow 
 	different prices to be displayed for resellers

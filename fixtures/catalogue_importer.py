@@ -14,43 +14,116 @@ Partner, StockRecord = get_classes('partner.models', ['Partner', 'StockRecord'])
 ProductClass, Product, Category, ProductCategory, ProductBrand, ProductActivity = get_classes('catalogue.models',
 	('ProductClass', 'Product', 'Category', 'ProductCategory', 'ProductBrand', 'ProductActivity'))
 
+class OpenFile(object):
+	"""
+	This mixin contains functionality to open a file.
+	Override for different file types.
+	"""
+	def set_import_list(self, file_path):
+		self.import_list = []
+		with open(file_path, 'rb') as import_file:
+			reader = csv.reader(import_file)
+			self.import_list = list(reader)
+
+class ParseColumns(object):
+	"""
+	This mixin takes imported file data and parses out the required fields.
+	Override for different vendors
+	"""
+	def set_columns(self, parent_upc=1, upc=2, title=3, description=4, size=5,
+		style=6, material=7, unique=8, brand=9, activity=10, category=11,
+		cost=12, retail=13, msrp=14, wholesale=15, quantity=16):
+		self.column_map = {
+			'parent_upc': parent_upc,
+			'upc': upc,
+			'title': title,
+			'description': description,
+			'size': size,
+			'style': style,
+			'material': material,
+			'unique': unique,
+			'brand': brand,
+			'activity': activity,
+			'category': category,
+			'cost': cost,
+			'retail': retail,
+			'msrp': msrp,
+			'wholesale': wholesale,
+			'quantity': quantity
+		}
+
+
 class ImportCatalogue(object):
 	"""
-	This is a manager class.
+	This is a manager mixin.
 	The initialization will setup default attributes like which partner to use in stock record.
-	> set_columns(...) will associate CSV columns with Product attributes.
-	> run() will loop through each row and create Parent and Child Products as necessary.
+	> Must mixin OpenFile and ParseColumns mixins
+	> set_columns() will set column_map to file_path data.
+	> run() will loop through each row and create Parent and Variant products as necessary.
 	"""
 	
-	def __init__(self, file_path, partner=1, brand=False, unique=['size'], euro=1.3):
-		# Required. File to import
-		self.file_path = file_path
-		
-		# Required Partner ID/Name for import
+	def __init__(self, file_path, partner=1, brand=False, currency_conversion=1.0):
+		# Requried: Import data from file_path
 		try:
-			self.partner = self.match_partner(partner)
+			self.set_import_list(file_path)
 		except:
-			print "Invalid Partner ID/Name entered."
-			raise
+			raise IOError("Unable to import file: " + file_path ".")
 		
-		# Optional. Brand ID/Name for entire import
+		# Required: Partner ID/Name for import
+		try:
+			self.partner = self.match_global_partner(partner)
+		except:
+			raise StandardError("Invalid Partner ID/Name entered.")
+		
+		# Optional: Brand ID/Name for entire import
 		if brand:
 			try:
-				self.brand = self.match_brand(brand)
+				self.brand = self.match_global_brand(brand)
 			except:
-				print "Invalid Global Brand ID/Name entered."
-				raise
+				raise StandardError("Invalid Global Brand ID/Name entered.")
 		else:
 			self.brand = False
 			
 		# Set fields unique to child products
-		self.unique = unique
+		self.set_global_unique()
 		
-		# Euro to USD conversion factor
-		self.euro = euro
+		# Set currency conversion factor
+		self.currency_conversion = currency_conversion
+	
+	"""
+	Implement a global function to set unique VariantProduct attributes
+	Override for different import lists
+	"""
+	def set_global_unique(self):
+		self.global_unique = False
+		
+	"""
+	Implement a file data import method set_import_list
+	Use mixin OpenFile for CSV.
+	"""
+	def set_import_list(self):
+		raise NotImplementedError(
+			'Must ovrride set_import_list in catalogue_importer.py!!')
+		
+	"""
+	Implement a column_map association method, set_columns
+	Use mixin ParseColumns for default CSV data.
+	"""
+	def set_columns(self):
+		raise NotImplementedError(
+			'Must override set_columns in catalogue_importer.py!!')
+	
+	"""
+	Set product fields based on unqiue vendor algorithm.
+	Override for different vendors.
+	"""
+	def set_product_fields(self):
+		raise NotImplementedError(
+			'Must override set_product_fields in catalogue_importer.py!!')
+		
 	
 	# Find the import Partner by ID or Name
-	def match_partner(self, partner):
+	def match_global_partner(self, partner):
 		if isinstance(partner, (int, long)):
 			return Partner.objects.get(pk=partner)
 		else:
@@ -60,12 +133,9 @@ class ImportCatalogue(object):
 					return result
 		return False
 	
-	""" 
-	NOTE: Brand is an added Field in the Product object
-	that we added.
-	"""
+
 	# Find the global Brand if applicable by ID or Name
-	def match_brand(self, brand):
+	def match_global_brand(self, brand):
 		if isinstance(brand, (int, long)):
 			return ProductBrand.objects.get(pk=brand)
 		else:
@@ -75,30 +145,18 @@ class ImportCatalogue(object):
 					return result
 		return False
 	
-	# Set column specifics, and loop through file to add products.
-	def set_columns(self, parent_upc, upc, description, color, material, cost, retail, quantity):
-		self.column_map = {
-			'parent_upc': parent_upc,
-			'upc': upc,
-			'description': description,
-			'color': color,
-			'material': material,
-			'cost': cost,
-			'retail': retail,
-			'quantity': quantity
-		}
 	
 	# Open file and loop and add products. 
 	def run(self):
-		with open(self.file_path, 'rb') as import_file:
-			reader = csv.reader(import_file)
-			import_list = list(reader)
-		
 		row_number = 1
 		
-		for row in import_list:
+		for row in self.import_list:
 			print "Processing row: %s. UPC: %s" % (row_number, row[self.column_map['upc']])
 			row_number += 1
+			
+			
+			
+			self.set_product_fields()
 			
 			"""
 			NOTE: the follow lines related to UPC are specific to how our CSV file formats 
@@ -155,7 +213,7 @@ class ImportCatalogue(object):
 				retail=row[self.column_map['retail']],
 				quantity=row[self.column_map['quantity']],
 				partner=self.partner,
-				euro=self.euro,
+				euro=self.currency_conversion,
 				color=color,
 				material=material,
 				size=size,
@@ -298,7 +356,7 @@ class CreateChildProduct(object):
 		self.retail = Decimal(non_decimal.sub('', retail))
 		self.quantity = int(quantity)
 		self.partner = partner
-		self.euro = Decimal(euro)
+		self.currency_conversion = Decimal(euro)
 		if color:
 			self.color = color.title()
 		else:
@@ -349,9 +407,9 @@ class CreateChildProduct(object):
 		stock.product = self.product
 		stock.partner = self.partner
 		stock.partner_sku = self.upc
-		stock.cost_price = self.cost * self.euro
-		stock.price_excl_tax = self.retail * self.euro
-		stock.price_retail = self.retail * self.euro
+		stock.cost_price = self.cost * self.currency_conversion
+		stock.price_excl_tax = self.retail * self.currency_conversion
+		stock.price_retail = self.retail * self.currency_conversion
 		stock.num_in_stock = self.quantity
 		stock.save()
 	

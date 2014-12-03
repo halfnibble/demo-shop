@@ -4,7 +4,7 @@ from oscar.apps.partner.abstract_models import AbstractStockRecord
 
 class StockRecord(AbstractStockRecord):
 	price_reseller = models.DecimalField(
-		_("Reseller Price"), decimal_places=2, max_digits=12,
+		_("Wholesale Price"), decimal_places=2, max_digits=12,
 		blank=True, null=True)
 
 
