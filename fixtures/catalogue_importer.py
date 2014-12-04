@@ -7,7 +7,6 @@ from oscar.core.loading import get_class, get_classes
 You can replace these with regular imports, but make sure you reference
 the correct version (i.e. if you forked the app, use your local version)
 """
-ImportingError = get_class('partner.exceptions', 'ImportingError')
 Partner, StockRecord = get_classes('partner.models', ['Partner', 'StockRecord'])
 ProductClass, Product, Category, ProductCategory, ProductBrand, ProductActivity = get_classes('catalogue.models',
 	('ProductClass', 'Product', 'Category', 'ProductCategory', 'ProductBrand', 'ProductActivity'))

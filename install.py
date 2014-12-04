@@ -100,70 +100,47 @@ if production:
 		try:
 			oscar_static_path = os.path.join(getOscarPath(venv_location),'static','oscar')
 			admin_static_path = os.path.join(getAdminPath(venv_location),'static','admin')
+			logs_path = os.path.join('giggearme','logs')
 			
-			"""
-			Refactor all this to rid the redundancy
-			"""
 			if not os.path.isdir(oscar_static_path):
 				raise Exception("This is not a valid directory: "+oscar_static_path)
 			if not os.path.isdir(admin_static_path):
 				raise Exception("This is not a valid directory: "+admin_static_path)
-				
-			ln_oscar_output = subprocess.call(['ln','-s',oscar_static_path,'static/oscar'])
-			ln_admin_output = subprocess.call(['ln','-s',admin_static_path,'static/admin'])
+			
+			if not os.path.isdir('static/oscar'):
+				ln_oscar_output = subprocess.call(['ln','-s',oscar_static_path,'static/oscar'])
+			else:
+				print "Symbolic link exists."
+			if not os.path.isdir('static/admin'):
+				ln_admin_output = subprocess.call(['ln','-s',admin_static_path,'static/admin'])
+			else:
+				print "Symbolic link exists."
 			
 			if ln_oscar_output == 0 or ln_admin_output == 0:
 				print "Oscar and Admin dirs found. Continuing."
 				searching = False
-			else:
+			elif ln_admin_output == 1 or ln_admin_output == 1:
 				print "ERROR: While creating symbolic links to "+oscar_static_path+", and/or "+admin_static_path+"."
+			else:
+				print "Continuing."
+				searching = False
 		except:
 			print "Unable to create symbolic links. Check the directory and try again."	
 
-# Set folder owner for 'static' and 'media' on production
+# Set folder owner and permissions on production
 if production:
-	chown_static_output = subprocess.call(['chown','-R','www-data','static'])
-	chown_media_output = subprocess.call(['chown','-R','www-data','media'])
-	chown_oscar_output = subprocess.call(['chown','-R','www-data',oscar_static_path])
-	chown_admin_output = subprocess.call(['chown','-R','www-data',admin_static_path])
+	dirs = ['static', 'media', oscar_static_path, admin_static_path, logs_path]
 	
-	if chown_static_output != 0:
-		print "ERROR: Setting owner for static folder."
-	if chown_media_output != 0:
-		print "ERROR: Setting owner for media folder."
-	if chown_oscar_output != 0:
-		print "ERROR: Setting owner for oscar/static folder."
-	if chown_admin_output != 0:
-		print "ERROR: Setting owner for admin/static folder."
+	for directory in dirs:
+		chown_status = subprocess.call(['chown','-R','www-data',directory])
+		if chown_status != 0:
+			print "ERROR: Setting owner for %s folder." % (directory)
+		chmod_status = subprocess.call(['chmod','-R','0764',directory])
+		if chmod_status != 0:
+			print "ERROR: Setting permissions for %s folder." % (directory)
 	
-	# Dirty hack for now. Refactor.
-	chown_logfiles = subprocess.call(['chown', '-R', 'www-data','giggearme/logs'])
 
-# Set folder permission on production
-if production:
-	chmod_static_output = subprocess.call(['chmod','-R','0764','static'])
-	chmod_media_output = subprocess.call(['chmod','-R','0764','media'])
-	chmod_oscar_output = subprocess.call(['chmod','-R','0764',oscar_static_path])
-	chmod_admin_output = subprocess.call(['chmod','-R','0764',admin_static_path])
-	
-	if chmod_static_output != 0:
-		print "ERROR: Setting permissions for static folder."
-	if chmod_media_output != 0:
-		print "ERROR: Setting permissions for media folder."
-	if chmod_oscar_output != 0:
-		print "ERROR: Setting permissions for oscar/static folder."
-	if chmod_admin_output != 0:
-		print "ERROR: Setting permissions for admin/static folder."
-		
-	# Dirty hack for now. Refactor.
-	chmod_logfiles = subprocess.call(['chmod', '-R', '0764', 'giggearme/logs'])
-		
 # Create Super Users.
 superuser_output = subprocess.call('python manage.py shell < fixtures/superusers_importer.py',shell=True)
 if superuser_output != 0:
 	print "ERROR: Importing superuser_importer.py."
-
-
-# Add 
-# chown -R www-data giggearme/logs
-# chmod -R 0764 giggearme/logs

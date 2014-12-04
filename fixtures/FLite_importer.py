@@ -1,8 +1,7 @@
 import re
 from decimal import Decimal
-from oscar.core.loading import get_class, get_classes
 
-ImportingError = get_class('partner.exceptions', 'ImportingError')
+from oscar.core.loading import get_class, get_classes
 ProductClass, Product, Category, ProductCategory, ProductBrand, ProductActivity = get_classes('catalogue.models',
 	('ProductClass', 'Product', 'Category', 'ProductCategory', 'ProductBrand', 'ProductActivity'))
 
