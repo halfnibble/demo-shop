@@ -20,7 +20,7 @@ def runSQL(sql):
 """
 Begin installation
 """
-print "Running install script v0.1"
+print "Running install script v0.2"
 
 clean_install = raw_input("Do you want to do a clean install? (Y/n) ")
 production = raw_input("Is this setup for production? (Y/n) ")
@@ -88,9 +88,15 @@ category_output = subprocess.call('python manage.py shell < fixtures/category_im
 if category_output != 0:
 	print "ERROR: Importing category_importer.py."
 
+# FLite Order Import
 catalogue_output = subprocess.call('python manage.py shell < fixtures/FLite_importer.py',shell=True)
 if catalogue_output != 0:
-	print "ERROR: Importing catalogue_importer.py."
+	print "ERROR: Importing FLite_importer.py."
+
+# HAD Order Import
+catalogue_output = subprocess.call('python manage.py shell < fixtures/HAD_importer.py',shell=True)
+if catalogue_output != 0:
+	print "ERROR: Importing HAD_importer.py."
 
 # Create symbolic link for production
 if production:

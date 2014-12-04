@@ -8,10 +8,9 @@ ProductClass, Product, Category, ProductCategory, ProductBrand, ProductActivity 
 from fixtures.catalogue_importer import ImportCatalogue
 from fixtures.category_utils import MatchCategories
 
-
-class FLiteColumns(object):
-	def set_columns(self, parent_upc=2, upc=2, description=3, 
-		style=4, material=5, cost=7, retail=8, quantity=9):
+class HADColumns(object):
+	def set_columns(self, parent_upc=2, upc=3, description=4, 
+		style=5, material=6, cost=10, retail=11, quantity=12):
 		self.column_map = {
 			'parent_upc': parent_upc,
 			'upc': upc,
@@ -26,10 +25,10 @@ class FLiteColumns(object):
 		}
 
 
-class FLiteFields(object):
+class HADFields(object):
 	def set_product_fields(self, row):
 		fields = {
-			'parent_upc': None,
+			'parent_upc': row[self.column_map['parent_upc']],
 			'upc': row[self.column_map['upc']],
 			'product_class': self.global_product_class,
 			'title': None,
@@ -53,14 +52,7 @@ class FLiteFields(object):
 			'currency_conversion': self.currency_conversion,
 			'categories': None,
 		}
-		"""
-		NOTE: the follow lines related to UPC are specific to how our CSV file formats 
-		the UPC code (It doesn't provide a parent UPC, so we create one).
-		Our UPCs are formatted like "dd-dddd-d-d-dddd"
-		"""
-		fields['parent_upc'] = '-'.join(row[self.column_map['upc']].split('-')[0:3])
-		target_group_code = int(row[self.column_map['upc']].split('-')[2])
-			
+					
 		head, sep, tail = row[self.column_map['description']].partition('/')
 		fields['description'] = head
 		
@@ -102,17 +94,8 @@ class FLiteFields(object):
 			fields['size'] = None
 			fields['parent_size'] = size_value
 		
-		# Define target_group for MatchCategories()		
-		if target_group_code == 7:
-			target_group = 'womens'
-		elif target_group_code == 8:
-			target_group = 'mens'
-		elif target_group_code == 9:
-			target_group = 'kids'
-		else:
-			target_group = 'adults'
-		
-		match_categories = MatchCategories(target_group=target_group, description=fields['description'])
+	
+		match_categories = MatchCategories(description=fields['description'])
 		fields['categories'] = match_categories.results
 		
 		# Set wholesale, but return it as a string.
@@ -143,21 +126,27 @@ class FLiteFields(object):
 				return result
 
 
-class ImportFLite(FLiteColumns, FLiteFields, ImportCatalogue):
+class ImportHAD(HADColumns, HADFields, ImportCatalogue):
 
 	def set_global_product_class(self):
 		self.global_product_class = ProductClass.objects.get(name='Clothing')
 	
 	def set_global_unique(self):
-		self.global_unique = ['size', 'style']
+		self.global_unique = ['style']
 
 
 """
 Default Columns
 ===============
-set_columns(self, parent_upc=2, upc=2, description=3, 
-	style=4, material=5, cost=7, retail=8, quantity=9)
+set_columns(parent_upc=2, upc=3, description=4, color=5, 
+	material=6, cost=10, retail=11, quantity=12)
 """
-FLiteImport = ImportFLite(file_path="fixtures/imports/F-Order-2014Oct09.csv", partner=1, brand="F-Lite", currency_conversion=1.3)
-FLiteImport.set_columns()
-FLiteImport.run()
+# HAD 2014 Oct 13th
+HADImport = ImportHAD(file_path="fixtures/imports/HAD-Order-2014Oct13.csv", partner=1, brand="H.A.D.", currency_conversion=1.3)
+HADImport.set_columns()
+HADImport.run()
+
+# HAD 2014 Oct 9th
+HADImport = ImportHAD(file_path="fixtures/imports/HAD-Order-2014Oct09.csv", partner=1, brand="H.A.D.", currency_conversion=1.3)
+HADImport.set_columns()
+HADImport.run()
