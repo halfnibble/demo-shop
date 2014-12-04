@@ -28,7 +28,7 @@ class OpenFile(object):
 class ParseColumns(object):
 	"""
 	This mixin takes imported file data and parses out the required fields.
-	Override for different vendors
+	Override for different vendors.
 	"""
 	def set_columns(self, parent_upc=1, upc=2, title=3, description=4, size=5,
 		style=6, material=7, unique=8, brand=9, activity=10, category=11,
@@ -52,8 +52,17 @@ class ParseColumns(object):
 			'quantity': quantity
 		}
 
+class ProductFields(object):
+	"""
+	This mixin sets all the fields necessary to create a product using
+	data loaded from import_list as well as cusotm logic.
+	Override for different vendors.
+	"""
+	def set_product_fields(self, row):
+		print "NOT IMPLEMENTED YET!!"
 
-class ImportCatalogue(object):
+
+class ImportCatalogue(OpenFile, ParseColumns):
 	"""
 	This is a manager mixin.
 	The initialization will setup default attributes like which partner to use in stock record.
@@ -153,71 +162,33 @@ class ImportCatalogue(object):
 		for row in self.import_list:
 			print "Processing row: %s. UPC: %s" % (row_number, row[self.column_map['upc']])
 			row_number += 1
+
+			fields = self.set_product_fields(row)
 			
+			parent = CreateParent(fields)
 			
-			
-			self.set_product_fields()
+			variant = CreateVariant(parent, fields)
 			
 			"""
-			NOTE: the follow lines related to UPC are specific to how our CSV file formats 
-			the UPC code (It doesn't provide a parent UPC, so we create one).
-			Our UPCs are formatted like "dd-dddd-d-dddddd"
-			"""
-			# For issues related to same UPC for men's and women's
-			if row[self.column_map['upc']] == row[self.column_map['parent_upc']]:
-				parent_upc = '-'.join(row[self.column_map['upc']].split('-')[0:3])
-				# ^ this produces "dd-dddd-d" that is unique to gender models
-			else:
-				parent_upc = row[self.column_map['parent_upc']]
-				
-			"""
-			NOTE: 'color', 'size', and 'material' are custom attributes
-			that we've added to our Product class "Clothing"
-			"""
-			
-			# Set unqiue fields
-			if 'color' in self.unique:
-				color = row[self.column_map['color']]
-				parent_color = False
-			else:
-				color = False
-				parent_color = row[self.column_map['color']]
-			
-			if 'material' in self.unique:
-				material = row[self.column_map['material']]
-				parent_material = False
-			else:
-				material = False
-				parent_material = row[self.column_map['material']]
-				
-			if 'size' in self.unique:
-				size = True
-				parent_size = False
-			else:
-				size = False
-				parent_size = True
-				
-			
-			parent = CreateParentProduct(upc=parent_upc,
-				description=row[self.column_map['description']],
-				brand=self.brand,
-				color=parent_color,
-				material=parent_material,
-				size=parent_size,
-			)
-			
-			CreateChildProduct(parent=parent.product,
-				upc=row[self.column_map['upc']],
-				description=row[self.column_map['description']],
-				cost=row[self.column_map['cost']],
-				retail=row[self.column_map['retail']],
+			upc=fields.parent_upc,
+				description=fields.description,
+				brand=fields.brand,
+				color=fields.parent_color,
+				material=fields.parent_material,
+				size=fields.parent_size,
+			parent=parent.product,
+				upc=fields.upc,
+				description=fields.description,
+				cost=fields.cost,
+				wholesale=fields.wholesale
+				retail=fields.retail,
 				quantity=row[self.column_map['quantity']],
 				partner=self.partner,
 				euro=self.currency_conversion,
 				color=color,
 				material=material,
 				size=size,
-			)
+			"""
 		
 		print "Import Completed. %s rows processed." % (row_number)
 
