@@ -88,7 +88,7 @@ category_output = subprocess.call('python manage.py shell < fixtures/category_im
 if category_output != 0:
 	print "ERROR: Importing category_importer.py."
 
-catalogue_output = subprocess.call('python manage.py shell < fixtures/catalogue_importer.py',shell=True)
+catalogue_output = subprocess.call('python manage.py shell < fixtures/FLite_importer.py',shell=True)
 if catalogue_output != 0:
 	print "ERROR: Importing catalogue_importer.py."
 

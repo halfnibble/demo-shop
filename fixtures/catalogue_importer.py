@@ -1,10 +1,8 @@
-import os, re, csv, copy
+import os, re, csv
 from decimal import Decimal
 from datetime import datetime
 
 from oscar.core.loading import get_class, get_classes
-from oscar.apps.catalogue.categories import create_from_breadcrumbs
-
 """
 You can replace these with regular imports, but make sure you reference
 the correct version (i.e. if you forked the app, use your local version)
@@ -13,6 +11,9 @@ ImportingError = get_class('partner.exceptions', 'ImportingError')
 Partner, StockRecord = get_classes('partner.models', ['Partner', 'StockRecord'])
 ProductClass, Product, Category, ProductCategory, ProductBrand, ProductActivity = get_classes('catalogue.models',
 	('ProductClass', 'Product', 'Category', 'ProductCategory', 'ProductBrand', 'ProductActivity'))
+
+from fixtures.category_utils import assign_categories
+
 
 class OpenFile(object):
 	"""
@@ -24,6 +25,7 @@ class OpenFile(object):
 		with open(file_path, 'rb') as import_file:
 			reader = csv.reader(import_file)
 			self.import_list = list(reader)
+
 
 class ParseColumns(object):
 	"""
@@ -52,21 +54,11 @@ class ParseColumns(object):
 			'quantity': quantity
 		}
 
-class ProductFields(object):
-	"""
-	This mixin sets all the fields necessary to create a product using
-	data loaded from import_list as well as cusotm logic.
-	Override for different vendors.
-	"""
-	def set_product_fields(self, row):
-		print "NOT IMPLEMENTED YET!!"
-
 
 class ImportCatalogue(OpenFile, ParseColumns):
 	"""
 	This is a manager mixin.
 	The initialization will setup default attributes like which partner to use in stock record.
-	> Must mixin OpenFile and ParseColumns mixins
 	> set_columns() will set column_map to file_path data.
 	> run() will loop through each row and create Parent and Variant products as necessary.
 	"""
@@ -76,7 +68,10 @@ class ImportCatalogue(OpenFile, ParseColumns):
 		try:
 			self.set_import_list(file_path)
 		except:
-			raise IOError("Unable to import file: " + file_path ".")
+			raise IOError("Unable to import file: " + file_path + ".")
+		
+		# Set global ProductClass
+		self.set_global_product_class()
 		
 		# Required: Partner ID/Name for import
 		try:
@@ -100,27 +95,19 @@ class ImportCatalogue(OpenFile, ParseColumns):
 		self.currency_conversion = currency_conversion
 	
 	"""
-	Implement a global function to set unique VariantProduct attributes
-	Override for different import lists
+	Implement a method to set a global ProductClass.
+	Override for different import lists.
+	"""
+	def set_global_product_class(self):
+		raise NotImplementedError(
+			'Must override set_global_product_class in catalogue_importer!!')
+		
+	"""
+	Implement a method to set global unique Variant attributes.
+	Override for different import lists.
 	"""
 	def set_global_unique(self):
-		self.global_unique = False
-		
-	"""
-	Implement a file data import method set_import_list
-	Use mixin OpenFile for CSV.
-	"""
-	def set_import_list(self):
-		raise NotImplementedError(
-			'Must ovrride set_import_list in catalogue_importer.py!!')
-		
-	"""
-	Implement a column_map association method, set_columns
-	Use mixin ParseColumns for default CSV data.
-	"""
-	def set_columns(self):
-		raise NotImplementedError(
-			'Must override set_columns in catalogue_importer.py!!')
+		self.global_unique = []
 	
 	"""
 	Set product fields based on unqiue vendor algorithm.
@@ -129,7 +116,6 @@ class ImportCatalogue(OpenFile, ParseColumns):
 	def set_product_fields(self):
 		raise NotImplementedError(
 			'Must override set_product_fields in catalogue_importer.py!!')
-		
 	
 	# Find the import Partner by ID or Name
 	def match_global_partner(self, partner):
@@ -142,7 +128,6 @@ class ImportCatalogue(OpenFile, ParseColumns):
 					return result
 		return False
 	
-
 	# Find the global Brand if applicable by ID or Name
 	def match_global_brand(self, brand):
 		if isinstance(brand, (int, long)):
@@ -167,179 +152,83 @@ class ImportCatalogue(OpenFile, ParseColumns):
 			
 			parent = CreateParent(fields)
 			
-			variant = CreateVariant(parent, fields)
+			variant = CreateVariant(parent.product, fields)
 			
-			"""
-			upc=fields.parent_upc,
-				description=fields.description,
-				brand=fields.brand,
-				color=fields.parent_color,
-				material=fields.parent_material,
-				size=fields.parent_size,
-			parent=parent.product,
-				upc=fields.upc,
-				description=fields.description,
-				cost=fields.cost,
-				wholesale=fields.wholesale
-				retail=fields.retail,
-				quantity=row[self.column_map['quantity']],
-				partner=self.partner,
-				euro=self.currency_conversion,
-				color=color,
-				material=material,
-				size=size,
-			"""
-		
 		print "Import Completed. %s rows processed." % (row_number)
 
 
-class CreateProduct(object):
-	def function():
-		pass
-	"""
-	This is here to remind me to refactor and abstract out the common functions in 
-	CreateParentProduct and CreateChildProduct once I have time to read up on 
-	Python OOP and inheritance. 
-	"""
 
-
-class CreateParentProduct(object):
+class CreateParent(object):
 	"""
 	Creates a Parent Product.
-	"""
-	
-	def __init__(self, upc, description, brand, color, material, size):
-		self.upc = upc
-		self.title = description # Note: no title field. :,(
-		self.description = description
-		if color:
-			self.color = color.title()
-		else:
-			self.color = False
-		self.material = material
-		self.brand = brand
+	"""	
+	def __init__(self, fields):
+		self.fields = fields
 		
 		# If this parent already exists, return to caller
 		if self.exists():
 			return
 		
-		# Remove size attributes from description
-		if size:
-			self.size = self.filter_size()
-		else:
-			self.size = False
-			self.filter_size()
-			
-		# Set brand name
-		if not self.brand:
-			self.brand = self.match_brand()
-			
-		# Set activity type (i.e. Ski, Running, etc.)
-		self.activity = self.match_activity()
-		
 		self.create()
-		
-	# Determine if parent product has been created previously
+	
+	# Return parent product if created previously
 	def exists(self):
-		parent = False
 		try:
-			parent = Product.objects.get(upc=self.upc)
+			self.product = Product.objects.get(upc=self.fields['parent_upc'])
+			return True
 		except:
 			pass
 		
-		if parent:
-			self.product = parent
-			return True
+		return False
 	
-	# Filter size out of description and return it
-	def filter_size(self):
-		head, sep, tail = self.description.partition('/')
-		self.description = head
-		# Since there is no Title field
-		t_head, t_sep, t_tail = self.title.partition('/')
-		self.title = t_head
-		
-		return tail		
-	
-	# Find the product's Brand by regex
-	def match_brand(self):
-		Brands = ProductBrand.objects.all()
-		self.brand = None
-		
-		for result in Brands:
-			if ( re.search(result.name, self.description, re.IGNORECASE) ):
-				return Brand
-	
-	# Find the product's Activity by description regex
-	def match_activity(self):
-		Activities = ProductActivity.objects.all()
-		self.activity = None
-		
-		for result in Activities:
-			if ( re.search(result.name, self.description, re.IGNORECASE) ):
-				return result
-	
-	# Create Parent and save
+	# Create parent Product and save
 	def create(self):
 		parent = Product()
 		
-		"""
-		Temporary fix
-		"""
-		product_class = ProductClass.objects.get(name="Clothing")
-		
 		parent.structure = 'parent'
-		parent.upc = self.upc
-		parent.title = self.title
-		parent.description = self.description
-		parent.product_class = product_class
-		parent.brand = self.brand
-		parent.activity = self.activity
-		
-		if self.color:
-			setattr(parent.attr, 'color', self.color)
-		if self.material:
-			setattr(parent.attr, 'material', self.material)
-		if self.size:
-			setattr(parent.attr, 'size', self.size)
+		parent.upc = self.fields['parent_upc']
+		parent.title = self.fields['title']
+		parent.description = self.fields['description']
+		parent.product_class = self.fields['product_class']
+		parent.brand = self.fields['brand']
+		parent.activity = self.fields['activity']
+		if self.fields['parent_color'] is not None:
+			parent.attr.color = self.fields['parent_color'].title()
+		if self.fields['parent_material'] is not None:
+			parent.attr.material = self.fields['parent_material']
+		if self.fields['parent_size'] is not None:
+			parent.attr.size = self.fields['parent_size']
+		"""
+		In future, implement 'parent_image' field
+		"""
 		
 		parent.save()
 		
-		MatchCategories(parent, parent.description)
+		product_categories = assign_categories(parent, self.fields['categories'])
 		
-		print "Created Parent Product: " + parent.upc
+		print "Created Parent Product: %s." % (parent.upc)
 		
 		self.product = parent
 
 
-class CreateChildProduct(object):
+class CreateVariant(object):
 	"""
-	Create a Product variant
-	"""
-	
-	def __init__(self, parent, upc, description, cost, retail, quantity, partner, euro, color, material, size):
+	Create a Variant Product
+	"""	
+	def __init__(self, parent, fields):
 		self.parent = parent
-		self.upc = upc
-		self.description = description
+		self.fields = fields
 		
+		# Perform some basic Number type validations & conversions
 		non_decimal = re.compile(r'[^\d.]+')
-		self.cost = Decimal(non_decimal.sub('', cost))
-		self.retail = Decimal(non_decimal.sub('', retail))
-		self.quantity = int(quantity)
-		self.partner = partner
-		self.currency_conversion = Decimal(euro)
-		if color:
-			self.color = color.title()
-		else:
-			self.color = color
-		self.material = material
+		decimal_fields = ['cost','wholesale','retail','msrp']
+		for field in decimal_fields:
+			self.fields[field] = Decimal(non_decimal.sub('', fields[field]))
+
+		self.fields['quantity'] = int(fields['quantity'])
+
+		self.fields['currency_conversion'] = Decimal(fields['currency_conversion'])
 		
-		if size:
-			self.size = self.filter_size()
-		else:
-			self.size = False
-			self.filter_size()
-			
 		# If product already exists, update stock w/ quantity
 		if self.exists():
 			self.update_stock()
@@ -349,39 +238,34 @@ class CreateChildProduct(object):
 	# Determine if product already exists
 	def exists(self):
 		try:
-			self.product = Product.objects.get(upc=self.upc)
+			self.product = Product.objects.get(upc=self.fields['upc'])
 			return True
 		except:
 			return False
 	
-	# Filter size out of description and return it
-	def filter_size(self):
-		head, sep, tail = self.description.partition('/')
-		self.description = head
-		
-		return tail
 	
 	# Update stock quantity for existing product
 	def update_stock(self):
 		try:
-			stock = StockRecord.objects.get(partner_sku=self.upc)
+			stock = StockRecord.objects.get(partner_sku=self.fields['upc'])
 		except:
 			self.create_stockrecord()
 			return
 			
-		stock.num_in_stock += self.quantity
+		stock.num_in_stock += self.fields['quantity']
 		stock.save()
 	
 	def create_stockrecord(self):
 
 		stock = StockRecord()
 		stock.product = self.product
-		stock.partner = self.partner
-		stock.partner_sku = self.upc
-		stock.cost_price = self.cost * self.currency_conversion
-		stock.price_excl_tax = self.retail * self.currency_conversion
-		stock.price_retail = self.retail * self.currency_conversion
-		stock.num_in_stock = self.quantity
+		stock.partner = self.fields['partner']
+		stock.partner_sku = self.fields['upc']
+		stock.cost_price = self.fields['cost'] * self.fields['currency_conversion']
+		stock.price_excl_tax = self.fields['retail'] * self.fields['currency_conversion']
+		stock.price_retail = self.fields['msrp'] * self.fields['currency_conversion']
+		stock.price_reseller = self.fields['wholesale'] * self.fields['currency_conversion']
+		stock.num_in_stock = self.fields['quantity']
 		stock.save()
 	
 	# Create product and inventory
@@ -390,170 +274,26 @@ class CreateChildProduct(object):
 		
 		product.structure = 'child'
 		product.parent = self.parent
-		product.upc = self.upc
-		# Child products cannot have product_class!!
-		# product.product_class = self.parent.product_class
+		product.upc = self.fields['upc']
 		
-		if self.color:
-			setattr(product.attr, 'color', self.color)
-		if self.material:
-			setattr(product.attr, 'material', self.material)
-		if self.size:
-			setattr(product.attr, 'size', self.size)
+		if self.fields['color'] is not None:
+			product.attr.color = self.fields['color'].title()
+		if self.fields['material'] is not None:
+			product.attr.material = self.fields['material']
+		if self.fields['size'] is not None:
+			product.attr.size = self.fields['size']
 		
 		product.save()
 		
 		self.product = product
 		self.create_stockrecord()
 		
-		print "Created Product: " + self.upc
+		print "Created Product: %s." % (self.fields['upc'])
 		
 
-class MatchCategories(object):
-	"""
-	The large convoluted class is a helper class to match a Product
-	to a ProductCategory. It is specific to our needs, and likely 
-	to change heavily as our store evolves.
-	"""
-	
-	def __init__(self, product, description, product_class="Clothing"):
-		self.product = product
-		self.description = description
-		self.product_class = product_class
-		
-		# Assume "clothing" for main category
-		self.target_group = self.find_target()	
-		self.product_type = self.find_type()
-		self.results = self.match()
-	
-	def find_target(self):
-		# Create target lists to search subcategories
-		mens = ["men", "man", "male"]
-		womens = ["women", "woman", "female", "ladies"]
-		kids = ["kid", "child", "junior"]
-		
-		for term in womens:
-			if ( re.search(term, self.description, re.IGNORECASE) ):
-				return "womens"
-		
-		for term in mens:
-			if ( re.search(term, self.description, re.IGNORECASE) ):
-				return "mens"
-				
-		for term in kids:
-			if ( re.search(term, self.description, re.IGNORECASE) ):
-				return "kids"
-		
-		return "adults" # Assume target is adult
-	
-	def find_type(self):
-		# Create list of product types to search
-		product_types = [
-			# { 'name': 'accessory',   'terms': [] },
-			{ 'name': 'tshirt',      'terms': ['tshirt', 't-shirt', 'short sleeve'] },
-			{ 'name': 'longshirt',   'terms': ['longshirt','long shirt', 'long sleeve'] },
-			{ 'name': 'tanktop',     'terms': ['tanktop', 'tank top'] },
-			{ 'name': 'sweater',     'terms': ['sweater', 'sweatshirt'] },
-			{ 'name': 'swim',        'terms': ['swim'] },
-			{ 'name': 'shirt',       'terms': ['shirt', 'top'] },
-			{ 'name': 'shorts',      'terms': ['shorts'] },
-			{ 'name': 'pants',       'terms': ['pants', 'jeans', 'slacks'] },
-			{ 'name': 'tights',      'terms': ['tights'] },
-			{ 'name': 'coat',        'terms': ['coat', 'jacket'] },
-			{ 'name': 'base',        'terms': ['base', 'layer'] },
-			{ 'name': 'dress_skirt', 'terms': ['dress', 'skirt',] },
-		]
-		
-		for row in product_types:
-			for term in row['terms']:
-				if ( re.search(term, self.description, re.IGNORECASE) ):
-					return row['name']
-		
-		return "accessory"
-	
-	# Create an array of categories to associate with the product
-	def match(self):
-		categories = []
-		category_list = {
-			'mens': {
-				'accessory':   ["Clothing > Men's Clothing > Accessories"],
-				'tshirt':      ["Clothing > Men's Clothing > Shirts > T-Shirt"],
-				'longshirt':   ["Clothing > Men's Clothing > Shirts > Longshirt"],
-				'tanktop':     ["Clothing > Men's Clothing > Shirts > Tanktop"],
-				'shirt':       ["Clothing > Men's Clothing > Shirts"],
-				'shorts':      ["Clothing > Men's Clothing > Shorts"],
-				'pants':       ["Clothing > Men's Clothing > Pants"],
-				'tights':      ["Clothing > Men's Clothing > Pants",
-									"Clothing > Men's Clothing > Base Layer"],
-				'coat':        ["Clothing > Men's Clothing > Jackets & Coats"],
-				'base':        ["Clothing > Men's Clothing > Base Layer"],
-				'sweater':     ["Clothing > Men's Clothing > Sweathirts"],
-				'swim':        ["Clothing > Men's Clothing > Swimwear"],
-			},
-			'womens': {
-				'accessory':   ["Clothing > Women's Clothing > Accessories"],
-				'tshirt':      ["Clothing > Women's Clothing > Shirts & Tops > T-Shirt"],
-				'longshirt':   ["Clothing > Women's Clothing > Shirts & Tops > Longshirt"],
-				'tanktop':     ["Clothing > Women's Clothing > Shirts & Tops > Tanktop"],
-				'shirt':       ["Clothing > Women's Clothing > Shirts & Tops"],
-				'shorts':      ["Clothing > Women's Clothing > Shorts"],
-				'pants':       ["Clothing > Women's Clothing > Pants"],
-				'tights':      ["Clothing > Women's Clothing > Pants",
-									"Clothing > Women's Clothing > Base Layer"],
-				'coat':        ["Clothing > Women's Clothing > Jackets & Coats"],
-				'base':        ["Clothing > Women's Clothing > Base Layer"],
-				'sweater':     ["Clothing > Women's Clothing > Sweathirts"],
-				'swim':        ["Clothing > Women's Clothing > Swimsuits"],
-				'dress_skirt': ["Clothing > Women's Clothing > Dresses & Skirts"],
-			},
-			'kids': {
-				'accessory':   ["Clothing > Kid's Clothing > Accessories"],
-				'tshirt':      ["Clothing > Kid's Clothing > Boy's Shirts > T-Shirt",
-									"Clothing > Kid's Clothing > Girl's Shirts> T-Shirt"],
-				'longshirt':   ["Clothing > Kid's Clothing > Boy's Shirts > Longshirt",
-									"Clothing > Kid's Clothing > Girl's Shirts > Longshirt"],
-				'tanktop':     ["Clothing > Kid's Clothing > Boy's Shirts > Tanktop",
-									"Clothing > Kid's Clothing > Girl's Shirts > Tanktop"],
-				'shirt':       ["Clothing > Kid's Clothing > Boy's Shirts",
-									"Clothing > Kid's Clothing > Girl's Shirts"],
-				'shorts':      ["Clothing > Kid's Clothing > Boy's Pants & Shorts",
-									"Clothing > Kid's Clothing > Girl's Pants & Shorts"],
-				'pants':       ["Clothing > Kid's Clothing > Boy's Pants & Shorts",
-									"Clothing > Kid's Clothing > Girl's Pants & Shorts"],
-				'tights':      ["Clothing > Kid's Clothing > Boy's Pants & Shorts",
-									"Clothing > Kid's Clothing > Girl's Pants & Shorts"],
-				'coat':        ["Clothing > Kid's Clothing > Boy's Jackets & Coats",
-									"Clothing > Kid's Clothing > Girl's Jackets & Coats"],
-				'base':        ["Clothing > Kid's Clothing > Boy's Jackets & Coats",
-									"Clothing > Kid's Clothing > Girl's Jackets & Coats"],
-				'sweater':     ["Clothing > Kid's Clothing > Boy's Jackets & Coats",
-									"Clothing > Kid's Clothing > Girl's Jackets & Coats",
-									"Clothing > Kid's Clothing > Boy's Shirts > Longshirt",
-									"Clothing > Kid's Clothing > Girl's Shirts > Longshirt"],
-				'swim':        ["Clothing > Kid's Clothing > Boy's Swimwear",
-									"Clothing > Kid's Clothing > Girl's Swimwear"],
-				'dress_skirt': ["Clothing > Kid's Clothing > Girl's Dresses & Skirts"],
-			},
-		}
-		
-		category_list['adults'] = copy.deepcopy(category_list['mens'])
-		
-		for key, array in category_list['womens'].iteritems():
-			try:
-				category_list['adults'][key].extend(array)
-			except:
-				category_list['adults'][key] = array
-		
-		category_names = category_list[self.target_group][self.product_type]
-		
-		for category_name in category_names:
-			print "category: %s" % category_name
-			leaf = create_from_breadcrumbs(category_name)
-			categories.append(ProductCategory.objects.get_or_create(product=self.product, category=leaf))
-		
-		return categories
 
 
+"""
 # F-Lite 2014 Oct 9th
 FLiteImport = ImportCatalogue(file_path="fixtures/imports/F-Order-2014Oct09.csv", partner=1, brand="F-Lite", unique=['size'])
 FLiteImport.set_columns(parent_upc=2, upc=2, description=3, color=4, material=5, cost=7, retail=8, quantity=9)
@@ -568,3 +308,4 @@ HADImport.run()
 HADImport = ImportCatalogue(file_path="fixtures/imports/HAD-Order-2014Oct09.csv", partner=1, brand="H.A.D.", unique=['color'])
 HADImport.set_columns(parent_upc=2, upc=3, description=4, color=5, material=6, cost=10, retail=11, quantity=12)
 HADImport.run()
+"""
