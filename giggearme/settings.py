@@ -172,7 +172,7 @@ OSCAR_SHOP_NAME = 'GigGearMe'
 OSCAR_SHOP_TAGLINE = 'Global Innovative Gear'
 OSCAR_DEFAULT_CURRENCY = 'USD'
 OSCAR_CURRENCY_LOCALE = 'en_US'
-OSCAR_FROM_EMAIL = 'no-reply@giggearme.com'
+OSCAR_FROM_EMAIL = 'no-reply@giggearme.halfnibble.com'
 
 # PayPal Settings
 #================

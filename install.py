@@ -113,11 +113,11 @@ if production:
 			if not os.path.isdir(admin_static_path):
 				raise Exception("This is not a valid directory: "+admin_static_path)
 			
-			if not os.path.isdir('static/oscar'):
+			if not os.path.islink('static/oscar'):
 				ln_oscar_output = subprocess.call(['ln','-s',oscar_static_path,'static/oscar'])
 			else:
 				print "Symbolic link exists."
-			if not os.path.isdir('static/admin'):
+			if not os.path.islink('static/admin'):
 				ln_admin_output = subprocess.call(['ln','-s',admin_static_path,'static/admin'])
 			else:
 				print "Symbolic link exists."
