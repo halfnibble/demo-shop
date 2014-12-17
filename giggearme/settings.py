@@ -77,6 +77,7 @@ INSTALLED_APPS = [
 	'usermod',
 	# Add for Oscar customization
 	'oscarmod',
+	'inventory',
 	'pages',
 	# Payment
 	'paypal',

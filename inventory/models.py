@@ -4,7 +4,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _, pgettext_lazy
 
 from oscar.core.utils import get_default_currency
-from settings import AUTH_USER_MODEL
+from giggearme.settings import AUTH_USER_MODEL
 from oscar.apps.partner.exceptions import InvalidStockAdjustment
 
 from oscarmod.catalogue.models import Product
@@ -34,19 +34,19 @@ class Tariff(models.Model):
 
 
 class ImportRecord(models.Model):
-	product = models.ForeignKey(Product, related_name='stockrecords',
-		verbose_name=_('Product'))
+	product = models.ForeignKey(Product, verbose_name=_('Product'))
 	# pending...
 	# sku = models.CharField(_('Our SKU'), max_length=128)
 	partner_sku = models.CharField(_('Partner SKU'), max_length=128)
 	origin_currency = models.CharField(_('Origin currency code'), max_length=12, default='EUR')
-	standard_export_price = models.DecimalField(_('Price in origin currency.'))
+	standard_export_price = models.DecimalField(
+		_('Price in origin currency.'), decimal_places=2, max_digits=12, blank=True, null=True)
 	partner_discount = models.DecimalField(
 		_('Partner discount'), decimal_places=3, max_digits=6, default=0.000)
 	
 	@property
 	def export_price(self):
-		price = Decimal( self.standard_export_price * (1.000 - self.partner_discount) )
+		price = Decimal( self.standard_export_price * (1.000 - (self.partner_discount / 100.000)) )
 		return round(price, 2)
 	
 	currency_factor = models.DecimalField(
@@ -54,7 +54,7 @@ class ImportRecord(models.Model):
 	
 	@property
 	def import_price(self):
-		price = Decimal( self.export_price * currency_factor )
+		price = Decimal( self.export_price * self.currency_factor )
 		return round(price, 2)
 	
 	# Use these to update the related Tariff entry if update_tariff is set.
@@ -64,7 +64,7 @@ class ImportRecord(models.Model):
 	
 	@property
 	def tariff(self):
-		cost = Decimal( self.import_price * (tariff_rate / 100.000) )
+		cost = Decimal( self.import_price * (self.tariff_rate / 100.000) )
 		return round(cost, 2)
 	
 	# Update related ProductAttribute if update_weight is set.
@@ -205,5 +205,15 @@ class ImportRecord(models.Model):
 	def reseller_gpm(self):
 		rate = Decimal( (self.reseller_profit / self.price_reseller) * 100.000 )
 		return round(rate, 3)
+	
+	def __str__(self):
+		return u('Product: %s, MSRP: $%s, Retail: $%s, Wholesale: $%s, '
+			'Retail profit: $%s, Wholesale profit: $%s, '
+			'Retail GPM: %s%, Wholesale GPM: %s%, '
+			'Reseller profit: $%s, Reseller GPM: %s%.') % (
+			self.partner_sku, self.msrp, self.price_retail, self.price_reseller,
+			self.retail_profit, self.wholesale_profit,
+			self.retail_gpm, self.wholesale_gpm,
+			self.reseller_profit, self.reseller_gpm)
 
 	
