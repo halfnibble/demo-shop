@@ -1,3 +1,4 @@
+from datetime import datetime
 from decimal import Decimal
 from math import ceil
 from django.db import models
@@ -34,10 +35,20 @@ class Tariff(models.Model):
 
 
 class ImportRecord(models.Model):
+	"""
+	Product Import Details.
+	"""
+	imported_date = models.DateTimeField(_('Date imported'), default=datetime.now)
 	product = models.ForeignKey(Product, verbose_name=_('Product'))
 	# pending...
 	# sku = models.CharField(_('Our SKU'), max_length=128)
 	partner_sku = models.CharField(_('Partner SKU'), max_length=128)
+	quantity = models.PositiveIntegerField(
+        _("Quantity imported"), blank=True, null=True)
+	
+	"""
+	Pricing and ERP data.
+	"""
 	origin_currency = models.CharField(_('Origin currency code'), max_length=12, default='EUR')
 	standard_export_price = models.DecimalField(
 		_('Price in origin currency.'), decimal_places=2, max_digits=12, blank=True, null=True)
@@ -46,7 +57,7 @@ class ImportRecord(models.Model):
 	
 	@property
 	def export_price(self):
-		price = Decimal( self.standard_export_price * (1.000 - (self.partner_discount / 100.000)) )
+		price = self.standard_export_price * (Decimal(1) - (self.partner_discount / Decimal(100)))
 		return round(price, 2)
 	
 	currency_factor = models.DecimalField(
@@ -54,7 +65,7 @@ class ImportRecord(models.Model):
 	
 	@property
 	def import_price(self):
-		price = Decimal( self.export_price * self.currency_factor )
+		price = Decimal(self.export_price) * self.currency_factor
 		return round(price, 2)
 	
 	# Use these to update the related Tariff entry if update_tariff is set.
@@ -64,11 +75,11 @@ class ImportRecord(models.Model):
 	
 	@property
 	def tariff(self):
-		cost = Decimal( self.import_price * (self.tariff_rate / 100.000) )
+		cost = Decimal(self.import_price) * (self.tariff_rate / Decimal(100.000))
 		return round(cost, 2)
 	
 	# Update related ProductAttribute if update_weight is set.
-	shipping_weight = models.FloatField(_('Float'), blank=True, null=True)
+	shipping_weight = models.FloatField(_('Shipping weight'), blank=True, null=True)
 	
 	shipping_factor = models.DecimalField(
 		_('Shipping Factor'), decimal_places=3, max_digits=6, blank=True, null=True)
@@ -82,32 +93,28 @@ class ImportRecord(models.Model):
 		elif self._shipping_cost is not None:
 			return self._shipping_cost
 		else:
-			return Decimal(0.00)
+			return 0.00
 	@shipping_cost.setter
 	def shipping_cost(self, value):
 		self._shipping_cost = value
 	
 	@property
 	def import_cost(self):
-		cost = Decimal( self.tariff + self.shipping_cost )
+		cost = Decimal(self.tariff) + Decimal(self.shipping_cost)
 		return round(cost, 2)
 	
 	# Update related StockRecord if update_prices is set.
 	@property
 	def cost_price(self):
-		cost = Decimal( self.import_price + self.tariff + self.shipping_cost )
+		cost = Decimal(self.import_price) + Decimal(self.tariff) + Decimal(self.shipping_cost)
 		return round(cost, 2)
 	
 	origin_msrp = models.DecimalField(
 		_('Origin MSRP'), decimal_places=2, max_digits=12, blank=True, null=True)
-	"""
-	DELETE: After verification
-	msrp = models.DecimalField(
-		_('MSRP in USD'), decimal_places=2, max_digits=12, blank=True, null=True)
-	"""
+	
 	@property
 	def msrp(self):
-		price = Decimal( self.origin_msrp * self.currency_factor )
+		price = self.origin_msrp * self.currency_factor
 		return round(price, 2)
 	
 	target_wholesale_gpm = models.DecimalField(
@@ -115,29 +122,30 @@ class ImportRecord(models.Model):
 	
 	@property
 	def target_wholesale_price(self):
-		price = Decimal( self.cost_price * ( 100.000 + self.target_wholesale_gpm) / 100.000 )
+		price = Decimal(self.cost_price) * ( Decimal(100) + self.target_wholesale_gpm) / Decimal(100)
 		return round(price, 2)
 	
 	@property
 	def implied_retail_factor(self):
-		factor = Decimal( self.msrp / self.target_wholesale_price )
-		return round(factor, 3)
+		factor = Decimal(self.msrp) / self.target_wholesale_price
+		return round(factor, 2)
 		
 	target_retail_factor = models.DecimalField(
-		_('Target retail factor'), decimal_places=3, max_digits=6, blank=True, null=True)
+		_('Target retail factor'), decimal_places=2, max_digits=6, blank=True, null=True)
 	
 	@property
 	def implied_msrp(self):
-		price = Decimal( self.target_wholesale_price * self.target_retail_factor )
+		price = Decimal(self.target_wholesale_price) * self.target_retail_factor
 		return round(price, 2)
 	
 	@property
 	def msrp_delta(self):
-		return Decimal( self.implied_msrp - self.msrp )
+		price = Decimal(self.implied_msrp) - self.msrp
+		return round(price, 2)
 	
 	@property
 	def msrp_markup(self):
-		rate = Decimal( (self.msrp_delta / self.msrp) * 100.000 )
+		rate = Decimal(self.msrp_delta) / self.msrp * Decimal(100)
 		return round(rate, 3)	
 	
 	# Update related StockRecord if update_prices is set
@@ -160,7 +168,8 @@ class ImportRecord(models.Model):
 	
 	@property
 	def wholesale_profit(self):
-		return Decimal( self.price_reseller - self.cost_price )
+		price = Decimal( self.price_reseller - self.cost_price )
+		return round(price, 2)
 	
 	@property
 	def wholesale_gpm(self):
@@ -187,7 +196,8 @@ class ImportRecord(models.Model):
 	
 	@property
 	def retail_profit(self):
-		return Decimal( self.price_retail - self.cost_price )
+		profit = Decimal( self.price_retail - self.cost_price )
+		return round(profit, 2)
 	
 	@property
 	def retail_gpm(self):
@@ -199,7 +209,8 @@ class ImportRecord(models.Model):
 	"""
 	@property
 	def reseller_profit(self):
-		return Decimal( self.price_retail - self.price_reseller )
+		profit = Decimal( self.price_retail - self.price_reseller )
+		return round(profit, 2)
 	
 	@property
 	def reseller_gpm(self):
@@ -207,10 +218,12 @@ class ImportRecord(models.Model):
 		return round(rate, 3)
 	
 	def __str__(self):
-		return u('Product: %s, MSRP: $%s, Retail: $%s, Wholesale: $%s, '
-			'Retail profit: $%s, Wholesale profit: $%s, '
-			'Retail GPM: %s%, Wholesale GPM: %s%, '
-			'Reseller profit: $%s, Reseller GPM: %s%.') % (
+		return u"""
+			Product: %s, MSRP: $%s, Retail: $%s, Wholesale: $%s, 
+			Retail profit: $%s, Wholesale profit: $%s, 
+			Retail GPM: %s%%, Wholesale GPM: %s%%, 
+			Reseller profit: $%s, Reseller GPM: %s%%.
+			""" % (
 			self.partner_sku, self.msrp, self.price_retail, self.price_reseller,
 			self.retail_profit, self.wholesale_profit,
 			self.retail_gpm, self.wholesale_gpm,

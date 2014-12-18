@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import ImportRecord
 
-# Register your models here.
+class ImportRecordAdmin(admin.ModelAdmin):
+	pass
+		
+admin.site.register(ImportRecord)
