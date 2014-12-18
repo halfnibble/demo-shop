@@ -1,0 +1,84 @@
+{% extends 'dashboard/layout.html' %}
+{% load i18n %}
+{% load thumbnail %}
+{% load staticfiles %}
+{% load sorting_tags %}
+{% load form_tags %}
+
+{% block body_class %}{{ block.super }} create-page catalogue{% endblock %}
+
+{% block title %}
+	{{ title }} {% trans "Import Records" %} | {{ block.super }}
+{% endblock %}
+
+{% block breadcrumbs %}
+	<ul class="breadcrumb">
+		<li>
+			<a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a>
+			<span class="divider">/</span>
+		</li>
+		<li>
+			<a href="{% url 'dashboard:catalogue-product-list' %}">{% trans "Products" %}</a>
+			<span class="divider">/</span>
+		</li>
+		{% if product %}
+			<li>
+				<a href="{% url 'dashboard:catalogue-product' product.id %}">
+					{{ product.title }}
+				</a>
+				<span class="divider">/</span>
+			</li>
+		{% endif %}
+		<li class="active">{{ title }}</li>
+	</ul>
+{% endblock %}
+
+{% block headertext %}{{ title }}{% endblock %}
+
+{% block dashboard_content %}
+	<h2> Records List: {% if product %} {{ product.title}} {% endif %} </h2>
+	<ul>
+		{% for rec in import_records %}
+			<li>Record: {{ rec.partner_sku }} 
+			| Standard Export Price: {{ rec.standard_export_price }} euros
+			| Discount to EU Activewear: {{ rec.partner_discount }}% 
+			| Currency Conversion Factor: {{ rec.currency_factor }}
+			<br>
+			| MSRP (Euro): {{ rec.origin_msrp }} euros
+			| MSRP (USD): ${{ rec.msrp }} 
+			| Export Price: {{ rec.export_price }} euros
+			| Import Price(USD): ${{ rec.import_price }} 
+			<br>
+			| Tariff Code: {{ rec.tariff_code }} 
+			| Tariff Rate: {{ rec.tariff_rate }}% 
+			| Tariff: ${{ rec.tariff }} 
+			<br>
+			| Shipping Weight: {{ rec.shipping_weight }} 
+			| Shipping Factor: {{ rec.shipping_factor }} 
+			| Import Cost (USD): ${{ rec.import_cost }} 
+			<br>
+			| COGS (fully landed): ${{ rec.cost_price }} 
+			<br>
+			| WS GPM Target: {{ rec.target_wholesale_gpm }}% 
+			| Target WS Price: ${{ rec.target_wholesale_price }} 
+			| Implied Retail Factor: {{ rec.implied_retail_factor }} 
+			<br>
+			| Target Retail Factor: {{ rec.target_retail_factor }} 
+			| Implied MSRP: ${{ rec.implied_msrp }} 
+			| MSRP Delta: {{ rec.msrp_delta }}% 
+			| MSRP Markup: ${{ rec.msrp_markup }} 
+			<br>
+			| Final WS Price: ${{ rec.price_reseller }}
+			| Final MSRP: ${{ rec.price_retail }}
+			<br>
+			| Final GIG WS Profit: ${{ rec.wholesale_profit }}
+			| Final GIG WS GPM: {{ rec.wholesale_gpm }}% 
+			<br>
+			| Final GIG Retail Profit: ${{ rec.retail_profit }} 
+			| Final GIG Retail GPM: {{ rec.retail_gpm }}% 
+			<br>
+			| Final Reseller Profit: ${{ rec.reseller_profit }} 
+			| Final Reseller GPM: {{ rec.reseller_gpm }}%</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

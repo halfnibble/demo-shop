@@ -127,7 +127,7 @@ class ImportRecord(models.Model):
 	
 	@property
 	def implied_retail_factor(self):
-		factor = Decimal(self.msrp) / self.target_wholesale_price
+		factor = Decimal(self.msrp) / Decimal(self.target_wholesale_price)
 		return round(factor, 2)
 		
 	target_retail_factor = models.DecimalField(
@@ -140,12 +140,12 @@ class ImportRecord(models.Model):
 	
 	@property
 	def msrp_delta(self):
-		price = Decimal(self.implied_msrp) - self.msrp
+		price = Decimal(self.implied_msrp) - Decimal(self.msrp)
 		return round(price, 2)
 	
 	@property
 	def msrp_markup(self):
-		rate = Decimal(self.msrp_delta) / self.msrp * Decimal(100)
+		rate = Decimal(self.msrp_delta) / Decimal(self.msrp) * Decimal(100)
 		return round(rate, 3)	
 	
 	# Update related StockRecord if update_prices is set
@@ -216,7 +216,7 @@ class ImportRecord(models.Model):
 	def reseller_gpm(self):
 		rate = Decimal( (self.reseller_profit / self.price_reseller) * 100.000 )
 		return round(rate, 3)
-	
+
 	def __str__(self):
 		return u"""
 			Product: %s, MSRP: $%s, Retail: $%s, Wholesale: $%s, 
