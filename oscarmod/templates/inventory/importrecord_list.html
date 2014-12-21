@@ -38,7 +38,7 @@
 {% block dashboard_content %}
 	<h2> Records List: {% if product %} {{ product.title}} {% endif %} </h2>
 	<ul>
-		{% for rec in import_records %}
+		{% for rec in records %}
 			<li>Record: {{ rec.partner_sku }} 
 			| Standard Export Price: {{ rec.standard_export_price }} euros
 			| Discount to EU Activewear: {{ rec.partner_discount }}% 
