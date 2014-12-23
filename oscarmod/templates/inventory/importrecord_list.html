@@ -39,6 +39,7 @@
 	<h2> Records List: {% if product %} {{ product.title}} {% endif %} </h2>
 	<ul>
 		{% for rec in records %}
+			<li><span class="title">Record Number: {{ rec.id }} </span></li>
 			<li>Record: {{ rec.partner_sku }} 
 			| Standard Export Price: {{ rec.standard_export_price }} euros
 			| Discount to EU Activewear: {{ rec.partner_discount }}% 
@@ -65,8 +66,8 @@
 			<br>
 			| Target Retail Factor: {{ rec.target_retail_factor }} 
 			| Implied MSRP: ${{ rec.implied_msrp }} 
-			| MSRP Delta: {{ rec.msrp_delta }}% 
-			| MSRP Markup: ${{ rec.msrp_markup }} 
+			| MSRP Delta: ${{ rec.msrp_delta }}
+			| MSRP Markup: {{ rec.msrp_markup }}% 
 			<br>
 			| Final WS Price: ${{ rec.price_reseller }}
 			| Final MSRP: ${{ rec.price_retail }}
