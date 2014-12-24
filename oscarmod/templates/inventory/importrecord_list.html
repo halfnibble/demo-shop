@@ -5,8 +5,6 @@
 {% load sorting_tags %}
 {% load form_tags %}
 
-{% block body_class %}{{ block.super }} create-page catalogue{% endblock %}
-
 {% block title %}
 	{{ title }} {% trans "Import Records" %} | {{ block.super }}
 {% endblock %}
@@ -33,13 +31,28 @@
 	</ul>
 {% endblock %}
 
-{% block headertext %}{{ title }}{% endblock %}
+{% block headertext %}
+	{{ title }}
+	<p>
+		<a href="{% url 'dashboard:catalogue-product' product.id %}" class="btn btn-secondary">
+			<i class="icon-arrow-left"></i>&nbsp;
+			Return to Product
+		</a>
+	</p>
+	<hr>
+{% endblock %}
 
 {% block dashboard_content %}
 	<h2> Records List: {% if product %} {{ product.title}} {% endif %} </h2>
+	<p>
+		<a class="btn btn-primary" href="{% url 'dashboard:add_record' product.id %}">
+			<i class="icon-plus"></i>&nbsp;
+			Add New Record
+		</a>
+	</p>
 	<ul>
 		{% for rec in records %}
-			<li><span class="title">Record Number: {{ rec.id }} </span></li>
+			<li><a href="{% url 'dashboard:update_record' product.id rec.id %}">Record Number: {{ rec.id }} </a></li>
 			<li>Record: {{ rec.partner_sku }} 
 			| Standard Export Price: {{ rec.standard_export_price }} euros
 			| Discount to EU Activewear: {{ rec.partner_discount }}% 

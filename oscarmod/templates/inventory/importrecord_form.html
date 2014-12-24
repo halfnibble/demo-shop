@@ -1,47 +1,32 @@
-{% extends 'dashboard/layout.html' %}
+{% extends 'inventory/importrecord_list.html' %}
 {% load i18n %}
 {% load thumbnail %}
 {% load staticfiles %}
 {% load sorting_tags %}
 {% load form_tags %}
 
-{% block body_class %}{{ block.super }} create-page catalogue{% endblock %}
-
-{% block title %}
-    {{ title }} {% trans "Import Records" %} | {{ block.super }}
+{% block headertext %}
+    {{ title }}
+    <p>
+        <a href="{% url 'dashboard:catalogue-product' product.id %}" class="btn btn-secondary">
+            <i class="icon-arrow-left"></i>&nbsp;
+            Return to Product
+        </a>
+        <a href="{% url 'dashboard:list_records' product_pk=product.id %}" class="btn btn-primary">
+            <i class="icon-list"></i>&nbsp;
+            List of Import Records
+        </a>
+    </p>
 {% endblock %}
-
-{% block breadcrumbs %}
-    <ul class="breadcrumb">
-        <li>
-            <a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a>
-            <span class="divider">/</span>
-        </li>
-        <li>
-            <a href="{% url 'dashboard:catalogue-product-list' %}">{% trans "Products" %}</a>
-            <span class="divider">/</span>
-        </li>
-        {% if product %}
-            <li>
-                <a href="{% url 'dashboard:catalogue-product' product.id %}">
-                    {{ product.title }}
-                </a>
-                <span class="divider">/</span>
-            </li>
-        {% endif %}
-        <li class="active">{{ title }}</li>
-    </ul>
-{% endblock %}
-
-{% block headertext %}{{ title }}{% endblock %}
 
 {% block dashboard_content %}
     <h2> Create New Record: {% if product %} {{ product.title}} {% endif %} </h2>
-    <form method="post" action="#">
-    {% csrf_token %}
-        {{ form }}
-        <div>
-            <input class="btn btn-primary" type="Submit">
+    <form method="post" action="." class="form-horizontal">
+        {% csrf_token %}
+        {% include 'partials/form_fields.html' %}
+
+        <div class="form-action">
+            <button class="btn btn-primary btn-large" type="submit">Submit Record</button>
         </div>
     </form>
 {% endblock %}

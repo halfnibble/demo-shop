@@ -90,7 +90,7 @@ class ImportRecord(models.Model):
     @property
     def shipping_cost(self):
         if self.shipping_weight is not None and self.shipping_factor is not None:
-            return round( Decimal(self.shipping_weight * self.shipping_factor), 2 )
+            return round( Decimal(self.shipping_weight) * self.shipping_factor, 2 )
         elif self._shipping_cost is not None:
             return self._shipping_cost
         else:
