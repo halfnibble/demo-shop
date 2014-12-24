@@ -50,7 +50,25 @@
 			Add New Record
 		</a>
 	</p>
-	<table class="table table-striped table-bordered">
+	<style type="text/css">
+		td.positive {
+			background-color: #dff0d8;
+		}
+		td.negative {
+			background-color: #f2dede;
+		}
+		td.info {
+			background-color: #d9edf7;
+		}
+		td.data {
+			background-color: #fcf8e3;
+		}
+		td.control {
+			background-color: #f5f5f5;
+			text-align: right;
+		}
+	</style>
+	<table class="table table-bordered">
 		<thead>
 			<tr>
 				<th>Standard Export Price</th>
@@ -69,33 +87,42 @@
 		<tbody>
 			{% for rec in records %}
 			<tr>
-				<td> {{ rec.standard_export_price }} {{ rec.origin_currency }}</td>
-				<td>${{ rec.import_price }}</td>
-				<td>
-					 {{ rec.tariff_code }} &nbsp;
-					 <a href="#" target="_blank">Update</a>
+				<td colspan="2">Product Detail: {{ product }} </td>
+				
+				<td class="">
+					 <a href="#" target="_blank">
+					 {{ rec.tariff_code }}
+					 </a>
 				</td>
-				<td>${{ rec.tariff }}</td>
-				<td>${{ rec.shipping_cost }}</td>
-				<td>${{ rec.cost_price }}</td>
-				<td>${{ rec.price_reseller }}</td>
-				<td>${{ rec.price_retail }}</td>
-				<td> {{ rec.wholesale_gpm }}%</td>
-				<td> {{ rec.retail_gpm }}%</td>
-				<td> {{ rec.reseller_gpm }}%</td>
+				<td class="negative">${{ rec.tariff }}</td>
+				<td class="negative">${{ rec.shipping_cost }}</td>
+				<td class="data">${{ rec.cost_price }}</td>
+				<td class="positive">${{ rec.price_reseller }}</td>
+				<td class="positive">${{ rec.price_retail }}</td>
+				<td class="data"> {{ rec.wholesale_gpm }}%</td>
+				<td class="data"> {{ rec.retail_gpm }}%</td>
+				<td class="data"> {{ rec.reseller_gpm }}%</td>
 			</tr>
 			<tr>
-				<td colspan="2">Date Imported: {{ rec.imported_date }}</td>
-				<td>
+				<td class="data"> {{ rec.standard_export_price }} {{ rec.origin_currency }}</td>
+				<td class="data">${{ rec.import_price }}</td>
+				<td class="info">
 					Tariff Rate: {{ rec.tariff_rate }}%
 				</td>
-				<td colspan="5">Product Detail: IDK. </td>
-				<td colspan="3">
+				<td colspan="3">Date Imported: {{ rec.imported_date }}</td>
+				<td colspan="2">Quantity Imported: <b>{{ rec.quantity }}</b> </td>
+				<td colspan="3" class="control">
 					<a href="{% url 'dashboard:update_record' product.id rec.id %}" class="btn">
-						Update
+						<i class="icon-pencil"></i>&nbsp;
+						Modify
 					</a>
 					<a href="" class="btn">
-						Create New From
+						<i class="icon-plus-sign"></i>
+						Create New With Data
+					</a>
+					<a href="" class="btn btn-primary">
+						<i class="icon-list"></i>
+						View Details
 					</a>
 				</td>
 			</tr>
