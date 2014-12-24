@@ -50,8 +50,60 @@
 			Add New Record
 		</a>
 	</p>
-	<ul>
-		{% for rec in records %}
+	<table class="table table-striped table-bordered">
+		<thead>
+			<tr>
+				<th>Standard Export Price</th>
+				<th>Import Price (USD)</th>
+				<th>Tariff Code</th>
+				<th>Tariff</th>
+				<th>Shipping</th>
+				<th>COGS</th>
+				<th>Wholesale</th>
+				<th>MSRP</th>
+				<th>Wholesale GPM</th>
+				<th>Retail GPM</th>
+				<th>Reseller GPM</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for rec in records %}
+			<tr>
+				<td> {{ rec.standard_export_price }} {{ rec.origin_currency }}</td>
+				<td>${{ rec.import_price }}</td>
+				<td>
+					 {{ rec.tariff_code }} &nbsp;
+					 <a href="#" target="_blank">Update</a>
+				</td>
+				<td>${{ rec.tariff }}</td>
+				<td>${{ rec.shipping_cost }}</td>
+				<td>${{ rec.cost_price }}</td>
+				<td>${{ rec.price_reseller }}</td>
+				<td>${{ rec.price_retail }}</td>
+				<td> {{ rec.wholesale_gpm }}%</td>
+				<td> {{ rec.retail_gpm }}%</td>
+				<td> {{ rec.reseller_gpm }}%</td>
+			</tr>
+			<tr>
+				<td colspan="2">Date Imported: {{ rec.imported_date }}</td>
+				<td>
+					Tariff Rate: {{ rec.tariff_rate }}%
+				</td>
+				<td colspan="5">Product Detail: IDK. </td>
+				<td colspan="3">
+					<a href="{% url 'dashboard:update_record' product.id rec.id %}" class="btn">
+						Update
+					</a>
+					<a href="" class="btn">
+						Create New From
+					</a>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}
+		{#
 			<li><a href="{% url 'dashboard:update_record' product.id rec.id %}">Record Number: {{ rec.id }} </a></li>
 			<li>Record: {{ rec.partner_sku }} 
 			| Standard Export Price: {{ rec.standard_export_price }} euros
@@ -93,6 +145,5 @@
 			<br>
 			| Final Reseller Profit: ${{ rec.reseller_profit }} 
 			| Final Reseller GPM: {{ rec.reseller_gpm }}%</li>
-		{% endfor %}
 	</ul>
-{% endblock %}
+	#}
