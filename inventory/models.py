@@ -231,5 +231,9 @@ class ImportRecord(models.Model):
             self.reseller_profit, self.reseller_gpm)
         
     def get_absolute_url(self):
-        return reverse('dashboard:list_records', kwargs={'product_pk': self.product.pk})
+        """
+        This needs to be modified to show detail instead.
+        """
+        return reverse('dashboard:list_records',
+            kwargs={'parent_pk': self.product.parent.pk})
 

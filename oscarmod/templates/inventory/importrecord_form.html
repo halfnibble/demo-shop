@@ -8,11 +8,11 @@
 {% block headertext %}
     {{ title }}
     <p>
-        <a href="{% url 'dashboard:catalogue-product' product.id %}" class="btn btn-secondary">
+        <a href="{% url 'dashboard:catalogue-product' parent.id %}" class="btn btn-secondary">
             <i class="icon-arrow-left"></i>&nbsp;
             Return to Product
         </a>
-        <a href="{% url 'dashboard:list_records' product_pk=product.id %}" class="btn btn-primary">
+        <a href="{% url 'dashboard:list_records' parent.id %}" class="btn btn-primary">
             <i class="icon-list"></i>&nbsp;
             List of Import Records
         </a>
