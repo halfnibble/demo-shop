@@ -117,10 +117,12 @@ if production:
 				ln_oscar_output = subprocess.call(['ln','-s',oscar_static_path,'static/oscar'])
 			else:
 				print "Symbolic link exists."
+                searching = False
 			if not os.path.islink('static/admin'):
 				ln_admin_output = subprocess.call(['ln','-s',admin_static_path,'static/admin'])
 			else:
 				print "Symbolic link exists."
+                searching = False
 			
 			if ln_oscar_output == 0 or ln_admin_output == 0:
 				print "Oscar and Admin dirs found. Continuing."
