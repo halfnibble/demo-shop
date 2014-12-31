@@ -51,6 +51,11 @@
 		</a>
 	</p>
 	<style type="text/css">
+		th {
+			text-align: center !important;
+			font-size: 1.1em;
+			border: 1px solid #333 !important;
+		}
 		td.positive, th.positive {
 			background-color: #dff0d8;
 		}
@@ -67,13 +72,23 @@
 			background-color: #f5f5f5;
 			text-align: right;
 		}
-		tr.row-break td {
-			border-bottom: 2px solid #aaa;
+		thead {
+			border: none;
+		}
+		tr.row-break td, td.spanner {
+			border-bottom: 1px solid #333 !important;
+		}
+		/* Get rid of bootstrap radius */
+		td, th {
+			border-radius: 0px !important;
+			-webkit-border-radius: 0px !important;
+			-moz-border-radius: 0px !important;
 		}
 	</style>
 	<table class="table table-bordered">
 		<thead>
 			<tr>
+				<th>#</th>
 				<th class="data">Standard Export Price</th>
 				<th class="data">Import Price (USD)</th>
 				<th class="info">Tariff Code</th>
@@ -90,6 +105,7 @@
 		<tbody>
 			{% for rec in records %}
 			<tr>
+				<td rowspan="2" class="spanner">{{ forloop.counter }}</td>
 				<td colspan="2"><strong>Product Detail: {{ rec.product }} </strong></td>
 				
 				<td class="">
@@ -100,17 +116,14 @@
 				<td colspan="3"><strong>Date Imported:</strong> <u>{{ rec.imported_date }}</u></td>
 				<td colspan="2"><strong>Quantity Imported:</strong> <u>{{ rec.quantity }}</u> </td>
 				<td colspan="3" class="control">
-					<a href="{% url 'dashboard:update_record' parent.id rec.id %}" class="btn">
-						<i class="icon-pencil"></i>&nbsp;
-						Modify
-					</a>
+
 					<a href="" class="btn">
 						<i class="icon-plus-sign"></i>
 						Create New With Data
 					</a>
-					<a href="" class="btn btn-primary">
+					<a href="{% url 'dashboard:update_record' parent.id rec.id %}" class="btn btn-primary">
 						<i class="icon-list"></i>
-						View Details
+						View Details/Modify
 					</a>
 				</td>
 				
@@ -123,7 +136,7 @@
 				</td>
 				<td class="negative">${{ rec.tariff }}</td>
 				<td class="negative">${{ rec.shipping_cost }}</td>
-				<td class="data">${{ rec.cost_price }}</td>
+				<td class="info">${{ rec.cost_price }}</td>
 				<td class="positive">${{ rec.price_reseller }}</td>
 				<td class="positive">${{ rec.price_retail }}</td>
 				<td class="data"> {{ rec.wholesale_gpm }}%</td>

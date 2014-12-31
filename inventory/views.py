@@ -34,7 +34,6 @@ class ProductFormMixin(object):
         kwargs = super(ProductFormMixin, self).get_form_kwargs()
         kwargs['parent'] = self.parent
         return kwargs
-        
 
 
 class RecordListView(ProductMixin, ListView):

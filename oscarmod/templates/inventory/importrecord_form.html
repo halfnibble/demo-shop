@@ -4,6 +4,7 @@
 {% load staticfiles %}
 {% load sorting_tags %}
 {% load form_tags %}
+{% load underscore_tags %}
 
 {% block headertext %}
     {{ title }}
@@ -24,6 +25,33 @@
     <form method="post" action="." class="form-horizontal">
         {% csrf_token %}
         {% include 'partials/form_fields.html' %}
+
+        {% if form.is_bound and not form.is_valid %}
+            <div class="alert alert-error">
+                <strong>{% trans "Oops! We found some errors" %}</strong> - {% trans "please check the error messages below and try again" %}
+            </div>
+        {% endif %}
+
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <div class="alert alert-error control-group error">
+                    <span class="help-inline"><i class="icon-exclamation-sign"></i> {{ error }}</span>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {{ form.id }}
+
+        <!--Begin Custom Form Code -->
+
+        {% include 'partials/form_field.html' with field=form.product %}
+        {% include 'partials/form_field.html' with field=form|field_:'_shipping_cost' %}
+
+        <p>
+            <b>Test it:</b>
+            {{ object.price_retail }}
+        </p>
+
 
         <div class="form-action">
             <button class="btn btn-primary btn-large" type="submit">Submit Record</button>
