@@ -6,53 +6,53 @@ from oscar.apps.catalogue.reviews.app import application as reviews_app
 
 
 class BaseCatalogueApplication(Application):
-	name = 'catalogue'
-	detail_view = get_class('catalogue.views', 'ProductDetailView')
-	catalogue_view = get_class('catalogue.views', 'CatalogueView')
-	category_view = get_class('catalogue.views', 'ProductCategoryView')
-	range_view = get_class('offer.views', 'RangeDetailView')
+    name = 'catalogue'
+    detail_view = get_class('catalogue.views', 'ProductDetailView')
+    catalogue_view = get_class('catalogue.views', 'CatalogueView')
+    category_view = get_class('catalogue.views', 'ProductCategoryView')
+    range_view = get_class('offer.views', 'RangeDetailView')
 
-	def get_urls(self):
-		urlpatterns = super(BaseCatalogueApplication, self).get_urls()
-		urlpatterns += [
-			url(r'^$', self.catalogue_view.as_view(), name='index'),
-			url(r'^activity/(?P<activity>[\w-]+)/$', self.catalogue_view.as_view(), name='activity'),
-			url(r'^brand/(?P<brand>[\w-]+)/$', self.catalogue_view.as_view(), name='brand'),
-			url(r'^(?P<product_slug>[\w-]*)_(?P<pk>\d+)/$',
-				self.detail_view.as_view(), name='detail'),
-			# Add Activity
-			url(r'^category/(?P<category_slug>[\w-]+(/[\w-]+)*)_(?P<pk>\d+)/activity/(?P<activity>[\w-]+)/$',
-				self.category_view.as_view(), name='category'),
-			# Add Brand
-			url(r'^category/(?P<category_slug>[\w-]+(/[\w-]+)*)_(?P<pk>\d+)/brand/(?P<brand>[\w-]+)/$',
-				self.category_view.as_view(), name='category'),
-			url(r'^category/(?P<category_slug>[\w-]+(/[\w-]+)*)_(?P<pk>\d+)/$',
-				self.category_view.as_view(), name='category'),
-			# Fallback URL if a user chops of the last part of the URL
-			url(r'^category/(?P<category_slug>[\w-]+(/[\w-]+)*)/$',
-				self.category_view.as_view()),
-			url(r'^ranges/(?P<slug>[\w-]+)/$',
-				self.range_view.as_view(), name='range')]
-		return self.post_process_urls(urlpatterns)
+    def get_urls(self):
+        urlpatterns = super(BaseCatalogueApplication, self).get_urls()
+        urlpatterns += [
+            url(r'^$', self.catalogue_view.as_view(), name='index'),
+            url(r'^activity/(?P<activity>[\w-]+)/$', self.catalogue_view.as_view(), name='activity'),
+            url(r'^brand/(?P<brand>[\w-]+)/$', self.catalogue_view.as_view(), name='brand'),
+            url(r'^(?P<product_slug>[\w-]*)_(?P<pk>\d+)/$',
+                self.detail_view.as_view(), name='detail'),
+            # Add Activity
+            url(r'^category/(?P<category_slug>[\w-]+(/[\w-]+)*)_(?P<pk>\d+)/activity/(?P<activity>[\w-]+)/$',
+                self.category_view.as_view(), name='category'),
+            # Add Brand
+            url(r'^category/(?P<category_slug>[\w-]+(/[\w-]+)*)_(?P<pk>\d+)/brand/(?P<brand>[\w-]+)/$',
+                self.category_view.as_view(), name='category'),
+            url(r'^category/(?P<category_slug>[\w-]+(/[\w-]+)*)_(?P<pk>\d+)/$',
+                self.category_view.as_view(), name='category'),
+            # Fallback URL if a user chops of the last part of the URL
+            url(r'^category/(?P<category_slug>[\w-]+(/[\w-]+)*)/$',
+                self.category_view.as_view()),
+            url(r'^ranges/(?P<slug>[\w-]+)/$',
+                self.range_view.as_view(), name='range')]
+        return self.post_process_urls(urlpatterns)
 
 
 class ReviewsApplication(Application):
-	name = None
-	reviews_app = reviews_app
+    name = None
+    reviews_app = reviews_app
 
-	def get_urls(self):
-		urlpatterns = super(ReviewsApplication, self).get_urls()
-		urlpatterns += [
-			url(r'^(?P<product_slug>[\w-]*)_(?P<product_pk>\d+)/reviews/',
-				include(self.reviews_app.urls)),
-		]
-		return self.post_process_urls(urlpatterns)
+    def get_urls(self):
+        urlpatterns = super(ReviewsApplication, self).get_urls()
+        urlpatterns += [
+            url(r'^(?P<product_slug>[\w-]*)_(?P<product_pk>\d+)/reviews/',
+                include(self.reviews_app.urls)),
+        ]
+        return self.post_process_urls(urlpatterns)
 
 
 class CatalogueApplication(BaseCatalogueApplication, ReviewsApplication):
-	"""
-	Composite class combining Products with Reviews
-	"""
+    """
+    Composite class combining Products with Reviews
+    """
 
 
 application = CatalogueApplication()

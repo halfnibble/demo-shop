@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 location = lambda x: os.path.join(
-	os.path.dirname(os.path.realpath(__file__)), x)
+    os.path.dirname(os.path.realpath(__file__)), x)
 
 from django.utils.translation import ugettext_lazy as _
 
@@ -36,69 +36,69 @@ AUTH_USER_MODEL = 'usermod.User'
 
 # Template Contexts
 TEMPLATE_CONTEXT_PROCESSORS = (
-	"django.contrib.auth.context_processors.auth",
-	"django.core.context_processors.request",
-	"django.core.context_processors.debug",
-	"django.core.context_processors.i18n",
-	"django.core.context_processors.media",
-	"django.core.context_processors.static",
-	"django.core.context_processors.tz",
-	"django.contrib.messages.context_processors.messages",
-	'oscar.apps.search.context_processors.search_form',
-	'oscar.apps.promotions.context_processors.promotions',
-	'oscar.apps.checkout.context_processors.checkout',
-	'oscar.apps.customer.notifications.context_processors.notifications',
-	'oscar.core.context_processors.metadata',
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.request",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
+    'oscar.apps.search.context_processors.search_form',
+    'oscar.apps.promotions.context_processors.promotions',
+    'oscar.apps.checkout.context_processors.checkout',
+    'oscar.apps.customer.notifications.context_processors.notifications',
+    'oscar.core.context_processors.metadata',
 )
 
 # Template Dirs
 from oscar import OSCAR_MAIN_TEMPLATE_DIR
 TEMPLATE_DIRS = (
-	# location('templates'),
-	os.path.join(BASE_DIR, 'oscarmod', 'templates', 'oscar'),
-	OSCAR_MAIN_TEMPLATE_DIR,
+    # location('templates'),
+    os.path.join(BASE_DIR, 'oscarmod', 'templates', 'oscar'),
+    OSCAR_MAIN_TEMPLATE_DIR,
 )
 
 # Application definition
 from oscar import get_core_apps
 
 INSTALLED_APPS = [
-	'django.contrib.admin',
-	'django.contrib.auth',
-	'django.contrib.contenttypes',
-	'django.contrib.sessions',
-	'django.contrib.messages',
-	'django.contrib.staticfiles',
-	# Add for Oscar
-	'django.contrib.sites',
-	'django.contrib.flatpages',
-	'compressor',
-	# Add for custom user
-	'usermod',
-	# Add for Oscar customization
-	'oscarmod',
-	'inventory',
-	'pages',
-	# Payment
-	'paypal',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    # Add for Oscar
+    'django.contrib.sites',
+    'django.contrib.flatpages',
+    'compressor',
+    # Add for custom user
+    'usermod',
+    # Add for Oscar customization
+    'oscarmod',
+    'inventory',
+    'pages',
+    # Payment
+    'paypal',
 ] + get_core_apps(['oscarmod.catalogue', 'oscarmod.dashboard.catalogue',
-	 'oscarmod.shipping','oscarmod.customer', 'oscarmod.partner',])
+     'oscarmod.shipping','oscarmod.customer', 'oscarmod.partner',])
 
 MIDDLEWARE_CLASSES = (
-	'django.contrib.sessions.middleware.SessionMiddleware',
-	'django.middleware.common.CommonMiddleware',
-	'django.middleware.csrf.CsrfViewMiddleware',
-	'django.contrib.auth.middleware.AuthenticationMiddleware',
-	'django.contrib.messages.middleware.MessageMiddleware',
-	'django.middleware.clickjacking.XFrameOptionsMiddleware',
-	# Add for Oscar
-	'oscar.apps.basket.middleware.BasketMiddleware',
-	'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Add for Oscar
+    'oscar.apps.basket.middleware.BasketMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
 AUTHENTICATION_BACKENDS = (
-	'oscar.apps.customer.auth_backends.EmailBackend',
-	'django.contrib.auth.backends.ModelBackend',
+    'oscar.apps.customer.auth_backends.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 ROOT_URLCONF = 'giggearme.urls'
@@ -110,24 +110,24 @@ WSGI_APPLICATION = 'giggearme.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-	'default': {
-		'ENGINE': 'django.db.backends.mysql',
-		'NAME': 'giggearme',
-		'USER': DB_USER,
-		'PASSWORD': DB_PASSWORD,
-		'HOST': '',
-		'PORT': '',
-		'ATOMIC_REQUESTS': True
-	}
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'giggearme',
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSWORD,
+        'HOST': '',
+        'PORT': '',
+        'ATOMIC_REQUESTS': True
+    }
 }
 
 
 # Search backend settings
 
 HAYSTACK_CONNECTIONS = {
-	'default': {
-		'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
-	},
+    'default': {
+        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+    },
 }
 
 # Site Settings
@@ -154,7 +154,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR)
 STATICFILES_DIRS = (
-	os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 MEDIA_URL = '/media/'
@@ -185,29 +185,29 @@ PAYPAL_LOCALE = 'US' # This appears to be used instead of currency
 PAYPAL_CURRENCY = 'USD'
 PAYPAL_API_VERSION = '88.0'
 PAYPAL_SOLUTION_TYPE = 'Sole' # Note: May have to make account 
-							  # creation optional in PayPal.com settings.
+                              # creation optional in PayPal.com settings.
 
 # Dashboard Custimizations
 OSCAR_DASHBOARD_NAVIGATION += [
-	{
-		'label': _('Shipping charges'),
-		'icon': 'icon-truck',
-		'url_name': 'dashboard:shipping-method-list',
-	},
-	{
-		'label': _('PayPal'),
-		'icon': 'icon-globe',
-		'children': [
-			{
-				'label': _('PayFlow transactions'),
-				'url_name': 'paypal-payflow-list',
-			},
-			{
-				'label': _('Express transactions'),
-				'url_name': 'paypal-express-list',
-			},
-		]
-	},
+    {
+        'label': _('Shipping charges'),
+        'icon': 'icon-truck',
+        'url_name': 'dashboard:shipping-method-list',
+    },
+    {
+        'label': _('PayPal'),
+        'icon': 'icon-globe',
+        'children': [
+            {
+                'label': _('PayFlow transactions'),
+                'url_name': 'paypal-payflow-list',
+            },
+            {
+                'label': _('Express transactions'),
+                'url_name': 'paypal-express-list',
+            },
+        ]
+    },
 ]
 
 # Order pipeline
@@ -215,19 +215,19 @@ OSCAR_DASHBOARD_NAVIGATION += [
 
 OSCAR_INITIAL_ORDER_STATUS = 'Pending'
 OSCAR_ORDER_STATUS_PIPELINE = {
-	'Pending': ('Processed', 'Cancelled'),
-	'Processed': ('Shipped', 'Cancelled'),
-	'Shipped': (),
-	'Cancelled': (),
+    'Pending': ('Processed', 'Cancelled'),
+    'Processed': ('Shipped', 'Cancelled'),
+    'Shipped': (),
+    'Cancelled': (),
 }
 
 OSCAR_INITIAL_LINE_STATUS = OSCAR_INITIAL_ORDER_STATUS
 OSCAR_LINE_STATUS_PIPELINE = OSCAR_ORDER_STATUS_PIPELINE
 
 OSCAR_ORDER_STATUS_CASCADE = {
-	'Processed': 'Processed',
-	'Shipped': 'Shipped',
-	'Cancelled': 'Cancelled',
+    'Processed': 'Processed',
+    'Shipped': 'Shipped',
+    'Cancelled': 'Cancelled',
 }
 
 
@@ -238,49 +238,49 @@ OSCAR_ORDER_STATUS_CASCADE = {
 LOG_ROOT = location('logs')
 # Ensure log root exists
 if not os.path.exists(LOG_ROOT):
-	os.mkdir(LOG_ROOT)
+    os.mkdir(LOG_ROOT)
 
 LOGGING = {
-	'version': 1,
-	'disable_existing_loggers': False,
-	'handlers': {
-		# Include the default Django email handler for errors
-		# This is what you'd get without configuring logging at all.
-		'mail_admins': {
-			'class': 'django.utils.log.AdminEmailHandler',
-			'level': 'ERROR',
-			 # But the emails are plain text by default - HTML is nicer
-			'include_html': True,
-		},
-		# Log to a text file that can be rotated by logrotate
-		'logfile': {
-			'class': 'logging.handlers.WatchedFileHandler',
-			'filename': os.path.join(LOG_ROOT,'giggearme.log')
-		},
-	},
-	'loggers': {
-		# Again, default Django configuration to email unhandled exceptions
-		'django.request': {
-			'handlers': ['mail_admins'],
-			'level': 'ERROR',
-			'propagate': True,
-		},
-		# Might as well log any errors anywhere else in Django
-		'django': {
-			'handlers': ['logfile'],
-			'level': 'ERROR',
-			'propagate': False,
-		},
-		# Your own app - this assumes all your logger names start with "myapp."
-		'myapp': {
-			'handlers': ['logfile'],
-			'level': 'WARNING', # Or maybe INFO or DEBUG
-			'propagate': False
-		},
-		'paypal.express': {
-			'handlers': ['logfile'],
-			'level': 'ERROR',
-			'propagate': False
-		},
-	},
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        # Include the default Django email handler for errors
+        # This is what you'd get without configuring logging at all.
+        'mail_admins': {
+            'class': 'django.utils.log.AdminEmailHandler',
+            'level': 'ERROR',
+             # But the emails are plain text by default - HTML is nicer
+            'include_html': True,
+        },
+        # Log to a text file that can be rotated by logrotate
+        'logfile': {
+            'class': 'logging.handlers.WatchedFileHandler',
+            'filename': os.path.join(LOG_ROOT,'giggearme.log')
+        },
+    },
+    'loggers': {
+        # Again, default Django configuration to email unhandled exceptions
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+        # Might as well log any errors anywhere else in Django
+        'django': {
+            'handlers': ['logfile'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        # Your own app - this assumes all your logger names start with "myapp."
+        'myapp': {
+            'handlers': ['logfile'],
+            'level': 'WARNING', # Or maybe INFO or DEBUG
+            'propagate': False
+        },
+        'paypal.express': {
+            'handlers': ['logfile'],
+            'level': 'ERROR',
+            'propagate': False
+        },
+    },
 }
