@@ -110,9 +110,12 @@
                             <td>{% include 'partials/form_field.html' with field=form.origin_currency nolabel=True %}</td>
                             <td>{% include 'partials/form_field.html' with field=form.standard_export_price nolabel=True %}</td>
                             <td>{% include 'partials/form_field.html' with field=form.partner_discount nolabel=True %}</td>
-                            <td>{{ object.export_price }} {{ object.origin_currency }}</td>
+                            <td>
+                                <span id="id_export_price">{{ object.export_price }}</span>
+                                <span id="id_export_currency">{{ object.origin_currency }}</span>
+                            </td>
                             <td>{% include 'partials/form_field.html' with field=form.currency_factor nolabel=True %}</td>
-                            <td>${{ object.import_price }}</td>
+                            <td>$<span id="id_import_price">{{ object.import_price }}</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -134,7 +137,7 @@
                         <tr>
                             <td>{% include 'partials/form_field.html' with field=form.tariff_code nolabel=True %}</td>
                             <td>{% include 'partials/form_field.html' with field=form.tariff_rate nolabel=True %}</td>
-                            <td>${{ object.tariff }}</td>
+                            <td>$<span id="id_tariff_cost">{{ object.tariff }}</span></td>
                         </tr>
                         <tr>
                             <td colspan="3">
@@ -159,7 +162,7 @@
                         <tr>
                             <td>{% include 'partials/form_field.html' with field=form.shipping_weight nolabel=True %}</td>
                             <td>{% include 'partials/form_field.html' with field=form.shipping_factor nolabel=True %}</td>
-                            <td>${{ object.shipping_cost }}</td>
+                            <td>$<span id="id_shipping_cost">{{ object.shipping_cost }}</span></td>
                             <td>{% include 'partials/form_field.html' with field=form|field_:'_shipping_cost' nolabel=True %}</td>
                         </tr>
                         <tr>
