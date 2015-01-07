@@ -47,6 +47,7 @@ if (IMPORT_RECORD_PAGE == 'create' || IMPORT_RECORD_PAGE == 'update') {
             var currency_factor = $(this).val();
             // Update other values.
             import_calc.set_import_price(null, currency_factor);
+            import_calc.set_msrp(null, currency_factor);
         });
 
         // Used in set_tariff_cost
@@ -73,6 +74,25 @@ if (IMPORT_RECORD_PAGE == 'create' || IMPORT_RECORD_PAGE == 'update') {
             import_calc.set_shipping_cost(null, null, shipping_factor);
         });
 
+        // Used in MSRP
+        $('#id_origin_msrp').change(function(){
+            var origin_msrp = $(this).val();
+            // Update other values.
+            import_calc.set_msrp(origin_msrp);
+        });
+
+        // Used in Wholesale pricing calculations
+        $('#').change(function(){
+            var new_value = $(this).val();
+            // Update other values.
+        });
+
+        // Used in Retail pricing calculations
+        $('#').change(function(){
+            var new_value = $(this).val();
+            // Update other values.
+        });
+
         $('#').change(function(){
             var new_value = $(this).val();
             // Update other values.
@@ -82,7 +102,13 @@ if (IMPORT_RECORD_PAGE == 'create' || IMPORT_RECORD_PAGE == 'update') {
 
 var import_calc = (function() {
     function M(money) {
+        // Round and format money values 00.00
         return parseFloat(money).toFixed(2);
+    }
+
+    function R(rate) {
+        // Round and format rates 0.000
+        return parseFloat(rate).toFixed(3);
     }
 
     function set_export_price(standard_export_price, partner_discount, origin_currency) {
@@ -92,11 +118,12 @@ var import_calc = (function() {
             var partner_discount = $('#id_partner_discount').val();
         if (!origin_currency)
             var origin_currency = $('#id_origin_currency').val();
-        var export_price = standard_export_price * 
-            ((100.0  - partner_discount) / 100.00);
+        var export_price = this.M(
+            standard_export_price * ((100.0  - partner_discount) / 100.00)
+        );
         // Update fields
-        $('#id_export_price').html(this.M(export_price));
-        $('#id_export_currency').html(origin_currency);
+        $('#id_export_price').html(export_price);
+        $('.export_currency').html(origin_currency);
         // Call methods dependent on export_price
         this.set_import_price(export_price);
     }
@@ -106,11 +133,14 @@ var import_calc = (function() {
             var export_price = parseFloat($('#id_export_price').html());
         if (!currency_factor)
             var currency_factor = $('#id_currency_factor').val();
-        var import_price = export_price * currency_factor;
+        var import_price = this.M(
+            export_price * currency_factor
+        );
         // Update fields
-        $('#id_import_price').html(this.M(import_price));
+        $('#id_import_price').html(import_price);
         // Call methods dependent on import_price
         this.set_tariff_cost(import_price);
+        this.set_cost_price(import_price);
     }
 
     function set_tariff_cost(import_price, tariff_rate) {
@@ -118,10 +148,13 @@ var import_calc = (function() {
             var import_price = parseFloat($('#id_import_price').html());
         if (!tariff_rate)
             var tariff_rate = $('#id_tariff_rate').val();
-        var tariff_cost = import_price * (tariff_rate / 100.0);
+        var tariff_cost = this.M(
+            import_price * (tariff_rate / 100.0)
+        );
         // Update fields
-        $('#id_tariff_cost').html(this.M(tariff_cost));
+        $('#id_tariff_cost').html(tariff_cost);
         // Call methods dependent on tariff_cost
+        this.set_import_cost(tariff_cost);
     }
 
     function set_shipping_cost( _shipping_cost, shipping_weight, shipping_factor) {
@@ -134,21 +167,83 @@ var import_calc = (function() {
             if (!shipping_factor)
                 var shipping_factor = $('#id_shipping_factor').val();
 
-            var shipping_cost = shipping_weight * shipping_factor;
+            var shipping_cost = this.M(
+                shipping_weight * shipping_factor
+            );
         } else {
-            var shipping_cost = _shipping_cost;
+            var shipping_cost = this.M(_shipping_cost);
         }
-
         // Update fields
-        $('#id_shipping_cost').html(this.M(shipping_cost));
+        $('#id_shipping_cost').html(shipping_cost);
         // Call methods dependent on shipping_cost
+        this.set_import_cost(null, shipping_cost);
+    }
+
+    function set_import_cost(tariff_cost, shipping_cost) {
+        if (!tariff_cost)
+            var tariff_cost = parseFloat($('#id_tariff_cost').html());
+        if (!shipping_cost)
+            var shipping_cost = parseFloat($('#id_shipping_cost').html());
+        var import_cost = this.M(
+            (+tariff_cost) + (+shipping_cost) // (+) necessary to avoid concatenation!
+        );
+        // Update fields
+        $('#id_import_cost').html(import_cost);
+        // Call methods dependent on import_cost
+        this.set_cost_price(null, import_cost);
+    }
+
+    function set_cost_price(import_price, import_cost) {
+        if (!import_price)
+            var import_price = parseFloat($('#id_import_price').html());
+        if (!import_cost)
+            var import_cost = parseFloat($('#id_import_cost').html());
+        var cost_price = this.M(
+            (+import_price) + (+import_cost)  // (+) necessary to avoid concatenation!
+        );
+        // Update fields
+        $('#id_cost_price').html(cost_price);
+        // Call methods dependent on cost_price
+
+    }
+
+    function set_msrp(origin_msrp, currency_factor) {
+        if (!origin_msrp)
+            var origin_msrp = $('#id_origin_msrp').val();
+        if (!currency_factor)
+            var currency_factor = $('#id_currency_factor').val();
+        var msrp = this.M(
+            origin_msrp * currency_factor
+        );
+        // Update fields
+        $('#id_msrp').html(msrp);
+        // Call methods dependent on msrp
+    }
+
+    function set_wholesale_data(cost_price, target_wholesale_gpm) {  // _price_reseller?
+
+    }
+
+    function set_retail_data(target_wholesale_price, target_retail_factor, msrp) {
+
+    }
+
+    function set_reseller_data() {
+
     }
 
     return {
         M: M,
+        R: R,
         set_export_price: set_export_price,
         set_import_price: set_import_price,
         set_tariff_cost: set_tariff_cost,
-        set_shipping_cost: set_shipping_cost
+        set_shipping_cost: set_shipping_cost,
+        set_import_cost: set_import_cost,
+        set_cost_price: set_cost_price,
+        set_msrp: set_msrp,
+        set_wholesale_data: set_wholesale_data,
+        set_retail_data: set_retail_data,
+        set_reseller_data: set_reseller_data
     };
 })();

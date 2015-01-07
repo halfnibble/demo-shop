@@ -98,7 +98,7 @@
                     <thead>
                         <tr>
                             <th>Origin Currency</th>
-                            <th>Std. Export Price ({{ object.origin_currency }})</th>
+                            <th>Std. Export Price (<span class="export_currency">{{ object.origin_currency }}</span>)</th>
                             <th>Partner Discount (%)</th>
                             <th>Export Price</th>
                             <th>Currency Factor</th>
@@ -112,7 +112,7 @@
                             <td>{% include 'partials/form_field.html' with field=form.partner_discount nolabel=True %}</td>
                             <td>
                                 <span id="id_export_price">{{ object.export_price }}</span>
-                                <span id="id_export_currency">{{ object.origin_currency }}</span>
+                                <span class="export_currency">{{ object.origin_currency }}</span>
                             </td>
                             <td>{% include 'partials/form_field.html' with field=form.currency_factor nolabel=True %}</td>
                             <td>$<span id="id_import_price">{{ object.import_price }}</span></td>
@@ -182,7 +182,7 @@
                         <tr>
                             <th>Import Cost</th>
                             <th>Cost Price</th>
-                            <th>Origin MSRP ({{ object.origin_currency }})</th>
+                            <th>Origin MSRP (<span class="export_currency">{{ object.origin_currency }}</span>)</th>
                             <th>MSRP</th>
                             <th>Target WS GPM (%)</th>
                             <th>Target WS Price</th>
@@ -194,10 +194,10 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>${{ object.import_cost }}</td>
-                            <td>${{ object.cost_price }}</td>
+                            <td>$<span id="id_import_cost">{{ object.import_cost }}</span></td>
+                            <td>$<span id="id_cost_price">{{ object.cost_price }}</span></td>
                             <td>{% include 'partials/form_field.html' with field=form.origin_msrp nolabel=True %}</td>
-                            <td>${{ object.msrp }}</td>
+                            <td>$<span id="id_msrp">{{ object.msrp }}</span></td>
                             <td>{% include 'partials/form_field.html' with field=form.target_wholesale_gpm nolabel=True %}</td>
                             <td>${{ object.target_wholesale_price }}</td>
                             <td>{% include 'partials/form_field.html' with field=form.target_retail_factor nolabel=True %}</td>
