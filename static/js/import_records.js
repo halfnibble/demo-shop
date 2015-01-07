@@ -82,9 +82,15 @@ if (IMPORT_RECORD_PAGE == 'create' || IMPORT_RECORD_PAGE == 'update') {
         });
 
         // Used in Wholesale pricing calculations
-        $('#').change(function(){
-            var new_value = $(this).val();
+        $('#id_target_wholesale_gpm').change(function(){
+            var target_wholesale_gpm = $(this).val();
             // Update other values.
+            import_calc.set_wholesale_data(null, target_wholesale_gpm);
+        });
+        $('#id__reseller_price').change(function(){
+            var manual_wholesale_price = $(this).val();
+            // Update other values.
+            import_calc.set_wholesale_data(null, null, manual_wholesale_price);
         });
 
         // Used in Retail pricing calculations
@@ -204,6 +210,7 @@ var import_calc = (function() {
         // Update fields
         $('#id_cost_price').html(cost_price);
         // Call methods dependent on cost_price
+        this.set_wholesale_data(cost_price);
 
     }
 
@@ -220,16 +227,42 @@ var import_calc = (function() {
         // Call methods dependent on msrp
     }
 
-    function set_wholesale_data(cost_price, target_wholesale_gpm) {  // _price_reseller?
+    function set_wholesale_data(cost_price, target_wholesale_gpm, manual_wholesale_price) {  // _price_reseller?
+        if (!cost_price)
+            var cost_price = parseFloat($('#id_cost_price').val());
+        if (!target_wholesale_gpm)
+            var target_wholesale_gpm = $('#id_target_wholesale_gpm').val();
+        if (!manual_wholesale_price)
+            var manual_wholesale_price = $('#id__reseller_price').val();
 
+        var target_wholesale_price = this.M(
+            cost_price * (100.0 + target_wholesale_gpm) / 100.0
+        );
+        var wholesale_price = (
+            manual_wholesale_price.length > 0 ? manual_wholesale_price : this.M(
+                Math.ceil(target_wholesale_price * 10.0) / 10.0
+            )
+        );
+        var wholesale_profit = this.M(
+            wholesale_price - cost_price
+        );
+        var wholesale_gpm = this.M(
+            wholesale_profit / cost_price * 100.0
+        );
+        // Update fields
+        $('#id_target_wholesale_price').html(target_wholesale_price);
+        $('#id_reseller_price').html(wholesale_price);
+        $('#id_wholesale_profit').html(wholesale_profit);
+        $('#id_wholesale_gpm').html(wholesale_gpm);
+        // Call methods dependent on msrp
     }
 
     function set_retail_data(target_wholesale_price, target_retail_factor, msrp) {
-
+        ;
     }
 
     function set_reseller_data() {
-
+        ;
     }
 
     return {
