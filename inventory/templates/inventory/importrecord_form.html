@@ -258,4 +258,19 @@
             <button class="btn btn-primary btn-large" type="submit">Submit Record</button>
         </div>
     </form>
+
+{% endblock %}
+
+ {% block extrascripts %}
+    {{ block.super }}
+    <script type="text/javascript">
+        var IMPORT_RECORD_PAGE = 'create';
+        var record_list = {
+            {% for record in stock_records %}
+                "{{ record.product.id }}" : "{{ record.partner_sku }}",
+            {% endfor %}
+            "end": ""
+        };
+    </script>
+    <script type="text/javascript" src="{% static 'js/import_records.js' %}"></script>
 {% endblock %}

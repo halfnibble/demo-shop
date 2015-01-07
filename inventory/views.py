@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404
 from django.contrib import messages
 
 from oscarmod.catalogue.models import Product
+from oscarmod.partner.models import StockRecord
 
 from .models import ImportRecord
 from .forms import ImportRecordForm
@@ -14,11 +15,16 @@ class ProductMixin(object):
     def dispatch(self, *args, **kwargs):
         parent_pk = self.kwargs['parent_pk']
         self.parent = get_object_or_404(Product, pk=parent_pk)
+        self.variants = Product.objects.filter(parent=self.parent)
+        self.stock_records = StockRecord.objects.select_related(
+            'product').filter(product__in=self.variants)
         return super(ProductMixin, self).dispatch(*args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super(ProductMixin, self).get_context_data(**kwargs)
         context['parent'] = self.parent
+        context['variants'] = self.variants
+        context['stock_records'] = self.stock_records
         context['title'] = self.get_page_title()
         return context
 
