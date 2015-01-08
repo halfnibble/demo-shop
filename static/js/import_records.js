@@ -87,16 +87,22 @@ if (IMPORT_RECORD_PAGE == 'create' || IMPORT_RECORD_PAGE == 'update') {
             // Update other values.
             import_calc.set_wholesale_data(null, target_wholesale_gpm);
         });
-        $('#id__reseller_price').change(function(){
+        $('#id__price_reseller').change(function(){
             var manual_wholesale_price = $(this).val();
             // Update other values.
             import_calc.set_wholesale_data(null, null, manual_wholesale_price);
         });
 
         // Used in Retail pricing calculations
-        $('#').change(function(){
-            var new_value = $(this).val();
+        $('#id_target_retail_factor').change(function(){
+            var target_retail_factor = $(this).val();
             // Update other values.
+            import_calc.set_retail_data(null, target_retail_factor);
+        });
+        $('#id__price_retail').change(function(){
+            var manual_price_retail = $(this).val();
+            // Update other values.
+            import_calc.set_retail_data(null, null, null, manual_price_retail);
         });
 
         $('#').change(function(){
@@ -211,6 +217,7 @@ var import_calc = (function() {
         $('#id_cost_price').html(cost_price);
         // Call methods dependent on cost_price
         this.set_wholesale_data(cost_price);
+        this.set_retail_data(null, null, null, null, cost_price);
 
     }
 
@@ -225,18 +232,19 @@ var import_calc = (function() {
         // Update fields
         $('#id_msrp').html(msrp);
         // Call methods dependent on msrp
+        this.set_retail_data(null, null, msrp);
     }
 
     function set_wholesale_data(cost_price, target_wholesale_gpm, manual_wholesale_price) {  // _price_reseller?
         if (!cost_price)
-            var cost_price = parseFloat($('#id_cost_price').val());
+            var cost_price = parseFloat($('#id_cost_price').html());
         if (!target_wholesale_gpm)
             var target_wholesale_gpm = $('#id_target_wholesale_gpm').val();
         if (!manual_wholesale_price)
-            var manual_wholesale_price = $('#id__reseller_price').val();
+            var manual_wholesale_price = $('#id__price_reseller').val();
 
         var target_wholesale_price = this.M(
-            cost_price * (100.0 + target_wholesale_gpm) / 100.0
+            cost_price * (100.0 + (+target_wholesale_gpm)) / 100.0 // (+) necessary to avoid concatenation!
         );
         var wholesale_price = (
             manual_wholesale_price.length > 0 ? manual_wholesale_price : this.M(
@@ -251,18 +259,72 @@ var import_calc = (function() {
         );
         // Update fields
         $('#id_target_wholesale_price').html(target_wholesale_price);
-        $('#id_reseller_price').html(wholesale_price);
+        $('#id_price_reseller, .price_reseller').html(wholesale_price);
         $('#id_wholesale_profit').html(wholesale_profit);
         $('#id_wholesale_gpm').html(wholesale_gpm);
-        // Call methods dependent on msrp
+        // Call methods dependent on wholesale_data
+        this.set_retail_data(target_wholesale_price);
+        this.set_reseller_data(null, wholesale_price);
     }
 
-    function set_retail_data(target_wholesale_price, target_retail_factor, msrp) {
-        ;
+    function set_retail_data(target_wholesale_price, target_retail_factor, msrp, manual_price_retail, cost_price) {
+        if (!target_wholesale_price)
+            var target_wholesale_price = parseFloat($('#id_target_wholesale_price').html());
+        if (!target_retail_factor)
+            var target_retail_factor = $('#id_target_retail_factor').val();
+        if (!msrp)
+            var msrp = parseFloat($('#id_msrp').html());
+        if (!manual_price_retail)
+            var manual_price_retail = $('#id__price_retail').val();
+        if (!cost_price)
+            var cost_price = parseFloat($('#id_cost_price').html());
+
+        var implied_msrp = this.M(
+            target_wholesale_price * target_retail_factor
+        );
+        var msrp_delta = this.M(
+            implied_msrp - msrp
+        );
+        var msrp_markup = this.R(
+            msrp_delta / msrp * 100.0
+        );
+        var price_retail = (
+            manual_price_retail.length > 0 ? manual_price_retail : this.M(
+                Math.ceil(implied_msrp) - 0.01
+            )
+        );
+        var retail_profit = this.M(
+            price_retail - cost_price
+        );
+        var retail_gpm = this.M(
+            retail_profit / cost_price * 100.0
+        );
+        // Update fields
+        $('#id_implied_msrp').html(implied_msrp);
+        $('#id_msrp_delta').html(msrp_delta);
+        $('#id_msrp_markup').html(msrp_markup);
+        $('#id_price_retail').html(price_retail);
+        $('#id_retail_profit').html(retail_profit);
+        $('#id_retail_gpm').html(retail_gpm);
+        // Call methods dependent on retail_data
+        this.set_reseller_data(price_retail);
+
     }
 
-    function set_reseller_data() {
-        ;
+    function set_reseller_data(price_retail, wholesale_price) {
+        if (!price_retail)
+            var price_retail = parseFloat($('#id_price_retail').html());
+        if (!wholesale_price)
+            var wholesale_price = parseFloat($('#id_price_reseller').html());
+        var reseller_profit = this.M(
+            price_retail - wholesale_price
+        );
+        var reseller_gpm = this.R(
+            reseller_profit / wholesale_price * 100.0
+        );
+        // Update fields
+        $('#id_reseller_profit').html(reseller_profit);
+        $('#id_reseller_gpm').html(reseller_gpm);
     }
 
     return {

@@ -199,11 +199,23 @@
                             <td>{% include 'partials/form_field.html' with field=form.origin_msrp nolabel=True %}</td>
                             <td>$<span id="id_msrp">{{ object.msrp }}</span></td>
                             <td>{% include 'partials/form_field.html' with field=form.target_wholesale_gpm nolabel=True %}</td>
-                            <td>${{ object.target_wholesale_price }}</td>
+                            <td>$<span id="id_target_wholesale_price">
+                                {{ object.target_wholesale_price }}
+                                </span>
+                            </td>
                             <td>{% include 'partials/form_field.html' with field=form.target_retail_factor nolabel=True %}</td>
-                            <td>${{ object.implied_msrp }}</td>
-                            <td>${{ object.msrp_delta }}</td>
-                            <td>{{ object.msrp_markup }}%</td>
+                            <td>$<span id="id_implied_msrp">
+                                {{ object.implied_msrp }}
+                                </span>
+                            </td>
+                            <td>$<span id="id_msrp_delta">
+                                {{ object.msrp_delta }}
+                                </span>
+                            </td>
+                            <td><span id="id_msrp_markup">
+                                {{ object.msrp_markup }}
+                                </span> %
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -228,24 +240,50 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>${{ object.price_reseller }}</td>
-                            <td>${{ object.wholesale_profit }}</td>
-                            <td>{{ object.wholesale_gpm }}%</td>
-                            <td>${{ object.price_retail }}</td>
-                            <td>${{ object.retail_profit }}</td>
-                            <td>{{ object.retail_gpm }}%</td>
-                            <td>${{ object.reseller_profit }}</td>
-                            <td>{{ object.reseller_gpm }}%</td>
+                            <td>$<span id="id_price_reseller">
+                                {{ object.price_reseller }}
+                                </span>
+                            </td>
+                            <td>$<span id="id_wholesale_profit">
+                                {{ object.wholesale_profit }}
+                                </span>
+                            </td>
+                            <td><span id="id_wholesale_gpm">
+                                {{ object.wholesale_gpm }}
+                                </span> %
+                            </td>
+                            <td>$<span id="id_price_retail">
+                                {{ object.price_retail }}
+                                </span>
+                            </td>
+                            <td>$<span id="id_retail_profit">
+                                {{ object.retail_profit }}
+                                </span>
+                            </td>
+                            <td><span id="id_retail_gpm">
+                                {{ object.retail_gpm }}
+                                </span> %
+                            </td>
+                            <td>$<span id="id_reseller_profit">
+                                {{ object.reseller_profit }}
+                                </span>
+                            </td>
+                            <td><span id="id_reseller_gpm">
+                                {{ object.reseller_gpm }}
+                                </span> %
+                            </td>
                         </tr>
                         <tr>
                             <td colspan="2" class="align-right">
-                                Manually Override Wholesale Price (${{ object.price_reseller }}):
+                                Manually Override Wholesale Price ($<span class="price_reseller">
+                                    {{ object.price_reseller }}</span>):
                             </td>
                             <td colspan="2">
                                 {% include 'partials/form_field.html' with field=form|field_:'_price_reseller' nolabel=True %}
                             </td>
                             <td colspan="2" class="align-right">
-                                Manually Override Retail Price (${{ object.price_retail }}):
+                                Manually Override Retail Price ($<span class="price_retail">
+                                    {{ object.price_retail }}</span>):
                             </td>
                             <td colspan="2">
                                 {% include 'partials/form_field.html' with field=form|field_:'_price_retail' nolabel=True %}
