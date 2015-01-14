@@ -141,7 +141,7 @@
                         </tr>
                         <tr>
                             <td colspan="3">
-                                NOTE: Add Tariff Code Feature Here.
+                                {% include 'partials/form_field.html' with field=form.related_tariff %}
                             </td>
                         </tr>
                     </tbody>
@@ -309,6 +309,15 @@
         var record_list = {
             {% for record in stock_records %}
                 "{{ record.product.id }}" : "{{ record.partner_sku }}",
+            {% endfor %}
+            "end": ""
+        };
+        var tariff_list = {
+            {% for tariff in tariffs %}
+                "{{ tariff.id }}" : {
+                    "tariff_code" : "{{ tariff.code }}",
+                    "tariff_rate" : "{{ tariff.rate }}"
+                },
             {% endfor %}
             "end": ""
         };

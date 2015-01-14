@@ -1,11 +1,13 @@
+from django.core.urlresolvers import reverse
 from django.views.generic import View, ListView, CreateView, UpdateView
-from django.shortcuts import get_object_or_404
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
 from django.contrib import messages
 
 from oscarmod.catalogue.models import Product
 from oscarmod.partner.models import StockRecord
 
-from .models import ImportRecord
+from .models import ImportRecord, Tariff
 from .forms import ImportRecordForm
 
 class ProductMixin(object):
@@ -18,6 +20,7 @@ class ProductMixin(object):
         self.variants = Product.objects.filter(parent=self.parent)
         self.stock_records = StockRecord.objects.select_related(
             'product').filter(product__in=self.variants)
+        self.tariffs = Tariff.objects.all()
         return super(ProductMixin, self).dispatch(*args, **kwargs)
 
     def get_context_data(self, **kwargs):
@@ -25,6 +28,7 @@ class ProductMixin(object):
         context['parent'] = self.parent
         context['variants'] = self.variants
         context['stock_records'] = self.stock_records
+        context['tariffs'] = self.tariffs
         context['title'] = self.get_page_title()
         return context
 
@@ -50,10 +54,26 @@ class FormSaveMixin(object):
     def submitted_msg(self):
         return "Your changes have been applied."
 
+    # Relate this record to a Tariff if None selected.
+    def set_related_tariff(self, form):
+        if form.instance.tariff_code is not None:
+            try:
+                tariff = Tariff.objects.get(code=form.instance.tariff_code)
+            except:
+                tariff = None
+            form.instance.related_tariff = tariff
+        return form
+
     def form_valid(self, form):
+        if form.instance.related_tariff is None:
+            form = self.set_related_tariff(form)
         self.object = form.save()
         messages.info(self.request, self.submitted_msg)
-        return self.render_to_response(self.get_context_data(form=form))
+        # form = self.get_form(self.form_class)
+        # attempting to re-render form fields.
+        update_form = reverse('dashboard:update_record', kwargs={'parent_pk': self.parent.pk, 'pk': self.object.id })
+        return HttpResponseRedirect(update_form)
+        #self.render_to_response(self.get_context_data(form=form))
         
 
 

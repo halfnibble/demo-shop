@@ -36,10 +36,10 @@ class Tariff(models.Model):
         taxed_amount = (
             M(original_amount) * (D('1.000') + R(self.rate) / D('100.000'))
         )
-        return round(taxed_amount,2)
+        return M(taxed_amount)
     
-    def __str__(self):
-        return u'Tariff No. %s, rate: %s%.' % (self.code, R(self.rate))
+    def __unicode__(self):
+        return u'No. %s, Rt. %s%%' % (self.code, self.rate)
         
     class Meta:
         verbose_name = _('Tariff')
@@ -90,6 +90,9 @@ class ImportRecord(models.Model):
     tariff_code = models.CharField(_('Tariff code'), max_length=128)
     tariff_rate = models.DecimalField(
         _('Tariff rate'), decimal_places=3, max_digits=6, default=0.000)
+
+    related_tariff = models.ForeignKey(Tariff, null=True, blank=True,
+        verbose_name=_('Related Tariff'))
     
     @property
     def tariff(self):
@@ -242,7 +245,7 @@ class ImportRecord(models.Model):
         rate = M(self.reseller_profit) / M(self.price_reseller) * R('100.000')
         return R(rate)
 
-    def __str__(self):
+    def __unicode__(self):
         return u"""
             Product: %s, MSRP: $%s, Retail: $%s, Wholesale: $%s, 
             Retail profit: $%s, Wholesale profit: $%s, 

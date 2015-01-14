@@ -50,6 +50,15 @@ if (IMPORT_RECORD_PAGE == 'create' || IMPORT_RECORD_PAGE == 'update') {
             import_calc.set_msrp(null, currency_factor);
         });
 
+        $('#id_related_tariff').change(function(){
+            var id = $(this).val();
+            // Update tariff fields
+            if (id) {
+                $('#id_tariff_code').val(tariff_list[id].tariff_code);
+                $('#id_tariff_rate').val(tariff_list[id].tariff_rate);
+            }            
+        });
+
         // Used in set_tariff_cost
         $('#id_tariff_rate').change(function(){
             var tariff_rate = $(this).val();
