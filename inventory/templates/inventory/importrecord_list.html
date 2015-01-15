@@ -45,16 +45,25 @@
 {% block dashboard_content %}
 	<h2> Records List: {% if parent %} {{ parent.title}} {% endif %} </h2>
 	<p>
-		<a class="btn btn-primary" href="{% url 'dashboard:add_record' parent.id %}">
+		<a class="btn btn-primary" href="{% url 'dashboard:record_create' parent.id %}">
 			<i class="icon-plus"></i>&nbsp;
 			Add New Record
 		</a>
 	</p>
 	<style type="text/css">
+        #import-record-list {
+            color: #000 !important;
+        }
+        #import-record-list em {
+            font-size: 1.1em !important;
+        }
 		th {
 			text-align: center !important;
-			font-size: 1.1em;
-			border: 1px solid #333 !important;
+			font-size: 1.2em !important;
+            line-height: 32px !important;
+            font-weight: normal !important;
+            color: #000;
+            border-bottom: 1px solid #999 !important;
 		}
 		td.positive, th.positive {
 			background-color: #dff0d8;
@@ -76,7 +85,7 @@
 			border: none;
 		}
 		tr.row-break td, td.spanner {
-			border-bottom: 1px solid #333 !important;
+			border-bottom: 1px solid #999 !important;
 		}
 		/* Get rid of bootstrap radius */
 		td, th {
@@ -85,7 +94,7 @@
 			-moz-border-radius: 0px !important;
 		}
 	</style>
-	<table class="table table-bordered">
+	<table id="import-record-list" class="table table-bordered">
 		<thead>
 			<tr>
 				<th>#</th>
@@ -106,24 +115,25 @@
 			{% for rec in records %}
 			<tr>
 				<td rowspan="2" class="spanner">{{ forloop.counter }}</td>
-				<td colspan="2"><strong>Product Detail: {{ rec.product }} </strong></td>
+				<td colspan="2"><em>Product Detail: {{ rec.product }}</em></td>
 				
 				<td class="">
-					 <a href="#" target="_blank">
+					 <a href="{% url 'dashboard:tariff_update' pk=rec.tariff_code %}" target="_blank">
+                     <!-- tariff_update' rec.tariff_code -->
 					 {{ rec.tariff_code }}
 					 </a>
 				</td>
-				<td colspan="3"><strong>Date Imported:</strong> <u>{{ rec.imported_date }}</u></td>
-				<td colspan="2"><strong>Quantity Imported:</strong> <u>{{ rec.quantity }}</u> </td>
+				<td colspan="3"><em>Date Imported: {{ rec.imported_date }}</em></td>
+				<td colspan="2"><em>Quantity Imported: {{ rec.quantity }}</em></td>
 				<td colspan="3" class="control">
 
 					<a href="" class="btn">
 						<i class="icon-plus-sign"></i>
-						Create New With Data
+						Create New w/ Data
 					</a>
-					<a href="{% url 'dashboard:update_record' parent.id rec.id %}" class="btn btn-primary">
+					<a href="{% url 'dashboard:record_update' parent.id rec.id %}" class="btn btn-primary">
 						<i class="icon-list"></i>
-						View Details/Modify
+						View / Update
 					</a>
 				</td>
 				
@@ -132,7 +142,7 @@
 				<td class="data"> {{ rec.standard_export_price }} {{ rec.origin_currency }}</td>
 				<td class="data">${{ rec.import_price }}</td>
 				<td class="info">
-					Tariff Rate: {{ rec.tariff_rate }}%
+					Tariff Rt. {{ rec.tariff_rate }}%
 				</td>
 				<td class="negative">${{ rec.tariff }}</td>
 				<td class="negative">${{ rec.shipping_cost }}</td>
@@ -147,47 +157,3 @@
 		</tbody>
 	</table>
 {% endblock %}
-		{#
-			<li><a href="{% url 'dashboard:update_record' product.id rec.id %}">Record Number: {{ rec.id }} </a></li>
-			<li>Record: {{ rec.partner_sku }} 
-			| Standard Export Price: {{ rec.standard_export_price }} euros
-			| Discount to EU Activewear: {{ rec.partner_discount }}% 
-			| Currency Conversion Factor: {{ rec.currency_factor }}
-			<br>
-			| MSRP (Euro): {{ rec.origin_msrp }} euros
-			| MSRP (USD): ${{ rec.msrp }} 
-			| Export Price: {{ rec.export_price }} euros
-			| Import Price(USD): ${{ rec.import_price }} 
-			<br>
-			| Tariff Code: {{ rec.tariff_code }} 
-			| Tariff Rate: {{ rec.tariff_rate }}% 
-			| Tariff: ${{ rec.tariff }} 
-			<br>
-			| Shipping Weight: {{ rec.shipping_weight }} 
-			| Shipping Factor: {{ rec.shipping_factor }} 
-			| Import Cost (USD): ${{ rec.import_cost }} 
-			<br>
-			| COGS (fully landed): ${{ rec.cost_price }} 
-			<br>
-			| WS GPM Target: {{ rec.target_wholesale_gpm }}% 
-			| Target WS Price: ${{ rec.target_wholesale_price }} 
-			| Implied Retail Factor: {{ rec.implied_retail_factor }} 
-			<br>
-			| Target Retail Factor: {{ rec.target_retail_factor }} 
-			| Implied MSRP: ${{ rec.implied_msrp }} 
-			| MSRP Delta: ${{ rec.msrp_delta }}
-			| MSRP Markup: {{ rec.msrp_markup }}% 
-			<br>
-			| Final WS Price: ${{ rec.price_reseller }}
-			| Final MSRP: ${{ rec.price_retail }}
-			<br>
-			| Final GIG WS Profit: ${{ rec.wholesale_profit }}
-			| Final GIG WS GPM: {{ rec.wholesale_gpm }}% 
-			<br>
-			| Final GIG Retail Profit: ${{ rec.retail_profit }} 
-			| Final GIG Retail GPM: {{ rec.retail_gpm }}% 
-			<br>
-			| Final Reseller Profit: ${{ rec.reseller_profit }} 
-			| Final Reseller GPM: {{ rec.reseller_gpm }}%</li>
-	</ul>
-	#}

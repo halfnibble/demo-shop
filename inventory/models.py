@@ -27,7 +27,7 @@ class Tariff(models.Model):
     Global Tariff table useful for predicting future expenses.
     Can be updated when an ImportRecord is created.
     """
-    code = models.CharField(_('Tariff code'), max_length=128)
+    code = models.CharField(_('Tariff code'), max_length=128, primary_key=True)
     rate = models.DecimalField(
         _('Tariff rate'), decimal_places=3, max_digits=6, default=0.000)
     updated = models.DateTimeField(_('Last modified'), auto_now=True)
@@ -261,6 +261,6 @@ class ImportRecord(models.Model):
         """
         This needs to be modified to show detail instead.
         """
-        return reverse('dashboard:list_records',
+        return reverse('dashboard:record_list',
             kwargs={'parent_pk': self.product.parent.pk})
 

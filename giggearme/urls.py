@@ -12,11 +12,11 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     
     # PayPal integration
-    (r'^checkout/paypal/', include('paypal.express.urls')),
-    (r'^dashboard/paypal/express/', include(paypal.urls)),
+    url(r'^checkout/paypal/', include('paypal.express.urls')),
+    url(r'^dashboard/paypal/express/', include(paypal.urls)),
 
     # oscar URLS
-    (r'^i18n', include('django.conf.urls.i18n')),
+    url(r'^i18n', include('django.conf.urls.i18n')),
     url(r'', include('pages.urls', namespace='pages')),
     url(r'', include(application.urls)),
     

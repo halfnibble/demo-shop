@@ -71,7 +71,7 @@ class FormSaveMixin(object):
         messages.info(self.request, self.submitted_msg)
         # form = self.get_form(self.form_class)
         # attempting to re-render form fields.
-        update_form = reverse('dashboard:update_record', kwargs={'parent_pk': self.parent.pk, 'pk': self.object.id })
+        update_form = reverse('dashboard:record_update', kwargs={'parent_pk': self.parent.pk, 'pk': self.object.id })
         return HttpResponseRedirect(update_form)
         #self.render_to_response(self.get_context_data(form=form))
         
@@ -107,4 +107,24 @@ class RecordUpdateView(ProductMixin, ProductFormMixin,
 
     def get_page_title(self):
         return u"Update record for \"%s.\"" % (self.parent.title)
+
+
+"""
+TARIFFS
+"""
+
+class TariffListView(ListView):
+    """Show list of saved Tarffs in the Dashboard"""
+    model = Tariff
+    context_object_name = "tariffs"
+
+
+class TariffCreateView(CreateView):
+    """Create new Tariff entries"""
+    model = Tariff
+        
+
+class TariffUpdateView(UpdateView):
+    """Modify existing Tariff entries"""
+    model = Tariff
 
