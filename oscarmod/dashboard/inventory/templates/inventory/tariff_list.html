@@ -1,0 +1,74 @@
+{% extends 'dashboard/layout.html' %}
+{% load i18n %}
+{% load thumbnail %}
+{% load staticfiles %}
+{% load sorting_tags %}
+{% load form_tags %}
+
+{% block title %}
+    {% trans "Saved Tariffs" %} | {{ block.super }}
+{% endblock %}
+
+{% block breadcrumbs %}
+    <ul class="breadcrumb">
+        <li>
+            <a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a>
+            <span class="divider">/</span>
+        </li>
+        <li class="active">{% trans "Tariffs" %}</li>
+    </ul>
+{% endblock %}
+
+{% block headertext %}
+    <h1> Tariffs List </h1>
+    <hr>
+{% endblock %}
+
+{% block dashboard_content %}
+
+    <style type="text/css">
+        #tariff_table {
+            max-width: 800px;
+        }
+        th {
+            font-size: 1.2em !important;
+            line-height: 32px !important;
+            font-weight: normal !important;
+            color: #000;
+            border-bottom: 1px solid #999 !important;
+        }
+    </style>
+    <p>
+        <a class="btn btn-primary" href="{% url 'dashboard:tariff_create' %}">
+            <i class="icon-plus"></i>&nbsp;
+            Add New Tariff
+        </a>
+    </p>
+    
+    <div class="row-fluid">
+        <table id="tariff_table" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Tariff Code</th>
+                    <th>Tariff Rate</th>
+                    <th>Last Modified</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tar in tariffs %}
+                <tr>
+                    <td>
+                        <a href="{% url 'dashboard:tariff_update' tar.code %}">{{ tar.code }}</a>
+                    </td>
+                    <td>
+                        {{ tar.rate }}%
+                    </td>
+                    <td>
+                        {{ tar.updated }}
+                    </td>                
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

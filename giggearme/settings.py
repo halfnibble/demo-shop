@@ -77,13 +77,13 @@ INSTALLED_APPS = [
     'usermod',
     # Add for Oscar customization
     'oscarmod',
-    'inventory',
+    'oscarmod.dashboard.inventory',
     'pages',
     # Payment
     'paypal',
 ] + get_core_apps(['oscarmod.catalogue', 'oscarmod.dashboard.catalogue',
      'oscarmod.shipping','oscarmod.customer', 'oscarmod.partner',
-     'oscarmod.dashboard.reports',])
+     'oscarmod.dashboard', 'oscarmod.dashboard.reports',])
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -210,6 +210,39 @@ OSCAR_DASHBOARD_NAVIGATION += [
         ]
     },
 ]
+
+# Override Catalogue Menu Item
+OSCAR_DASHBOARD_NAVIGATION[1] = {
+        'label': _('Catalogue'),
+        'icon': 'icon-sitemap',
+        'children': [
+            {
+                'label': _('Products'),
+                'url_name': 'dashboard:catalogue-product-list',
+            },
+            {
+                'label': _('Product Types'),
+                'url_name': 'dashboard:catalogue-class-list',
+            },
+            {
+                'label': _('Categories'),
+                'url_name': 'dashboard:catalogue-category-list',
+            },
+            {
+                'label': _('Ranges'),
+                'url_name': 'dashboard:range-list',
+            },
+            {
+                'label': _('Low stock alerts'),
+                'url_name': 'dashboard:stock-alert-list',
+            },
+            {
+                'label': _('Tariffs'),
+                'url_name': 'dashboard:tariff_list',
+            },
+        ]
+    }
+
 
 # Order pipeline
 # ==============

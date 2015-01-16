@@ -1,0 +1,48 @@
+{% extends 'inventory/importrecord_list.html' %}
+{% load i18n %}
+{% load thumbnail %}
+{% load staticfiles %}
+{% load sorting_tags %}
+{% load form_tags %}
+{% load underscore_tags %}
+
+{% block headertext %}
+    {% trans "Create or Update a Tariff Record" %}
+    <p>
+        <a href="{% url 'dashboard:tariff_list' %}" class="btn btn-secondary">
+            <i class="icon-arrow-left"></i>&nbsp;
+            Return to Tariff List
+        </a>
+    </p>
+{% endblock %}
+
+{% block dashboard_content %}
+    <hr>
+    <form method="post" action="." class="form-horizontal form-inline">
+        {% csrf_token %}
+
+        {% if form.is_bound and not form.is_valid %}
+            <div class="alert alert-error">
+                <strong>{% trans "Oops! We found some errors" %}</strong> - {% trans "please check the error messages below and try again" %}
+            </div>
+        {% endif %}
+
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <div class="alert alert-error control-group error">
+                    <span class="help-inline"><i class="icon-exclamation-sign"></i> {{ error }}</span>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <!--Begin Custom Form Code -->
+        <div>
+            {% include "partials/form_fields_inline.html" with form=form %}
+        </div>
+
+        <div class="form-action">
+            <button class="btn btn-primary btn-large" type="submit">Submit Record</button>
+        </div>
+    </form>
+{% endblock dashboard_content %}
+

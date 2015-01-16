@@ -1,8 +1,0 @@
-{% load brand_tags %}
-
-{% product_brands as brands %}
-{% for product_brand in brands %}
-	<li class="">
-		<a href="/catalogue/{{ product_brand.url }}">{{ product_brand.name }}</a>
-	</li>
-{% endfor %}
