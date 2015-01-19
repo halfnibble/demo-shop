@@ -8,16 +8,6 @@
 
 {% block headertext %}
     {{ title }}
-    <p>
-        <a href="{% url 'dashboard:catalogue-product' parent.id %}" class="btn btn-secondary">
-            <i class="icon-arrow-left"></i>&nbsp;
-            Return to Product
-        </a>
-        <a href="{% url 'dashboard:record_list' parent.id %}" class="btn btn-primary">
-            <i class="icon-list"></i>&nbsp;
-            List of Import Records
-        </a>
-    </p>
 {% endblock %}
 
 {% block dashboard_content %}
@@ -29,9 +19,12 @@
         .align-right {
             text-align: right !important;
         }
+        .form-horizontal .form-actions {
+            padding-left: 20px !important;
+        }
     </style>
     <hr>
-    <form method="post" action="." class="form-horizontal container">
+    <form method="post" action="." class="form-horizontal container fixed-actions">
         {% csrf_token %}
 
         {% if form.is_bound and not form.is_valid %}
@@ -295,11 +288,33 @@
             </div>
         </div>
 
-        <div class="form-action">
-            <button class="btn btn-primary btn-large" type="submit">Submit Record</button>
-        </div>
+        {% block fixed_actions_group %}
+            <div class="fixed-actions-group">
+                <div class="form-actions">
+                    <div class="pull-right">
+                        <a href="{% url 'dashboard:record_list' parent.id %}">
+                            {% trans "Cancel" %}
+                        </a>
+                        {% trans "or" %}
+                        <button class="btn btn-secondary btn-large" name="action" type="submit" value="continue">
+                            {% trans "Save and continue editing" %}
+                        </button>
+                        <button class="btn btn-primary btn-large" name="action" type="submit" value="save">
+                            {% trans "Save" %}
+                        </button>
+                    </div>
+                    <a class="btn btn-success btn-large" href="{% url 'dashboard:catalogue-product' parent.id %}">
+                        <i class="icon-arrow-left"></i>&nbsp;
+                        {% trans "Return to Product" %}
+                    </a>
+                    <a class="btn btn-primary btn-large" href="{% url 'dashboard:record_list' parent.id %}">
+                        <i class="icon-list"></i>&nbsp;
+                        {% trans "List of Import Records" %}
+                    </a>
+                </div>
+            </div>
+        {% endblock fixed_actions_group %}
     </form>
-
 {% endblock %}
 
  {% block extrascripts %}
