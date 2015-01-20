@@ -292,9 +292,21 @@
             <div class="fixed-actions-group">
                 <div class="form-actions">
                     <div class="pull-right">
-                        <a href="{% url 'dashboard:record_list' parent.id %}">
-                            {% trans "Cancel" %}
-                        </a>
+                        <label class="checkbox inline">
+                            <a href="{% url 'dashboard:record_list' parent.id %}">
+                                {% trans "Cancel" %}
+                            </a>
+                        </label>
+                        <label class="checkbox inline">
+                            <input type="checkbox" name="update_tariff_info" checked="checked">
+                                <span class="label label-warning">Update Tariff Info</span>
+                            </label>
+                        </label>
+                        <label class="checkbox inline">
+                            <input type="checkbox" name="update_stock_info" checked="checked">
+                                <span class="label label-info">Update Catalog Info</span>
+                            </label>
+                        </label>
                         {% trans "or" %}
                         <button class="btn btn-secondary btn-large" name="action" type="submit" value="continue">
                             {% trans "Save and continue editing" %}

@@ -68,13 +68,36 @@ class FormSaveMixin(object):
         if form.instance.related_tariff is None:
             form = self.set_related_tariff(form)
         self.object = form.save()
+
+        # Process Tariff and StockRecord forms
+        try:
+            self.process_other_forms()
+        except:
+            messages.info(self.request, 'One or more other resources failed.')
+            pass
+
         messages.info(self.request, self.submitted_msg)
-        # form = self.get_form(self.form_class)
-        # attempting to re-render form fields.
-        update_form = reverse('dashboard:record_update', kwargs={'parent_pk': self.parent.pk, 'pk': self.object.id })
-        return HttpResponseRedirect(update_form)
-        #self.render_to_response(self.get_context_data(form=form))
-        
+
+        return HttpResponseRedirect(self.get_success_url())
+
+    def process_other_forms(self):
+        process_tariff = self.request.POST.get('update_tariff_info') == 'on'
+        process_stock = self.request.POST.get('update_stock_info') == 'on'
+
+        """
+        Process Tariff and StockRecord forms in relevant item is True.
+        """
+
+        return True
+
+    def get_success_url(self):
+        action = self.request.POST.get('action')
+        if action == 'continue':
+            return reverse('dashboard:record_update',
+                kwargs={'parent_pk': self.parent.pk, 'pk': self.object.id })
+        else:
+            return reverse('dashboard:record_list',
+                kwargs={'parent_pk': self.parent.pk})        
 
 
 class RecordListView(ProductMixin, ListView):
