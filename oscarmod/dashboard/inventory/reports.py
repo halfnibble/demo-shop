@@ -7,6 +7,8 @@ ReportCSVFormatter = get_class('dashboard.reports.reports',
 ReportHTMLFormatter = get_class('dashboard.reports.reports',
                                 'ReportHTMLFormatter')
 
+from .models import ImportRecord
+
 
 class ImportReportHTMLFormatter(ReportHTMLFormatter):
     filename_template = 'inventory/reports/import_records_report.html'
@@ -15,48 +17,29 @@ class ImportReportHTMLFormatter(ReportHTMLFormatter):
 class ImportReportGenerator(ReportGenerator):
     code = 'import-records'
     description = _('Product Import Costs')
+    date_range_field_name = None
 
     formatters = {
         'HTML_formatter': ImportReportHTMLFormatter,
     }
 
     def generate(self):
+        queryset = ImportRecord.objects.select_related('product').all()
+
         # Make the GET object easier to access
         params = self.request.GET
 
-        """
-        Override the generate() method to create report content based on the
-        various GET params available for the custom form.
-        """
-        if params.get('test_feature') == 'yes':
-            import_records = {
-                'record 1': {
-                    'parent_pk': 242,
-                    'pk': 20,
-                    'price': 'IT',
-                    'profit': 'WORKS'
-                },
-                'record 2': {
-                    'parent_pk': 242,
-                    'pk': 19,
-                    'price': 'IT',
-                    'profit': 'WORkS'
-                }
-            }
-        else:
-            import_records = {
-                'record 1': {
-                    'parent_pk': 242,
-                    'pk': 20,
-                    'price': 'HIGH',
-                    'profit': 'HIGH'
-                },
-                'record 2': {
-                    'parent_pk': 242,
-                    'pk': 19,
-                    'price': 'LOW',
-                    'profit': 'LOW'
-                }
-            }
+        product_pk = params.get('product')
 
-        return self.formatter.generate_response(import_records.values())
+        if product_pk:
+            queryset = queryset.filter(product=product_pk) | queryset.filter(
+                product__parent=product_pk)
+
+        # Do finaly manipulations
+        if len(queryset) > 0:
+            queryset = list(queryset)
+            queryset[0].fields = {
+                field: value for field, value in params.iteritems()
+            }
+        return self.formatter.generate_response(queryset)
+

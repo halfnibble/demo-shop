@@ -1,0 +1,33 @@
+<div id="import_report_controls" style="{% if form.report_type != 'import-records' %}display:none;{% endif %}">
+    <div class="control-group"></div>
+    <div class="control-group">
+        {% include 'partials/form_fields_inline.html' with form=form %}
+    
+        <label class="checkbox inline">
+            <input type="checkbox" name="standard_export_price" checked="checked">
+            Std. Export Price
+        </label>
+        <label class="checkbox inline">
+            <input type="checkbox" name="currency_factor" checked="checked">
+            Currency Conv.
+        </label>
+        <label class="checkbox inline">
+            <input type="checkbox" name="import_price" checked="checked">
+            Import Price
+        </label>
+        <label class="checkbox inline">
+            <input type="checkbox" name="tariff" checked="checked">
+            Tariff
+        </label>
+        <label class="checkbox inline">
+            <input type="checkbox" name="shipping_cost" checked="checked">
+            Shipping Cost
+        </label>
+        <label class="checkbox inline">
+            <input type="checkbox" name="cost_price" checked="checked">
+            COGS
+        </label>
+    </div>
+</div>
+
+

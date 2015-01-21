@@ -27,6 +27,7 @@
     <div class="well">
         <form method="get" action="." class="form-inline">
             {% include "partials/form_fields_inline.html" with form=form %}
+            {% include "inventory/reports/import_fields_select.html" with form=product_form %}
             <span class="control-group">
                 <button type="submit" class="btn btn-primary">{% trans "Generate report" %}</button>
             </span>
@@ -43,3 +44,18 @@
     {% endblock %}
 
 {% endblock dashboard_content %}
+
+{% block extrascripts %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#id_report_type').change(function(){
+                if ($(this).val() == 'import-records') {
+                    $('#import_report_controls').show();
+                } else {
+                    $('#import_report_controls').hide();
+                }
+            });
+        });
+    </script>
+{% endblock extrascripts %}

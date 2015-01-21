@@ -5,17 +5,62 @@
 {% block report %}
 <table class="table table-striped table-bordered table-hover">
     {% if objects %}
+        {% with objects|first as report %}
         <tr>
             <th>{% trans "Import Record" %}</th>
-            <th>{% trans "Price" %}</th>
+            <th>{% trans "Import Date" %}</th>
+            {% if report.fields.standard_export_price %}
+                <th>{% trans "Std. Export Price" %}</th>
+            {% endif %}
+            {% if report.fields.currency_factor %}
+                <th>{% trans "Currency Conv." %}</th>
+            {% endif %}
+            {% if report.fields.import_price %}
+                <th>{% trans "Import Price" %} (USD)</th>
+            {% endif %}
+            {% if report.fields.tariff %}
+                <th>{% trans "Tariffs" %} (USD)</th>
+            {% endif %}
+            {% if report.fields.shipping_cost %}
+                <th>{% trans "Shipping" %} (USD)</th>
+            {% endif %}
+            {% if report.fields.cost_price %}
+                <th>COGS (USD)</th>
+            {% endif %}
+            
+            {% if report.fields.test %}
+                <th>{% trans "" %}</th>
+            {% endif %}
         </tr>
-        {% for import in objects %}
+        {% for record in objects %}
         <tr>
-            <td><a href="{% url 'dashboard:record_update' import.parent_pk import.pk %}">{{ import.price }}</a></td>
-            <td>{{ import.profit }}</td>
-        </tr>
-    {% endfor %}
+            <td><a href="">{{ record.product }}</a></td>
+            <td>{{ record.imported_date|date }}</td>
+            {% if report.fields.standard_export_price %}
+                <td>{{ record.standard_export_price }} {{ record.origin_currency }}</td>
+            {% endif %}
+            {% if report.fields.currency_factor %}
+                <td>{{ record.currency_factor }}</td>
+            {% endif %}
+            {% if report.fields.import_price %}
+                <td>{{ record.import_price }}</td>
+            {% endif %}
+            {% if report.fields.tariff %}
+                <td>${{ record.tariff }}</td>
+            {% endif %}
+            {% if report.fields.shipping_cost %}
+                <td>${{ record.shipping_cost }}</td>
+            {% endif %}
+            {% if report.fields.cost_price %}
+                <td>${{ record.cost_price }}</td>
+            {% endif %}
 
+            {% if report.fields.test %}
+                <td>{{ test }}</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+        {% endwith %}
     {% else %}
         <tr><td>{% trans "No results found." %}</td></tr>
     {% endif %}
