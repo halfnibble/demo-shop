@@ -17,7 +17,8 @@ class ProductMixin(object):
     def dispatch(self, *args, **kwargs):
         parent_pk = self.kwargs['parent_pk']
         self.parent = get_object_or_404(Product, pk=parent_pk)
-        self.variants = Product.objects.filter(parent=self.parent)
+        self.variants = (Product.objects.filter(parent=self.parent) | 
+            Product.objects.filter(pk=parent_pk).exclude(structure='parent'))
         self.stock_records = StockRecord.objects.select_related(
             'product').filter(product__in=self.variants)
         self.tariffs = Tariff.objects.all()
@@ -43,7 +44,7 @@ class ProductFormMixin(object):
     """
     def get_form_kwargs(self):
         kwargs = super(ProductFormMixin, self).get_form_kwargs()
-        kwargs['parent'] = self.parent
+        kwargs['variants'] = self.variants
         return kwargs
 
 class FormSaveMixin(object):

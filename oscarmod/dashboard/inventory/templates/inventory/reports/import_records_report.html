@@ -34,7 +34,7 @@
         </tr>
         {% for record in objects %}
         <tr>
-            <td><a href="">{{ record.product }}</a></td>
+            <td><a href="{% url 'dashboard:record_update' record.product.pk record.pk %}">{{ record.product }}</a></td>
             <td>{{ record.imported_date|date }}</td>
             {% if report.fields.standard_export_price %}
                 <td>{{ record.standard_export_price }} {{ record.origin_currency }}</td>
