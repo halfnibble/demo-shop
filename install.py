@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import subprocess, sys, os
-from giggearme.secret import *
-from giggearme.settings import DATABASES
+from demoshop.secret import *
+from demoshop.settings import DATABASES
 
 """
 Utility functions
@@ -106,7 +106,7 @@ if production:
         try:
             oscar_static_path = os.path.join(getOscarPath(venv_location),'static','oscar')
             admin_static_path = os.path.join(getAdminPath(venv_location),'static','admin')
-            logs_path = os.path.join('giggearme','logs')
+            logs_path = os.path.join('demoshop','logs')
             
             if not os.path.isdir(oscar_static_path):
                 raise Exception("This is not a valid directory: "+oscar_static_path)

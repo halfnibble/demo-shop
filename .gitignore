@@ -1,7 +1,7 @@
 *.pyc
-giggearme/logs/*
-giggearme/secret.py
-giggearme/secret.pyc
+demoshop/logs/*
+demoshop/secret.py
+demoshop/secret.pyc
 media/cache/*
 media/images/*
 static/.sass-cache/*

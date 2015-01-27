@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _, pgettext_lazy
 from django.core.urlresolvers import reverse
 
 from oscar.core.utils import get_default_currency
-from giggearme.settings import AUTH_USER_MODEL
+from demoshop.settings import AUTH_USER_MODEL
 from oscar.apps.partner.exceptions import InvalidStockAdjustment
 
 from oscarmod.catalogue.models import Product

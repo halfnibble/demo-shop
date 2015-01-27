@@ -1,5 +1,5 @@
 # Automate creation of super users.
-from giggearme.secret import *
+from demoshop.secret import *
 from usermod.models import User
 
 # Superusers in secret.py in list format
