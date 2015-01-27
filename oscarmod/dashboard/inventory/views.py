@@ -112,7 +112,7 @@ class RecordListView(ProductMixin, ListView):
             '-imported_date')
         
     def get_page_title(self):
-        return u"Import Records for %s." % (self.parent.title)
+        return u"Import Records for %s." % (self.parent)
 
 
 class RecordCreateView(ProductMixin, ProductFormMixin,
@@ -121,7 +121,7 @@ class RecordCreateView(ProductMixin, ProductFormMixin,
     form_class = ImportRecordForm
 
     def get_page_title(self):
-        return u"Create new record for \"%s.\"" % (self.parent.title)
+        return u"Create new record for \"%s.\"" % (self.parent)
 
 
 class RecordUpdateView(ProductMixin, ProductFormMixin,
@@ -130,7 +130,7 @@ class RecordUpdateView(ProductMixin, ProductFormMixin,
     form_class = ImportRecordForm
 
     def get_page_title(self):
-        return u"Update record for \"%s.\"" % (self.parent.title)
+        return u"Update record for \"%s.\"" % (self.parent)
 
 
 """

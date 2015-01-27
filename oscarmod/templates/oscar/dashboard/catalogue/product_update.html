@@ -89,8 +89,8 @@
                                 {% if not parent %}
                                     <li><a href="#product_recommended" data-toggle="tab">{% trans 'Upselling' %}</a></li>
                                 {% endif %}
-                                {% if not parent %}
-                                    <li><a href="{% url 'dashboard:record_list' product.id %}">{% trans "Inventory Records" %}</a></li>
+                                {% if product.id %}
+                                    <li><a href="{% url 'dashboard:record_list' product.id %}">{% trans "Import Records" %}</a></li>
                                 {% endif %}
                             {% endblock tabs %}
                         </ul>
