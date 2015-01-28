@@ -56,7 +56,9 @@ if (IMPORT_RECORD_PAGE == 'create' || IMPORT_RECORD_PAGE == 'update') {
             if (id) {
                 $('#id_tariff_code').val(tariff_list[id].tariff_code);
                 $('#id_tariff_rate').val(tariff_list[id].tariff_rate);
-            }            
+            }
+            // Update other values
+            import_calc.set_tariff_cost(null, tariff_list[id].tariff_rate);         
         });
 
         // Used in set_tariff_cost
