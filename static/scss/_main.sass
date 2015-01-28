@@ -6,76 +6,81 @@ $gold: #FFD700
 
 // Header Styles
 body, html
-	margin: 0
-	padding: 0
-	top: 0
+    margin: 0
+    padding: 0
+    top: 0
 
 header
-	background-color: $smoke
-	margin: 0
+    background-color: $smoke
+    margin: 0
 
+header img
+    height: 110px
+    padding: 20px 20px 20px 0
+
+    
 div.nav-accounts
-	padding-top: 18px
+    padding-top: 18px
 
 div.mini-basket
-	ul.f-dropdown
-		padding: 8px
+    ul.f-dropdown
+        padding: 8px
 
 #nav-wrapper
-	@include box-shadow(0px 4px 4px rgba(0, 0, 0, 0.40))
-	
+    @include box-shadow(0px 4px 4px rgba(0, 0, 0, 0.40))
+    
 table.max_width, table.max-width
-	width: 100%
+    width: 100%
 
 .price_color
-	color: green
-	
+    color: green
+    
 li.cta-button
-	h1
-		color: #FFF
-	span.checkout-text
-		font-size: 24px
-		vertical-align: middle
+    h1
+        color: #FFF
+    span.checkout-text
+        font-size: 24px
+        vertical-align: middle
 
 a.close
-	color: #FFF !important
-	font-size: 35px !important
+    color: #FFF !important
+    font-size: 35px !important
 
 div.alert-box
-	p
-		margin-bottom: 0px
+    p
+        margin-bottom: 0px
 
 // Content top
 div.page_inner
-	margin-top: 22px
-	border-bottom: 1px solid $oil
+    margin-top: 22px
+    border-bottom: 1px solid $oil
 
 ul.breadcrumb
-	@extend .breadcrumbs
+    @extend .breadcrumbs
 
 // Content
 .star-rating
-	&.One i:nth-child(-n+1)
-		color: $gold
-	&.Two i:nth-child(-n+2)
-		color: $gold
-	&.Three i:nth-child(-n+3)
-		color: $gold
-	&.Four i:nth-child(-n+4)
-		color: $gold
-	&.Five i:nth-child(-n+5)
-		color: $gold
+    &.One i:nth-child(-n+1)
+        color: $gold
+    &.Two i:nth-child(-n+2)
+        color: $gold
+    &.Three i:nth-child(-n+3)
+        color: $gold
+    &.Four i:nth-child(-n+4)
+        color: $gold
+    &.Five i:nth-child(-n+5)
+        color: $gold
 
 
 // Checkout tables
 th.quantity, th.total, td.quantity, td.total
-	text-align: center
+    text-align: center
 td.description
-	text-align: left
+    text-align: left
 
 th.align-center, td.align-center
-	text-align: center
+    text-align: center
 th.align-left, td.align-left
-	text-align: left
+    text-align: left
 th.align-right, td.align-right
-	text-align: right
+    text-align: right

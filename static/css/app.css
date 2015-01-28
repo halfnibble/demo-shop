@@ -11763,101 +11763,107 @@ header {
 }
 
 /* line 17, ../scss/_main.sass */
+header img {
+  height: 110px;
+  padding: 20px 20px 20px 0;
+}
+
+/* line 22, ../scss/_main.sass */
 div.nav-accounts {
   padding-top: 18px;
 }
 
-/* line 21, ../scss/_main.sass */
+/* line 26, ../scss/_main.sass */
 div.mini-basket ul.f-dropdown {
   padding: 8px;
 }
 
-/* line 24, ../scss/_main.sass */
+/* line 29, ../scss/_main.sass */
 #nav-wrapper {
   -moz-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
 }
 
-/* line 27, ../scss/_main.sass */
+/* line 32, ../scss/_main.sass */
 table.max_width, table.max-width {
   width: 100%;
 }
 
-/* line 30, ../scss/_main.sass */
+/* line 35, ../scss/_main.sass */
 .price_color {
   color: green;
 }
 
-/* line 34, ../scss/_main.sass */
+/* line 39, ../scss/_main.sass */
 li.cta-button h1 {
   color: white;
 }
-/* line 36, ../scss/_main.sass */
+/* line 41, ../scss/_main.sass */
 li.cta-button span.checkout-text {
   font-size: 24px;
   vertical-align: middle;
 }
 
-/* line 40, ../scss/_main.sass */
+/* line 45, ../scss/_main.sass */
 a.close {
   color: white !important;
   font-size: 35px !important;
 }
 
-/* line 45, ../scss/_main.sass */
+/* line 50, ../scss/_main.sass */
 div.alert-box p {
   margin-bottom: 0px;
 }
 
-/* line 49, ../scss/_main.sass */
+/* line 54, ../scss/_main.sass */
 div.page_inner {
   margin-top: 22px;
   border-bottom: 1px solid #333333;
 }
 
-/* line 58, ../scss/_main.sass */
+/* line 63, ../scss/_main.sass */
 .star-rating.One i:nth-child(-n+1) {
   color: gold;
 }
-/* line 60, ../scss/_main.sass */
+/* line 65, ../scss/_main.sass */
 .star-rating.Two i:nth-child(-n+2) {
   color: gold;
 }
-/* line 62, ../scss/_main.sass */
+/* line 67, ../scss/_main.sass */
 .star-rating.Three i:nth-child(-n+3) {
   color: gold;
 }
-/* line 64, ../scss/_main.sass */
+/* line 69, ../scss/_main.sass */
 .star-rating.Four i:nth-child(-n+4) {
   color: gold;
 }
-/* line 66, ../scss/_main.sass */
+/* line 71, ../scss/_main.sass */
 .star-rating.Five i:nth-child(-n+5) {
   color: gold;
 }
 
-/* line 71, ../scss/_main.sass */
+/* line 76, ../scss/_main.sass */
 th.quantity, th.total, td.quantity, td.total {
   text-align: center;
 }
 
-/* line 73, ../scss/_main.sass */
+/* line 78, ../scss/_main.sass */
 td.description {
   text-align: left;
 }
 
-/* line 76, ../scss/_main.sass */
+/* line 81, ../scss/_main.sass */
 th.align-center, td.align-center {
   text-align: center;
 }
 
-/* line 78, ../scss/_main.sass */
+/* line 83, ../scss/_main.sass */
 th.align-left, td.align-left {
   text-align: left;
 }
 
-/* line 80, ../scss/_main.sass */
+/* line 85, ../scss/_main.sass */
 th.align-right, td.align-right {
   text-align: right;
 }
