@@ -55,7 +55,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 from oscar import OSCAR_MAIN_TEMPLATE_DIR
 TEMPLATE_DIRS = (
     # location('templates'),
-    os.path.join(BASE_DIR, 'oscarmod', 'templates', 'oscar'),
+    os.path.join(BASE_DIR, 'apps', 'templates', 'oscar'),
     OSCAR_MAIN_TEMPLATE_DIR,
 )
 
@@ -76,14 +76,14 @@ INSTALLED_APPS = [
     # Add for custom user
     'usermod',
     # Add for Oscar customization
-    'oscarmod',
-    'oscarmod.dashboard.inventory',
+    'apps',
+    'apps.dashboard.inventory',
     'pages',
     # Payment
     'paypal',
-] + get_core_apps(['oscarmod.catalogue', 'oscarmod.dashboard.catalogue',
-     'oscarmod.shipping','oscarmod.customer', 'oscarmod.partner',
-     'oscarmod.dashboard', 'oscarmod.dashboard.reports',])
+] + get_core_apps(['apps.catalogue', 'apps.dashboard.catalogue',
+     'apps.shipping','apps.customer', 'apps.partner',
+     'apps.dashboard', 'apps.dashboard.reports',])
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

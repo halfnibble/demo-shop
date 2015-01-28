@@ -1,5 +1,5 @@
 from django.core.serializers import serialize
-from oscarmod.shipping import models
+from apps.shipping import models
 
 with open('fixtures/weight_shipping.json', 'w') as out:
     weight_shipping_data = serialize('json', models.WeightBased.objects.all())
