@@ -263,7 +263,7 @@ var import_calc = (function() {
         var wholesale_profit = this.M(
             wholesale_price - cost_price
         );
-        var wholesale_gpm = this.M(
+        var wholesale_gpm = this.R(
             wholesale_profit / cost_price * 100.0
         );
         // Update fields
@@ -305,7 +305,7 @@ var import_calc = (function() {
         var retail_profit = this.M(
             price_retail - cost_price
         );
-        var retail_gpm = this.M(
+        var retail_gpm = this.R(
             retail_profit / cost_price * 100.0
         );
         // Update fields
