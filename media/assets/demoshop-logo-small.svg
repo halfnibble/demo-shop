@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="demoshop-logo.svg">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="286.80209 : 1004.6368 : 1"
+       inkscape:vp_y="-2.3891134 : -603.94357 : 0"
+       inkscape:vp_z="-162.58899 : 1006.4145 : 1"
+       inkscape:persp3d-origin="62.525583 : 1111.4536 : 1"
+       id="perspective2993" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="557.1102"
+     inkscape:cy="622.21836"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1054"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot2985"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#333333;fill-opacity:1;stroke:none;font-family:Fredoka One;-inkscape-font-specification:Fredoka One"
+       transform="translate(18.182747,-7.0710678)"
+       inkscape:export-filename="/home/joshua/djangospace/demoshop_project/media/demoshop_logo_small.png"
+       inkscape:export-xdpi="133.46185"
+       inkscape:export-ydpi="133.46185"><flowRegion
+         id="flowRegion2987"><rect
+           id="rect2989"
+           width="493.9646"
+           height="119.198"
+           x="192.93913"
+           y="167.46855"
+           style="fill:#333333" /></flowRegion><flowPara
+         id="flowPara2991"
+         style="font-size:48px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#333333;font-family:Life Savers;-inkscape-font-specification:Life Savers Bold">DS</flowPara></flowRoot>    <g
+       sodipodi:type="inkscape:box3d"
+       style="opacity:0.82759998;fill:#f9f9f9;fill-opacity:1;stroke:none"
+       id="g3009"
+       inkscape:perspectiveID="#perspective2993"
+       inkscape:corner0="1.8168645 : 0.86713504 : 0 : 1"
+       inkscape:corner7="1.3338464 : 0.74223236 : 0.25 : 1"
+       inkscape:export-filename="/home/joshua/djangospace/demoshop_project/media/demoshop_logo_small.png"
+       inkscape:export-xdpi="133.46185"
+       inkscape:export-ydpi="133.46185">
+      <path
+         sodipodi:type="inkscape:box3dside"
+         id="path3021"
+         style="fill:#e9e9ff;fill-rule:evenodd;stroke:none"
+         inkscape:box3dsidetype="11"
+         d="m 176.36488,183.51208 -20.64487,25.38364 0.11549,-29.19452 20.62668,-20.78563 z" />
+      <path
+         sodipodi:type="inkscape:box3dside"
+         id="path3011"
+         style="fill:#353564;fill-rule:evenodd;stroke:none"
+         inkscape:box3dsidetype="6"
+         d="m 206.44743,195.72108 0.10594,-26.77948 -30.09119,-10.02603 -0.0973,24.59651 z" />
+      <path
+         sodipodi:type="inkscape:box3dside"
+         id="path3013"
+         style="fill:#4d4d9f;fill-rule:evenodd;stroke:none"
+         inkscape:box3dsidetype="5"
+         d="m 206.44743,195.72108 -16.63038,30.62952 -34.09704,-17.45488 20.64487,-25.38364 z" />
+      <path
+         sodipodi:type="inkscape:box3dside"
+         id="path3019"
+         style="fill:#afafde;fill-rule:evenodd;stroke:none"
+         inkscape:box3dsidetype="13"
+         d="M 206.55337,168.9416 189.94491,194.02878 155.8355,179.7012 176.46218,158.91557 z" />
+      <path
+         sodipodi:type="inkscape:box3dside"
+         id="path3017"
+         style="fill:#d7d7ff;fill-rule:evenodd;stroke:none"
+         inkscape:box3dsidetype="14"
+         d="m 189.81705,226.3506 0.12786,-32.32182 -34.10941,-14.32758 -0.11549,29.19452 z" />
+      <path
+         sodipodi:type="inkscape:box3dside"
+         id="path3015"
+         style="fill:#8686bf;fill-rule:evenodd;stroke:none"
+         inkscape:box3dsidetype="3"
+         d="m 206.44743,195.72108 -16.63038,30.62952 0.12786,-32.32182 16.60846,-25.08718 z" />
+    </g>
+    <path
+       style="opacity:0.82759998;fill:#333333;fill-opacity:1;stroke:none"
+       id="path3033"
+       d="m 226.37636,220.47501 c 0.70224,-0.36753 1.41121,-0.6648 2.11179,-1.04882 0.68637,-0.3432 1.36311,-0.76304 2.05681,-1.02916 0.73681,-0.37901 1.49012,-0.52371 2.24364,-0.60257 0.87409,-0.0648 1.74882,-0.0614 2.62328,-0.0606 0.98295,0.004 1.9659,0.009 2.94885,0.0101 1.06273,-0.0753 2.12062,0.12687 3.17732,0.34536 1.12971,0.15888 2.25446,0.42603 3.37946,0.6979 1.1327,0.21079 2.25783,0.57322 3.38838,0.82818 1.04082,0.18009 2.083,0.33165 3.12165,0.56849 1.01334,0.19362 2.02268,0.46887 3.03701,0.6376 0.89103,0.1304 1.77881,0.3347 2.67093,0.43551 0.76558,0.0751 1.53198,0.0816 2.29816,0.0835 0.62836,0.0205 1.25219,-0.1757 1.87036,-0.40327 0.54628,-0.27582 1.09786,-0.48901 1.63237,-0.86685 0.43234,-0.38579 0.85427,-0.82172 1.26223,-1.3214 -0.62397,0.79515 -1.24794,1.59029 -1.87191,2.38543 0,0 2.24425,-1.92397 2.24425,-1.92397 l 0,0 c -0.74911,0.96192 -1.49822,1.92383 -2.24733,2.88575 -0.41813,0.46628 -0.8404,0.92258 -1.28851,1.23128 -0.54336,0.32193 -1.09407,0.57143 -1.64625,0.80647 -0.62455,0.2149 -1.25614,0.356 -1.88895,0.3259 -0.76552,-0.013 -1.53136,-0.0298 -2.296,-0.11968 -0.89097,-0.11506 -1.77812,-0.32583 -2.66859,-0.45556 -1.01297,-0.19066 -2.0225,-0.45672 -3.0353,-0.65179 -1.03868,-0.21406 -2.07908,-0.3818 -3.1184,-0.57807 -1.12934,-0.27046 -2.25504,-0.61385 -3.38693,-0.83286 -1.12459,-0.26995 -2.24988,-0.51328 -3.37838,-0.68852 -1.05479,-0.20852 -2.11092,-0.35989 -3.17077,-0.29754 -0.98483,-0.002 -1.96966,-0.002 -2.95449,2e-5 -0.87391,0.004 -1.74838,2.3e-4 -2.62151,0.0935 -0.74977,0.10655 -1.49561,0.29599 -2.2297,0.66337 -0.6881,0.30026 -1.36446,0.71312 -2.04896,1.05051 -0.7105,0.36447 -1.42558,0.68243 -2.13447,1.06242 0,0 1.91996,-3.23052 1.91996,-3.23052 z"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/joshua/djangospace/demoshop_project/media/demoshop_logo_small.png"
+       inkscape:export-xdpi="133.46185"
+       inkscape:export-ydpi="133.46185" />
+  </g>
+</svg>
